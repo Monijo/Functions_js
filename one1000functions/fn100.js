@@ -500,7 +500,105 @@ function checkIfWordIsInSentence(text, word){
     return `"${word}" ${text.includes(word) ? 'is' : 'is not'} in the sentence "${text}"`
 }
 
-console.log(checkIfWordIsInSentence("Ala ma kota i psa", 'lis'))
-console.log(checkIfWordIsInSentence("Ala ma kota i psa", 'ma'))
+// console.log(checkIfWordIsInSentence("Ala ma kota i psa", 'lis'))
+// console.log(checkIfWordIsInSentence("Ala ma kota i psa", 'ma'))
 
+
+//41
+
+function coverCardNum(number){
+    const numToStr = new String(number)
+    const last4Num = numToStr.slice(-4)
+    return numToStr.slice(-4).padStart(numToStr.length, "*")
+}
+
+// console.log(coverCardNum(838347437845784578))
+
+//42
+
+function checkIfEndsWithA(arr){
+    return arr.filter((element)=>element.endsWith('a'))
+}
+
+// console.log(checkIfEndsWithA(stringArr))
+
+//43
+
+function concatAndReturnNotRepetedElements(arr1, arr2){
+    return new Set(arr1.concat(arr2))
+}
+
+// console.log(concatAndReturnNotRepetedElements([1,2,3,4,5], [3,4,5,6,7]))
+
+
+//44
+
+function concatAndReturnLowerThan10(arr1, arr2){
+    return arr1.concat(arr2).filter((element)=> element < 10)
+}
+
+// console.log(concatAndReturnLowerThan10([1,22,33,45,56,6], [2,3,4,5,6,8,66,444]))
+
+//45
+
+function concatArrAndSumTheNumbers(arr1, arr2){
+    return arr1.concat(arr2).reduce((acc, cu)=> acc+cu)
+}
+
+// console.log(concatArrAndSumTheNumbers([1,2,3], [4,5,6]))
+//
+
+//46
+
+function isAllElementsGreaterThan100(arr){
+    return arr.every((e)=> e>100)
+}
+
+// console.log(isAllElementsGreaterThan100([101,102,103]))
+// console.log(isAllElementsGreaterThan100([101,102,10]))
+//
+
+//47
+
+function isSomeElementsStartingWithLetter(arr, letter){
+    return arr.some((el)=> el.startsWith(`${letter}`))
+}
+
+// console.log(isSomeElementsStartingWithLetter(["Ala", "Kot", "Pies"], "P"))
+
+//48
+
+function isUndefinedinArr(arr){
+    return arr.some((el)=>el===undefined)
+}
+
+console.log(isUndefinedinArr([1,2,3,4]))
+console.log(isUndefinedinArr([1,2,undefined,4]))
+
+//49
+
+function findFirstElementLowerThan0(arr){
+    return arr.find(el=> el <0)
+}
+
+console.log(findFirstElementLowerThan0([1,2,3,4,5,6,-8,9999,-9]))
+
+//50
+
+function changeStringToArray(text){
+    return Array.from(text)
+}
+
+console.log(changeStringToArray("To jest text o niczym"))
+
+//51
+//52
+//53
+//54
+//55
+//56
+//57
+//58
+//59
+//60
 
