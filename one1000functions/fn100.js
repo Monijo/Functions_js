@@ -420,5 +420,87 @@ function fillDotsTo20inStrIfNeed(arr){
     return arr.map((element)=> element.padEnd(20, '.'))
 }
 
-console.log(fillDotsTo20inStrIfNeed(stringArr))
+// console.log(fillDotsTo20inStrIfNeed(stringArr))
+
+//31
+
+function getDice6Numbers(num){
+    const newArr=[];
+    let i=0;
+    while (i<num){
+         const randomDiceThrow = Math.floor(Math.random()*6 +1)
+         newArr.push(randomDiceThrow)
+         i++
+    }
+    return newArr.reduce((acc, cu)=> acc+cu)
+
+}
+
+// console.log(getDice6Numbers(1))
+// console.log(getDice6Numbers(2))
+//32
+
+function multiplyNumbersByRandomNumber(arr){
+    return arr.map((element)=> element * (Math.random()*10))
+}
+// console.log(multiplyNumbersByRandomNumber(exampleArr))
+//33
+
+function findElementGraterThanAverage(arr){
+    return  arr.filter((element)=> element > (arr.reduce((acc,cu)=> acc+cu)/arr.length))
+
+}
+// console.log(findElementGraterThanAverage(exampleArr))
+
+//34
+const findFirstElementGraterThanAverage2 = (arr)=> arr.find(element => element > (arr.reduce((acc,cu)=> acc+cu)/arr.length))
+// console.log(findFirstElementGraterThanAverage2(exampleArr))
+//35
+
+function changeToStarsMoreThan3El(arr){
+    return arr.fill("*", 3)
+}
+// console.log(changeToStarsMoreThan3El(exampleArr))
+//36
+
+function getTheReverseNum(num){
+    return num.toString().split("").reverse((a,b)=>a-b).join("")
+}
+
+// console.log(getTheReverseNum(123456))
+
+//37
+
+function toAlphabeticalOrder(word){
+    return word.split("").sort().join("")
+}
+// console.log(toAlphabeticalOrder("traktor"))
+
+//38
+
+function toUpperCaseFirstLetterOfWord(text){
+    return text.split(" ").map((element)=>(element.charAt(0).toUpperCase() + element.substring(1))).join(" ")
+}
+console.log(toUpperCaseFirstLetterOfWord("to jest przykladowe zdanie."))
+//39
+
+function makeBoard(){
+    for(let i =0; i<8; i++){
+        if(i%2===1){
+            console.log("# ".repeat(4))
+        }else{
+            console.log(" #".repeat(4))
+        }
+    }
+}
+makeBoard()
+//40
+
+function checkIfWordIsInSentence(text, word){
+    return `"${word}" ${text.includes(word) ? 'is' : 'is not'} in the sentence "${text}"`
+}
+
+console.log(checkIfWordIsInSentence("Ala ma kota i psa", 'lis'))
+console.log(checkIfWordIsInSentence("Ala ma kota i psa", 'ma'))
+
 
