@@ -260,42 +260,82 @@ function makeEvenNumber(arr){
 
 //14
 
-
-function getWeather(url){
-
-    return fetch(url).then(resp=>resp.json())
-
-}
-
-function getWeatherData(pr, weatherParams){
-    pr.then(data=>{
-        const newData= data.map(param => `${param.stacja}: ${param[weatherParams]}`)
-        console.log(newData)
-    })
-
-}
-
-const result = getWeather("https://danepubliczne.imgw.pl/api/data/synop/")
-getWeatherData(result, 'temperatura')
-
-
-
-
-
+//
+// function getWeather(url){
+//
+//     return fetch(url).then(resp=>resp.json())
+//
+// }
+//
+// function getWeatherData(pr, weatherParams){
+//     pr.then(data=>{
+//         const newData= data.map(param => `${param.stacja}: ${param[weatherParams]}`)
+//         console.log(newData)
+//     })
+//
+// }
+//
+// const result = getWeather("https://danepubliczne.imgw.pl/api/data/synop/")
+// getWeatherData(result, 'temperatura')
+//
+//
+//
+//
+//
 
 
 
 //15
 
+const exampleArr =[1,2,3,4,5,5,6,0,7,7,7,8,8,8,8,5,5,3,6554,77,23,2,3,45,5,6,6,]
 
+function getDoubleOfNumber(arr){
+    return arr.map((element)=>element*2)
+}
+console.log(getDoubleOfNumber(exampleArr))
 
 
 
 //16
+
+function getEvenNumber(arr){
+    return arr.filter((element)=> element%2 === 0)
+}
+
+console.log(getEvenNumber(exampleArr))
+
+
 //17
+
+function getEvenNumberLowerThan8(arr){
+    return arr.filter((element)=> element%2 ===0 && element <8)
+}
+
+console.log(getEvenNumberLowerThan8(exampleArr))
+
 //18
+
+
+function getNumberLowerThan10andAddToThem1(arr){
+    return arr.filter((element)=>element <10).map((element)=>element+1)
+}
+
+console.log(getNumberLowerThan10andAddToThem1(exampleArr))
+
+
 //19
+
+function getAverageFromFirst10Numbers(arr){
+    const first10Elem= arr.filter((element,index,arr)=>index<10)
+    return first10Elem.reduce((acc, cu)=>acc+cu)/first10Elem.length
+}
+console.log(getAverageFromFirst10Numbers(exampleArr))
+
 //20
 
 
+function getElementsWithEvenIndex(arr){
+    return arr.filter((element, index, arr)=>index%2===0)
+}
 
+console.log(getElementsWithEvenIndex(exampleArr))
