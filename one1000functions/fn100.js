@@ -287,12 +287,12 @@ function makeEvenNumber(arr){
 
 //15
 
-const exampleArr =[1,2,3,4,5,5,6,0,7,7,7,8,8,8,8,5,5,3,6554,77,23,2,3,45,5,6,6,]
+const exampleArr =[1,2,3,4,5,5,6,0,7,7]
 
 function getDoubleOfNumber(arr){
     return arr.map((element)=>element*2)
 }
-console.log(getDoubleOfNumber(exampleArr))
+// console.log(getDoubleOfNumber(exampleArr))
 
 
 
@@ -302,7 +302,7 @@ function getEvenNumber(arr){
     return arr.filter((element)=> element%2 === 0)
 }
 
-console.log(getEvenNumber(exampleArr))
+// console.log(getEvenNumber(exampleArr))
 
 
 //17
@@ -311,7 +311,7 @@ function getEvenNumberLowerThan8(arr){
     return arr.filter((element)=> element%2 ===0 && element <8)
 }
 
-console.log(getEvenNumberLowerThan8(exampleArr))
+// console.log(getEvenNumberLowerThan8(exampleArr))
 
 //18
 
@@ -320,7 +320,7 @@ function getNumberLowerThan10andAddToThem1(arr){
     return arr.filter((element)=>element <10).map((element)=>element+1)
 }
 
-console.log(getNumberLowerThan10andAddToThem1(exampleArr))
+// console.log(getNumberLowerThan10andAddToThem1(exampleArr))
 
 
 //19
@@ -329,7 +329,7 @@ function getAverageFromFirst10Numbers(arr){
     const first10Elem= arr.filter((element,index,arr)=>index<10)
     return first10Elem.reduce((acc, cu)=>acc+cu)/first10Elem.length
 }
-console.log(getAverageFromFirst10Numbers(exampleArr))
+// console.log(getAverageFromFirst10Numbers(exampleArr))
 
 //20
 
@@ -338,4 +338,87 @@ function getElementsWithEvenIndex(arr){
     return arr.filter((element, index, arr)=>index%2===0)
 }
 
-console.log(getElementsWithEvenIndex(exampleArr))
+// console.log(getElementsWithEvenIndex(exampleArr))
+
+//21
+
+function getNumbersReturs4Time(arr){
+    const newList = [];
+    arr.map((element)=>newList.push([element, element, element, element]))
+    return newList.flat(1)
+}
+// console.log(getNumbersReturs4Time(exampleArr))
+
+//22
+
+function changeListToMap(arr){
+    return arr.flatMap((el, index, arr)=>[`${index}:`, el])
+}
+
+// console.log(changeListToMap(exampleArr))
+//23
+
+const stringArr = ["Ala", "Kasia", "Kuba", "Ola", "Igor"]
+
+
+function checkIfNameIsInArr(arr, name){
+    return arr.includes(name)
+}
+
+// console.log(checkIfNameIsInArr(stringArr,"Ola"))
+// console.log(checkIfNameIsInArr(stringArr, "Leon"))
+
+//24
+
+function findShortWords(strArr){
+    return strArr.filter((element)=> element.split("").length <5)
+}
+
+// console.log(findShortWords(stringArr))
+
+//25
+
+function findWordsStartsWithLetter(arr, letter){
+    return arr.filter((element)=>element.startsWith(letter))
+}
+
+// console.log(findWordsStartsWithLetter(stringArr, "K"))
+
+//26
+
+function get3TimesReapeatWords(arr){
+    return arr.map((element)=> element.repeat(3))
+}
+
+// console.log(get3TimesReapeatWords(stringArr))
+
+//27
+
+function getFirstAndLastLetterOfWord(arr){
+    return arr.map((element, index, arr)=> `${element.charAt(0)} and ${element.charAt(element.split("").length-1)}`)
+}
+// console.log(getFirstAndLastLetterOfWord(stringArr))
+
+//28
+
+function changeFirstLetterToLowerCase(arr){
+    return arr.map((element)=> element.charAt(0).toLowerCase())
+}
+// console.log(changeFirstLetterToLowerCase(stringArr))
+
+//29
+
+function getMiddleOftheWord(arr){
+    return arr.map((element, index, arr)=> element.substring(1, element.split("").length-1))
+}
+
+// console.log(getMiddleOftheWord(stringArr))
+
+//30
+
+function fillDotsTo20inStrIfNeed(arr){
+    return arr.map((element)=> element.padEnd(20, '.'))
+}
+
+console.log(fillDotsTo20inStrIfNeed(stringArr))
+
