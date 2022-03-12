@@ -592,13 +592,89 @@ function changeStringToArray(text){
 console.log(changeStringToArray("To jest text o niczym"))
 
 //51
+
+function getTriangleField(a,h){
+    return (a*h/2)
+}
+
+console.log(getTriangleField(3, 4))
 //52
+
+function getCelciusTemperature(farenTemp){
+    return ((farenTemp - 32)/1.8)
+
+}
+console.log(getCelciusTemperature(100))
 //53
+
+function getText10times(text){
+    return text.repeat(10)
+}
+console.log(getText10times("To jest text "))
 //54
+
+function removeWhitespace(text){
+    return text.trimStart().trimEnd()
+}
+
+console.log(removeWhitespace("               To jest text z duza iloscia spacjii na poczatku i koncu          "))
+
 //55
+
+function replaceJavaByJS(text){
+    return text.replace('java', "JS")
+}
+
+console.log(replaceJavaByJS("To java jest najlepszym jezykiem na swiecie"))
+
 //56
+
+function deleteNamesOfAnotherLanguages(text){
+    return text.replace("java", "python").replace("PHP", "java script")
+}
+
+console.log(deleteNamesOfAnotherLanguages("PHP i java to najlepsze języki na swiecie"))
 //57
+
+function fillLast3ElementsByOK(arr){
+    return arr.fill("OK", -3)
+}
+console.log(fillLast3ElementsByOK([1,2,3,4,5,6,6,7,8,8,8]))
+
 //58
+
+function checkIfAllUsersAreFemail(listName){
+    return listName.every((element)=> element.endsWith("a"))
+}
+
+console.log(checkIfAllUsersAreFemail(["Ala", "Kasia", "Monika"]))
+console.log(checkIfAllUsersAreFemail(["Ala", "Kasia", "Mirek"]))
+
 //59
+
+function addPersonAtFirstPlace(name){
+    const newList = [];
+    const newLength =  newList.unshift(name)
+    return `Użytkownik ${name} został dodany do listy ktora ma aktualnie ${newLength} użytkowników`
+}
+
+console.log(addPersonAtFirstPlace("Ania"))
+
+
 //60
+
+function addMemberToGroup(member){
+    const firstYearList = [];
+    const secondYearList = [];
+    if(member.rok === 1){
+        firstYearList.push(member);
+        return `Uczen ${member.name} został dodany do grupy pierwszej`
+    }else{
+        secondYearList.push(member);
+        return `Uczen ${member.name} zostal dodany do grupy drugiej`
+    }
+
+}
+console.log(addMemberToGroup({name: "Karol", rok: 2}))
+
 
