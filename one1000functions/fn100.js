@@ -677,4 +677,111 @@ function addMemberToGroup(member){
 }
 console.log(addMemberToGroup({name: "Karol", rok: 2}))
 
+//61
 
+function kmToMiles(km){
+    return `${km} to ${km*0.62} mil`
+}
+console.log(kmToMiles(100))
+//62
+
+function findFirstEvenNumber(arr){
+    return arr.find((element)=> element%2===0)
+}
+console.log(findFirstEvenNumber([1,3,5,6,7,8]))
+
+//63
+
+function findFirstElementWitchIsInList(arr, list){
+    for(let el of arr){
+        if(list.includes(el)){
+            return `Pierwszy wyszukany element z listy to ${el}`
+        }
+
+    }
+    return 'Nie znaleziono zadnego elementu z listy'
+}
+
+console.log(findFirstElementWitchIsInList([1,2,3,4,5,5,6,6,7,7], [7,8]))
+
+//64
+
+function returnArrWithout0and9(arr){
+    return arr.filter((el)=> el !== 0 && el !==9)
+}
+console.log(returnArrWithout0and9([1,2,33,4,5,6,6,99,9,9,9,9,1,0]))
+
+//65
+
+const data_to_exercise=[
+    {
+        name: "Jan",
+        age: 23,
+        occupation: "Postman"
+    },
+    {
+        name: "Adam",
+        age: 93,
+        occupation: "teacher"
+    },
+    {
+        name: "Agata",
+        age: 43,
+        occupation: "Policman"
+    },
+    {
+        name: "Poly",
+        age: 13,
+        occupation: "student"
+    },
+    {
+        name: "Kuba",
+        age: 53,
+        occupation: "doctor"
+    },
+    {
+        name: "Pam",
+        age: 44,
+        occupation: "Postman"
+    }
+]
+
+function getPostmans(data){
+    return data.filter((person)=>person.occupation.toLowerCase() == "postman")
+}
+console.log(getPostmans(data_to_exercise))
+//66
+function getNamesPeopleUnder50(data){
+    return `Osoby przed 50 to ${data.filter((person)=> person.age <50).map((person)=>person.name)}!`
+}
+console.log(getNamesPeopleUnder50(data_to_exercise))
+//67
+
+function getNamesStartsWithA(data){
+    return `Osoby zaczynajace sie na 'A' to ${data.filter((person)=>person.name.startsWith("A")).map((person)=>person.name).join(" and ")}!`
+}
+console.log(getNamesStartsWithA(data_to_exercise))
+//68
+
+function getSumOfAgePostmans(data){
+    return `Sum of age postmans is ${data.filter((person)=>person.occupation.toLowerCase() === "postman").reduce((acc, cu)=> acc+cu.age, 0)}`
+}
+console.log(getSumOfAgePostmans(data_to_exercise))
+
+//69
+
+function getOccupationOfPerson(data, name){
+    return (data.map((person)=>person.name).includes(name) ? `Zawód ${name} to ${data.filter((person)=> person.name.toLowerCase() === name.toLowerCase()).map((person)=>person.occupation)}`: "Nie ma takiej osoby na liście")
+}
+console.log(getOccupationOfPerson(data_to_exercise, "Kuba"))
+console.log(getOccupationOfPerson(data_to_exercise, "Adolf"))
+//70
+
+function checkIfPersonIsUnder18(name, data){
+    let age =(data.filter((person)=> person.name.toLowerCase()===name.toLowerCase()).map((person)=>person.age)) <18 ?"underage" : "of age"
+    return data.map((person)=>person.name).includes(name) ? `${name.toUpperCase()} is ${age}`: "Brak takiej osoby na liście"
+
+}
+console.log(checkIfPersonIsUnder18("Kuba", data_to_exercise))
+console.log(checkIfPersonIsUnder18("Poly", data_to_exercise))
+console.log(checkIfPersonIsUnder18("Roberto", data_to_exercise))
