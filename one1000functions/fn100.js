@@ -785,3 +785,90 @@ function checkIfPersonIsUnder18(name, data){
 console.log(checkIfPersonIsUnder18("Kuba", data_to_exercise))
 console.log(checkIfPersonIsUnder18("Poly", data_to_exercise))
 console.log(checkIfPersonIsUnder18("Roberto", data_to_exercise))
+
+//71
+
+function getBajtFromBit(bits){
+    return `${bits} bitów to ${bits/8} bajtów`
+}
+
+console.log(getBajtFromBit(1000))
+//72
+
+function multiplayNumbersByNumbersFromAnotherArr(arr1, arr2){
+    const newArr=[]
+    for(let i=0; i<arr1.length; i++){
+        newArr.push((arr1[i]*arr2[i]))
+    }
+    return newArr
+}
+console.log(multiplayNumbersByNumbersFromAnotherArr([1,2,3],[4,5,6]))
+//73
+
+function checkIfSentenceStartsWithUpperCase(sentence){
+
+    if(sentence.charAt(0) === sentence.charAt(0).toUpperCase()){
+        return "Starts with upper case"
+    }
+    else{
+        return "Char is lower case"
+    }
+}
+console.log(checkIfSentenceStartsWithUpperCase("To zdanie jest z duzej"))
+console.log(checkIfSentenceStartsWithUpperCase("a To zdanie jest z małej"))
+
+//74
+function returnFormateDate(data){
+    return `Dzisiaj jest: dzień: ${data.getDate()}, miesiąć: ${data.getMonth()+1} i rok: ${data.getFullYear()}`
+}
+console.log(returnFormateDate(new Date()))
+
+//75
+
+function getActualDate(){
+    const now=new Date()
+    return `Dzisiaj jest ${now.getDate()}.${now.getMonth()+1}.${now.getFullYear()} rok`
+}
+
+console.log(getActualDate())
+//76
+
+function actualTime(){
+    const now=new Date()
+    const hours = now.getHours()
+    const min = now.getMinutes() <10 ? "0"+now.getMinutes(): now.getMinutes()  //`${now.getMinutes()}`.padStart(2, "0")
+    return `Akualnie jest: ${hours}:${min}`
+}
+
+console.log(actualTime())
+//77
+
+function getNameOfDay(){
+    const now=new Date()
+    const days=["niedziela", "poniedziałek", "wtorek", "środa", "czwartek", "piatek", "sobota"]
+    return `Dziaisja jest ${days[now.getDay()]}`
+}
+console.log(getNameOfDay())
+
+//78
+
+function replaceAllBadWords(word,new_word,text){
+    return text.replaceAll(word, new_word)
+}
+
+console.log(replaceAllBadWords("Java", "Python", "Podobno Java to najlepszy jezyk świata i to Java bedzie jezykiem przyszłości"))
+
+//79
+
+function replaceAllStarsByQuestionMark(text){
+    return text.replaceAll("*", "?")
+}
+console.log(replaceAllStarsByQuestionMark("To jest text o ***** i to są *******"))
+
+
+//80
+
+function sliceTextInHalf(text){
+    return text.slice(text.length/2)
+}
+console.log(sliceTextInHalf("To jest text do przecięcia i! wykrzyknik jest na środku!"))
