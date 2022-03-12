@@ -1002,7 +1002,7 @@ function decryptWord(encryptWord){
     const alphabet = getAlphabet()
     return encryptWord.split("").map((letter)=> (alphabet[alphabet.indexOf(letter)-1])).join("")
 }
-console.log(decryptWord("lpu")
+console.log(decryptWord("lpu"))
 
 
 //91
