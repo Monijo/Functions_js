@@ -872,3 +872,146 @@ function sliceTextInHalf(text){
     return text.slice(text.length/2)
 }
 console.log(sliceTextInHalf("To jest text do przecięcia i! wykrzyknik jest na środku!"))
+
+
+//81
+
+const products=[
+    {
+        name: "pencil",
+        category: "school",
+        price: 1.5,
+        amount: 200
+    },{
+        name: "pen",
+        category: "school",
+        price: 3.5,
+        amount: 100
+    },{
+        name: "bike",
+        category: "travel",
+        price: 1050,
+        amount: 30
+    },{
+        name: "tent",
+        category: "travel",
+        price: 300,
+        amount: 70
+    },{
+        name: "aple",
+        category: "food",
+        price: 1.0,
+        amount: 270
+    },{
+        name: "orange",
+        category: "food",
+        price: 2,
+        amount: 90
+    },{
+        name: "crem",
+        category: "cosmetics",
+        price: 15.5,
+        amount: 60
+    },{
+        name: "shampoo",
+        category: "cosmetics",
+        price: 9.7,
+        amount: 64
+    },
+]
+
+function getProductsFromCategory(data, category){
+    return data.filter((product)=>product.category === category).map((product)=>product.name).join(", ")
+}
+
+console.log(getProductsFromCategory(products, "cosmetics"))
+
+//82
+
+function getTotalAmountOfProducts(data){
+    return `Ilość produktów w magazynie: ${data.reduce((acc, cu)=>acc+cu.amount, 0)}`
+}
+console.log(getTotalAmountOfProducts(products))
+
+//83
+
+function getCheapestAndMostExpensiveProducts(data){
+    const cheapestProduct = data.sort((a,b)=> a.price - b.price)[0]
+    const mostExpensiveProduct = data.sort((a,b)=> a.price - b.price)[data.length -1]
+    return `Most expensive product in our store: ${mostExpensiveProduct.name} and the cheapest ${cheapestProduct.name}`
+}
+console.log(getCheapestAndMostExpensiveProducts(products))
+
+//84
+
+function estimatedProfit(data){
+    return `Szacowany zysk z sprzedazy produktów: ${data.map((product)=> product.price * product.amount).reduce((acc, cu)=>acc+cu)} zł.`
+}
+console.log(estimatedProfit(products))
+
+//85
+
+
+function getCategoriesOfProducts(data){
+    const allCategories = data.map((product)=>product.category);
+    const newArr = []
+    for(let category of allCategories){
+        if(!newArr.includes(category)){
+            newArr.push(category)
+        }
+    }
+    return `Kategorie w naszym sklepie: ${newArr.join(", ")}.`
+}
+console.log(getCategoriesOfProducts(products))
+
+//86
+
+function makeSentenceFromArr(arr){
+    return arr.join(" ")
+}
+console.log(makeSentenceFromArr(["To", "są", "przykładowe", "słowa"]))
+
+//87
+
+function countWhiteMarks(text){
+    return  text.split("").filter((letter)=>letter === " ").length
+}
+console.log(countWhiteMarks("To jest tekst z duża ilośćią spacjii "))
+//88
+
+function getAlphabet(){
+    const alphabetArr = [];
+    for(let i=97; i<123; i++){ //ASCII
+        let letter = String.fromCharCode(i)
+        alphabetArr.push(letter)
+    }
+    return alphabetArr
+}
+console.log(getAlphabet())
+
+//89
+
+function encryptWord(word){
+    const alphabet = getAlphabet()
+    return word.split("").map((letter)=> (alphabet[alphabet.indexOf(letter)+1])).join("")
+}
+console.log(encryptWord("kot"))
+//90
+
+function decryptWord(encryptWord){
+    const alphabet = getAlphabet()
+    return encryptWord.split("").map((letter)=> (alphabet[alphabet.indexOf(letter)-1])).join("")
+}
+console.log(decryptWord("lpu")
+
+
+//91
+//92
+//93
+//94
+//95
+//96
+//97
+//98
+//99
+//100
