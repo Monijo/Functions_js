@@ -1280,3 +1280,72 @@ function isFrozen(obj){
 console.log(isFrozen({a:"hak", b:"jak"}))
 console.log(isFrozen(addFieldAndFreezeTheObject(88, "lis", {1:"kot", 2: "pies"})))
 
+//121
+
+function makeUniqueKeyInMapandReturnMap(){
+    const map = new Map()
+    for(let i =1; i<10; i++){
+        map.set(Symbol(i), i)
+    }
+    return map
+}
+console.log(makeUniqueKeyInMapandReturnMap())
+//122
+function getUnionFromTwoArr(arr1, arr2){
+    const newArr=[]
+    for(let el of arr1){
+        if(arr2.includes(el)){
+            newArr.push(el)
+        }
+    }
+    return newArr
+
+
+}
+console.log(getUnionFromTwoArr([1,2,3,4,5],[4,5,6,7,8,8]))
+
+//123
+
+function findDuplicate(arr){
+    const newArr=[];
+    const repeatElem=[]
+    for(let el of arr){
+        if(newArr.includes(el)){
+            repeatElem.push(el)
+        }else{
+            newArr.push(el)
+        }
+    }
+    return `Powtarzaja sie ${[...new Set(repeatElem)].join(" and ")}`
+}
+console.log(findDuplicate([1,2,3,4,5,6,6,6,7,8,8,9,10]))
+
+//124
+
+function findLeapInArrOFNum(arr){
+    for(let i =0; i<arr.length; i++){
+    if(arr[i]+1 !== arr[i+1]){
+        return `Wystąpiła przerwa w ciągu liczb: ${arr[i]} oraz ${arr[i+1]}`
+    }
+    }
+    return `Liczby są w ciagu`
+}
+
+console.log(findLeapInArrOFNum([1,2,3,4,5,6,7,9,10]))
+
+//125
+
+function findTheHighestValueInArr(arr){
+    return arr.sort((a,b)=>b-a)[0]
+}
+console.log(findTheHighestValueInArr([1,2,33,4,5,5,66,555,7]))
+
+//126
+
+
+
+
+//127
+//128
+//129
+//130
