@@ -1006,12 +1006,78 @@ console.log(decryptWord("lpu"))
 
 
 //91
+
+function astronomicalUnitsToKm(au){
+    return `${au}j.a. to ${au * 149597870.691} kilometrów [km]`
+}
+console.log(astronomicalUnitsToKm(2))
 //92
+
+function isArray(col){
+    return Array.isArray(col)
+}
+console.log(isArray([1,2,3]))
+console.log(isArray(2))
+
 //93
+
+function cloneArray(col){
+    return [...col]
+}
+console.log(cloneArray([1,2,3]))
 //94
+
+function cloneArray2(col){
+    return col.slice()
+}
+console.log("Kopiowanie2: ", cloneArray2([1,2,3]))
+
 //95
+function cloneArr3(col){
+    return col.concat()
+}
+console.log(cloneArr3([1,2,3,4,5,5]))
+
 //96
+
+function getAbsValueFromSub(a,b){
+    return Math.abs(a-b)
+}
+console.log(getAbsValueFromSub(2, 10))
 //97
+
+function roundOffNumber(num){
+    const numAfterSpot = num.toString().split(".")
+    const result = parseInt(numAfterSpot[1]) > 4 ? parseInt(numAfterSpot[0]) + 1: numAfterSpot[0];
+    return result
+}
+console.log(roundOffNumber(12.7))
 //98
+
+function getNumRaisedToPower(num, pow){
+    return Math.pow(num, pow)
+}
+console.log("2 do potęgi 4 to ", getNumRaisedToPower(2, 4) )
+
 //99
+
+function checkIfWordIsInTheList(word, arr){
+    for(let w of arr){
+        if(w===word){
+            return true
+        }
+
+    }
+    return false
+}
+console.log("Is word 'cat' in arr ['dog', 'hamster', 'duck', 'cat'] ", checkIfWordIsInTheList("cat", ['dog', 'hamster', 'duck', 'cat'] ))
 //100
+
+function returnArrWith100numbers(){
+    const arrWithNumbers = [];
+    for(let i =1; i<101; i++){
+        arrWithNumbers.push(i)
+    }
+    return arrWithNumbers
+}
+console.log(returnArrWith100numbers())
