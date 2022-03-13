@@ -1081,3 +1081,106 @@ function returnArrWith100numbers(){
     return arrWithNumbers
 }
 console.log(returnArrWith100numbers())
+
+//101
+
+function getArrFillByNumInRangeN(n){
+    const arr =[];
+    for(let i = 1; i<n+1; i++){
+        arr.push(i)
+    }
+    return arr
+}
+
+console.log(getArrFillByNumInRangeN(8))
+//102
+
+function getArrFillByRandomNumFrom1to100(n){
+    const arr =[]
+    for(let i =1; i< n+1; i++ ){
+        let randomNum = Math.ceil(Math.random()*100)
+        arr.push(randomNum)
+    }
+    return arr
+}
+
+console.log(getArrFillByRandomNumFrom1to100(10))
+//103
+
+function getArrFilledByNumberNegAndPos(n){
+    const arr =[]
+    for(let i=1; i<n+1; i++){
+        let randomNum = Math.ceil((Math.random()*201)-100)
+        arr.push(randomNum)
+    }
+    return arr
+
+}
+
+console.log(getArrFilledByNumberNegAndPos(20))
+//104
+
+function getJsonFromObject(obj){
+    return JSON.stringify(obj)
+}
+console.log(getJsonFromObject({a:90, b:20}))
+//105
+
+function checkIfNumIsInfinity(num){
+    if(num === Infinity){
+        return `It is infinity!`
+    }else{
+        return `It is regular number :(`
+    }
+}
+console.log(checkIfNumIsInfinity(122222222222))
+console.log(checkIfNumIsInfinity(Math.pow(10,1000)))
+
+//106
+
+function getValuesFromMap(map){
+    return map.values()
+}
+
+const map=new Map()
+map.set('1','a')
+map.set('2','b')
+map.set('3','c')
+console.log(getValuesFromMap(map))
+//107
+
+function getSizeOfMap(map){
+    return `Map size is ${map.size}`
+}
+console.log(getSizeOfMap(map))
+
+//108
+
+function getMapWithNumericKeysAndEmptyStr(num_keys){
+    const map = new Map()
+    for(let i =1; i<num_keys+1; i++){
+        map.set(i, "")
+    }
+    return map
+}
+
+console.log(getMapWithNumericKeysAndEmptyStr(10))
+//109
+
+function isKeyInMap(map, key){
+    return map.has(key)
+}
+console.log(isKeyInMap(map, '4'))
+console.log(isKeyInMap(map, '2'))
+
+//110
+
+function createSetFillByNumToN(n){
+    const set = new Set()
+    for(let i =1; i<n+1; i++){
+        set.add(i)
+    }
+    return set
+}
+
+console.log(createSetFillByNumToN(10))
