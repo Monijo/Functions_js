@@ -1184,3 +1184,99 @@ function createSetFillByNumToN(n){
 }
 
 console.log(createSetFillByNumToN(10))
+
+//111
+
+function isNumInSet(set, num){
+    return set.has(num)
+}
+
+const set = new Set()
+set.add(12)
+set.add(10)
+set.add(16)
+set.add(13)
+console.log(isNumInSet(set, 10))
+
+
+//112
+
+function createSetFilledByLetters(){
+    const set = new Set()
+    for(let i = 65; i<91; i++){
+        set.add(String.fromCharCode(i))
+    }
+    return set
+}
+console.log(createSetFilledByLetters())
+
+//113
+
+function removeDuplicateFromArr(arr){
+    return [...(new Set(arr))]
+}
+console.log(removeDuplicateFromArr([1,2,3,3,4,4,4,5,1, "kot"]))
+//114
+
+function findPairOfNumInArrEqual10(arr){
+    for(let el of arr){
+        for(let anotherEl of arr){
+            if(el+ anotherEl === 10 && el !== anotherEl){
+                return `${el} and ${anotherEl} equal 10`
+            }
+        }
+    }
+    return "Not found"
+}
+
+console.log(findPairOfNumInArrEqual10([1,2,3,4,5,6]))
+console.log(findPairOfNumInArrEqual10([1,2,3,4,5,11,19]))
+
+//115
+
+function removeSpecificElementFromArr(arr, element){
+    return `Usunięto ${element} i pozostała tablica ${arr.filter((el)=> el !== element)}`
+}
+console.log(removeSpecificElementFromArr([1,2,3,4,6,6,6,7,7,7], 7))
+//116
+
+function getRandomItemFromArr(arr){
+    return arr[Math.floor(Math.random()*arr.length)]
+}
+console.log(getRandomItemFromArr(["kot", "pies", "pałka", "zapałka"]))
+
+//117
+
+function filter0BlankLinesAndNullFromArr(arr){
+    return arr.filter((el)=> el !== 0 && el !== null && el !==" ")
+}
+console.log(filter0BlankLinesAndNullFromArr([1,2,3,null, 9,0,88,9, " "]))
+//118
+
+function getRandomDate(){
+
+    const day = Math.floor(Math.random()*31)
+    const month = Math.floor(Math.random()*12)
+    const year = Math.floor(Math.random()*2022)
+    const date = new Date(year, month, day)
+    return date
+}
+console.log(getRandomDate())
+//119
+
+function addFieldAndFreezeTheObject(key,val,obj){
+    obj.key=val
+     return Object.freeze(obj)
+}
+
+console.log(addFieldAndFreezeTheObject(88, "lis", {1:"kot", 2: "pies"}))
+
+
+//120
+function isFrozen(obj){
+    const val = Object.isFrozen(obj)? "jest": " nie jest"
+    return `Ten obiekt ${val} zamrozony`
+}
+console.log(isFrozen({a:"hak", b:"jak"}))
+console.log(isFrozen(addFieldAndFreezeTheObject(88, "lis", {1:"kot", 2: "pies"})))
+
