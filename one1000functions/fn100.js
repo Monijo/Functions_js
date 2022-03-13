@@ -1342,10 +1342,44 @@ console.log(findTheHighestValueInArr([1,2,33,4,5,5,66,555,7]))
 
 //126
 
-
-
+function removeFromSet(element, set){
+     set.delete(element)
+    return set
+}
+const set1 = new Set()
+set1.add("kot");
+set1.add("pies");
+set1.add("koń");
+console.log(removeFromSet("kot", set1))
 
 //127
+//diffrence of sets
+
+function getDifferenceFrom2Arr(arr1,arr2) {
+    return arr1.filter((el) => !arr2.includes(el))
+
+}
+
+console.log(getDifferenceFrom2Arr([1,2,3,4,5,6,7], [5,6,7,8,9,99]))
+
+
 //128
+//Intersection
+function getCommonPartFrom2Arr(arr1, arr2){
+    return arr1.filter((el)=>arr2.includes(el))
+}
+
+console.log(getCommonPartFrom2Arr([1,2,3,4,5,6], [5,6,7,89,9]))
 //129
+//Unia setów
+function makeUnionFromTwoSets(set1, set2){
+    return new Set([...set1, ...set2])
+}
+
+
+let firSet = new Set([1,2,3,4,5])
+let secondSet = new Set([4,5,6,7,8])
+
+console.log(makeUnionFromTwoSets(firSet, secondSet))
 //130
+
