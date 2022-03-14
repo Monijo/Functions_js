@@ -1557,3 +1557,73 @@ function sumOfNumLessThan100(...args){
 console.log(sumOfNumLessThan100(1,2,3,4,5,667,7,77,101)) // bez kwadratowych nawiasów
 
 
+//151
+
+function multiplyArgumentAndRejectStr(...args){
+    return args.filter((e)=> typeof e==='number').reduce((acc, cu)=> acc*cu)
+}
+console.log(multiplyArgumentAndRejectStr(10,'Hi',null,undefined,20))
+//152
+
+function replace8by1inNumbers(...args){
+    return args.map((el)=> el === 8 ? 1: el)
+}
+console.log(replace8by1inNumbers(1,2,7,8,9,0,8,7))
+
+//153
+
+function deleteNumAfterDot(floatNum){
+    return Math.trunc(floatNum)
+}
+console.log(deleteNumAfterDot(2.6))
+console.log(deleteNumAfterDot(8.2))
+
+//154
+
+function checkIfNumbersInArrArePositiveNegativeOr0(arr){
+    return arr.forEach(el=>console.log(Math.sign(el)))
+}
+console.log(checkIfNumbersInArrArePositiveNegativeOr0([1,1,1,1,0,-6,-6,-5]))
+//155
+
+function getDiagonalSquare(a){
+    return (a* Math.sqrt(2))
+}
+console.log(getDiagonalSquare(10))
+//156
+
+function findLowestNum(...args){
+    return Math.min(...args)
+}
+console.log(findLowestNum(99,5,8,5,-1))
+
+//157
+function findMaxNum(...args){
+    return Math.max(...args)
+}
+console.log(findMaxNum(1,9,88,77,55))
+
+//158
+
+function forEachElGetOpositSignNum(...args){
+    return args.map((el)=> el - 2*el)
+}
+
+console.log(forEachElGetOpositSignNum(1,2,3,-9,-7))
+
+//159
+
+function findValueOfKeyandDoubleIt(map, key ){
+    return map.get(key) ? map.get(key)*2 : "Not find"
+}
+const map2 = new Map()
+map2.set(1, 2)
+map2.set(2, 3)
+map2.set(3, 4)
+console.log(findValueOfKeyandDoubleIt(map2, 3))
+
+//160
+
+function sayHello(name){
+    return `Hello ${name}!`
+}
