@@ -1627,3 +1627,100 @@ console.log(findValueOfKeyandDoubleIt(map2, 3))
 function sayHello(name){
     return `Hello ${name}!`
 }
+
+//161
+
+const data=[
+    {
+        Surname: "Kowalscy",
+        Names: ["Ola", "Kasia", "Ania", "Kuba"],
+        city: "Kraków",
+        isUserApp: true,
+        points: 42
+    },{
+        Surname: "Nowakowie",
+        Names: ["Ela", "Asia", "Hania", "Karol"],
+        city: "Kraków",
+        isUserApp: true,
+        points: 74
+    },{
+        Surname: "Liliputowie",
+        Names: ["Piotr", "Krysia", "Mikołaj"],
+        city: "Zakopane",
+        isUserApp: true,
+        points: 96
+    },{
+        Surname: "Andersowie",
+        Names: ["Ania", "Leon"],
+        city: "Katowice",
+        isUserApp: false,
+        points: 0
+    },{
+        Surname: "Goprowie",
+        Names: ["Robert", "Lila"],
+        city: "Lublin",
+        isUserApp: true,
+        points: 70
+    },
+]
+
+function findUsers(data){
+    return data.filter((family)=> family.isUserApp === true)
+}
+console.log(findUsers(data))
+//162
+function findUsers2(data){
+    return data.reduce((acc, cu)=> cu.isUserApp === true ? [...acc, cu]: acc, []).map(family=> family.Surname)
+}
+console.log(findUsers2(data))
+
+//163
+function findUsersFromCity(city){
+    return findUsers(data).filter((family)=> family.city === city).map((family)=>family.Surname)
+}
+console.log(findUsersFromCity("Kraków"))
+//164
+
+function findUsersWithAlmost3members(){
+    return findUsers(data).filter((family)=> family.Names.length > 2).map(fam=>fam.Surname)
+}
+console.log(findUsersWithAlmost3members())
+//165
+
+function findUsersStartsWithLetter(letter){
+    return findUsers(data).filter(family=>family.Surname.startsWith(letter))
+}
+console.log(findUsersStartsWithLetter("G"))
+
+//166
+
+function findFamieliesWithNameInNames(data, name){
+    return data.filter(family=>family.Names.includes(name)).map(fam=>fam.Surname)
+}
+console.log(findFamieliesWithNameInNames(data, "Kuba"))
+
+//167
+
+function getCitiesMembers(){
+    return new Set(findUsers(data).map(family=>family.city))
+}
+console.log(getCitiesMembers())
+//168
+
+function getSumOfPoinstsUsers(){
+    return findUsers(data).reduce((acc, cu)=> acc+cu.points, 0)
+}
+console.log(getSumOfPoinstsUsers())
+//169
+
+function getInfoAboutPoints(){
+    return findUsers(data).map(fam=>`${fam.Surname} liczba pktów: ${fam.points}`)
+}
+console.log(getInfoAboutPoints())
+
+//170
+
+function getInfoWhoIsNotAUser(data){
+    return `Nie jest uzytkownikiem: ${data.filter(fam=>fam.isUserApp===false).map(fam=>fam.Surname)}`
+}
+console.log(getInfoWhoIsNotAUser(data))
