@@ -1383,3 +1383,95 @@ let secondSet = new Set([4,5,6,7,8])
 console.log(makeUnionFromTwoSets(firSet, secondSet))
 //130
 
+function getAverageFromSumNumberFromList(arr){
+    return arr.reduce((acc, cu)=> acc+cu)/arr.length
+}
+console.log(getAverageFromSumNumberFromList([1,2,3,4,5,6,7]))
+
+//131
+
+function getSumOfPowerNumbFromArr(arr){
+    return arr.map((num)=> Math.pow(num, 2)).reduce((acc, cu)=> acc+ cu)
+
+}
+console.log(getSumOfPowerNumbFromArr([1,2,3,4]))
+
+//132
+
+function getLongestWordInList(arr){
+    return `Najdluzszy wyraz ma ${arr.map((word)=>word.length).reduce((acc, cu)=> acc> cu ? acc: cu)} liter i jest to ${arr.filter((word)=>word.length === 9) }`
+}
+
+console.log(getLongestWordInList(["kot", "pies", "lis", "kuropatwa"]))
+
+//133
+
+function getBigestNumberFromArr(arr){
+    return arr.reduce((acc, cu)=> acc > cu ? acc: cu)
+}
+console.log(getBigestNumberFromArr([1,2,333,6,7,99,0]))
+//134
+
+function getSmalestNumFromArr(arr){
+    return arr.reduce((acc, cu)=> acc > cu ? cu :acc)
+}
+
+console.log(getSmalestNumFromArr([1,2,333,6,7,99,0]))
+//135
+
+function getLongerArr(arr1, arr2){
+    return (arr1.length > arr2.length ? arr1: arr2)
+}
+
+console.log(getLongerArr([1,2,2,3,3,4,45,5], [2,3]))
+//136
+
+function getShorterArr(arr1, arr2){
+    return( arr1.length > arr2.length ? arr2: arr1)
+}
+
+console.log(getShorterArr([1,2,2,3,3,4,45,5], [2,3]))
+//137
+
+function checkIfFirstArrIncludesInSecondArr(arr1, arr2){
+    for(let el of arr1){
+        if(!arr2.includes(el)){
+            return ` Sorry first arr doesn t includes in second arr`
+        }
+    }
+    return `Bingo First includes in Second`
+}
+console.log(checkIfFirstArrIncludesInSecondArr([1,2,3,4],[1,2,3,4,5,6,7]))
+console.log(checkIfFirstArrIncludesInSecondArr([1,2,3,4],[1,2,3,99,5,6,7]))
+//138
+
+function getSubFromNumbersFrom2(arr1, arr2){
+    const newArr=[]
+    for(let i =0; i< arr1.length; i++){
+        newArr.push((arr2[i] ? arr1[i]-arr2[i] : arr1[i]))
+    }
+    return newArr
+}
+// console.log(getSubFromNumbersFrom2([1,2,3,4,6], [0,1,1,1,1]))
+// console.log(getSubFromNumbersFrom2([1,2,3,4,6], [0,1,1]))
+
+//139
+
+function multiplyNumbersFrom2Arrays(arr1, arr2){
+    const newArr=[];
+    for(let i =0; i <arr1.length; i++){
+        newArr.push((arr2[i] || arr2[i] === 0 ? arr1[i]* arr2[i] : arr1[i]))
+    }
+    return newArr
+}
+console.log(multiplyNumbersFrom2Arrays([1,2,3,4,6], [3,1,1,1,1]))
+console.log(multiplyNumbersFrom2Arrays([1,2,3,4,6], [0, 2,1,1]))
+
+//140
+
+function findBiggerSizeOFSets(set1, set2){
+    return (set1.size> set2.size ? set1: set2)
+}
+let x = new Set([1,2,3,4,5,66,99,88,777])
+let y= new Set([4,5,6,7,8])
+console.log(findBiggerSizeOFSets(x, y ))
