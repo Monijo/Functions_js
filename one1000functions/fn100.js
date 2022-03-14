@@ -1475,3 +1475,85 @@ function findBiggerSizeOFSets(set1, set2){
 let x = new Set([1,2,3,4,5,66,99,88,777])
 let y= new Set([4,5,6,7,8])
 console.log(findBiggerSizeOFSets(x, y ))
+
+//141
+
+function getSumFromNestedArrays(nestedArr){
+    return nestedArr.flat().reduce((acc, cu)=> acc+cu)
+}
+console.log(getSumFromNestedArrays([[1,2,3,4],[3,4,5,2],[3,4,5,6]]))
+
+
+//142
+
+function findWordsStartsWithLetterAndEndsWithAnotherLetter(arr, startLetter, endsLetter){
+    return arr.filter((word)=> word.startsWith(startLetter) && word.endsWith(endsLetter))
+}
+console.log(findWordsStartsWithLetterAndEndsWithAnotherLetter(["kot", 'pies', "koń"], "k", "t"))
+console.log(findWordsStartsWithLetterAndEndsWithAnotherLetter(["kot", 'pies', "koń"], "p", "l"))
+
+//143
+
+function findWordsStartsWithLetterAndEndsWithAnotherLetter2(arr, startLetter, endLetter){
+    return arr.reduce((acc, cur)=>cur.startsWith(startLetter) && cur.endsWith(endLetter)?[...acc, cur]: acc ,[])
+}
+
+console.log(findWordsStartsWithLetterAndEndsWithAnotherLetter2(["kot", 'pies', "koń"], "k", "t"))
+console.log(findWordsStartsWithLetterAndEndsWithAnotherLetter2(["kot", 'pies', "koń"], "p", "l"))
+
+//144
+
+function checkIfInTheListIsWordLongerThanTen(arr){
+    return arr.some((word)=> word.length > 10)
+}
+console.log(checkIfInTheListIsWordLongerThanTen(["kokardka", "tulipan", "Lototo"]))
+
+//145
+
+function changeSetToList(set){
+    return [...set]
+}
+console.log(changeSetToList(set1))
+
+//146
+
+function changeMapToListOfValues(map){
+    return [...map.values()]
+}
+const map1 = new Map();
+map1.set(1, 'aligator')
+map1.set(2, 'mucha')
+map1.set(3, 't-rex')
+console.log(changeMapToListOfValues(map1))
+//147
+
+function objectToList(obj){
+    return Object.values(obj)
+}
+const obj={
+    name: "Monika",
+    age: "34",
+    animals: "cat"
+}
+console.log(objectToList(obj))
+
+//148
+
+function getKeysFromObj(obj){
+    return Object.keys(obj)
+}
+console.log(getKeysFromObj(obj))
+//149
+
+function getListOfKeyValueOfObj(obj){
+    return Object.entries(obj).flat()
+}
+console.log(getListOfKeyValueOfObj(obj))
+//150
+
+function sumOfNumLessThan100(...args){
+    return args.filter((el)=> el > 100).reduce((acc, cu)=> acc+cu)
+}
+console.log(sumOfNumLessThan100(1,2,3,4,5,667,7,77,101)) // bez kwadratowych nawiasów
+
+
