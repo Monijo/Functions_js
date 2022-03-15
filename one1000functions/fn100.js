@@ -1786,20 +1786,92 @@ function getIncomes(timeInDays){
 }
 
 const annualIncome = getIncomes(365)
+const oneDayIncome = getIncomes(1)
 console.log("Przychód dzienny 1000 zł ",annualIncome(1000))
 console.log("Przychód dzienny 200 zł ",annualIncome(200))
 console.log("Przychód dzienny 50000 zł ",annualIncome(50000))
+console.log("Przychód dzienny 50 zł ",oneDayIncome(50))
 
 
 
-//180
-//181
-//182
-//183
-//184
-//185
-//186
-//187
-//188
-//189
-//190
+//180 i 181
+
+function getAreaOfTriangle(aInCm){
+    function triangle(h){
+        return `${0.5 * aInCm * h} cm2`
+    }
+    return triangle
+}
+
+const getAreaWith10cmSide = getAreaOfTriangle(10)
+console.log(getAreaWith10cmSide(4))
+console.log(getAreaWith10cmSide(10))
+console.log(getAreaWith10cmSide(7))
+
+
+//182 i 183
+
+function priceForTickets(num){
+    function getPriceForAllTickets(price){
+        return `Cena do zapłaty to ${num*price} zł`
+    }
+    return getPriceForAllTickets
+}
+
+const priceFor10Ticket = priceForTickets(10)
+const priceFor1Ticket = priceForTickets(1)
+console.log(priceFor1Ticket(12))
+console.log(priceFor1Ticket(16))
+console.log(priceFor10Ticket(12))
+console.log(priceFor10Ticket(16))
+//184 i 185
+
+function getTotalAmountOfFlats(num_floors){
+    function flats(amountFlatsOnTheFloor){
+        return `W bloku ${num_floors} piętrowym, gdy na piętrze jest ${amountFlatsOnTheFloor} mieszkań całkowita liczba mieszkań to ${num_floors*amountFlatsOnTheFloor}`
+    }
+    return flats
+}
+
+const getNumberOfFlatsIn10FloorsBuilding = getTotalAmountOfFlats(10)
+const getNumberOfFlatsIn7FloorsBuilding = getTotalAmountOfFlats(7)
+
+console.log(getNumberOfFlatsIn7FloorsBuilding(4))
+console.log(getNumberOfFlatsIn7FloorsBuilding(5))
+console.log(getNumberOfFlatsIn10FloorsBuilding(4))
+console.log(getNumberOfFlatsIn10FloorsBuilding(5))
+
+//186 i 187 i 188
+
+function add3Numbers(num1){
+    function num2(num2){
+        function num3(num3){
+            return (num1 + num2 +num3)
+        }
+        return num3
+    }
+    return num2
+}
+
+const getAdd3Numbers = add3Numbers(10)
+console.log(getAdd3Numbers(20)(30))
+
+
+// 189 i 190
+
+function getRandomValuesFromArr(arr){
+    function numberOfValues(num){
+        const newArr=[]
+        for(let i=0; i< num; i++){
+            let j = Math.floor(Math.random()*arr.length)
+                newArr.push(arr[j])
+        }
+        return newArr
+    }
+    return numberOfValues
+}
+
+const getRandomFromArr = getRandomValuesFromArr([1,2,3,3,3,3,4,5,6,76,7,7,8,8,9,0])
+console.log(getRandomFromArr(4))
+console.log(getRandomFromArr(9))
+
