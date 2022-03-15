@@ -1875,3 +1875,112 @@ const getRandomFromArr = getRandomValuesFromArr([1,2,3,3,3,3,4,5,6,76,7,7,8,8,9,
 console.log(getRandomFromArr(4))
 console.log(getRandomFromArr(9))
 
+//191
+//192
+
+function power(power){
+    function digit(digit){
+        return digit ** power
+    }
+    return digit
+}
+const power10 = power(10)
+console.log(power10(2))
+console.log(power10(3))
+
+//192
+
+const raiseToPower = (power) => (digit) => digit ** power
+
+const power8 = raiseToPower(8)
+console.log(power8(2))
+console.log(power8(3))
+//193
+
+function genUUID(){
+    let id =0
+    function next(){
+        const result = id;
+        id ++;
+        return result
+    }
+    return next
+}
+const generatorUUID = genUUID()
+console.log(generatorUUID())
+console.log(generatorUUID())
+console.log(generatorUUID())
+console.log(generatorUUID())
+console.log(generatorUUID())
+console.log(generatorUUID())
+
+
+//194
+
+const genUUID2 = (id=0)=>()=>id++;
+//195
+
+// const cache = {};
+//
+// function add(a,b){
+//     if(cache[`${a}${b}`] === undefined){
+//         //complex logic simulation
+//         const t =[];
+//         for(let i=0; i <100000; i++) {
+//             t.push(i ** i);
+//         }
+//         console.log("calculating")
+//         cache[`${a}${b}`] = a+ b
+//         }
+//     return cache[`${a}${b}`]
+//     }
+
+
+//196
+
+// function cash_add(){
+//     const cache = {}; //obiekt nie jest juz globalny
+//     function add2(a,b){
+//
+//     if(cache[`${a}${b}`] === undefined){
+//         //complex logic simulation
+//         const t =[];
+//         for(let i=0; i <100000; i++) {
+//             t.push(i ** i);
+//         }
+//         console.log("calculating")
+//         cache[`${a}${b}`] = a+ b
+//         }
+//     return cache[`${a}${b}`]
+//     }
+//
+//     return add2
+// }
+//197
+
+function cache2param(fn){
+    const c = {};
+    function inner(a, b){
+        if(c[`${a}${b}`] === undefined){
+            c[`${a}${b}`] = fn(a, b)
+        }
+        return c[`${a}${b}`]
+        }
+    return inner
+}
+
+//198 i 199
+//Uniwersalny cache!
+
+function cache(fn){
+    const c = {};
+
+    function inner(...params){
+        if(c[params.join()] === undefined){
+            c[params.join()] = fn(...params)
+        }
+        return c[params.join()]
+        }
+    return inner
+}
+
