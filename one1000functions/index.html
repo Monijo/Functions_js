@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="fn100.js" async defer type="module"></script>
-    <script src="closure.js" async defer type="module"></script>
-    <script src="memoizing.js" async defer type="module"></script>
+<!--    <script src="closure.js" async defer type="module"></script>-->
+<!--    <script src="memoizing.js" async defer type="module"></script>-->
     <script src="asynchronus.js" async defer type="module"></script>
     <style>
         .square{
@@ -18,15 +18,34 @@
             top: 0;
             left: 0;
             background: red;
-            transition: all 2000ms;
+            transition: all 5000ms;
         }
 
     </style>
 </head>
 <body>
-<!-- <h1>Hello!</h1> -->
+ <h1>Hello!</h1>
+ <div id="div1">
+     <p>Jakiś text</p>
+     <p>Dalsza czesc textu</p>
+     <p>Dalsza czesc textu</p>
+     <p>Dalsza czesc textu</p>
+     <p>Dalsza czesc textu</p>
+ </div>
+ <div id="div2">
+     <p>Treść artykułu</p>
+     <p>Treść artykułu</p>
+     <p>Treść artykułu</p>
+     <p>Treść artykułu</p>
+     <p>Treść artykułu</p>
+     <p>Treść artykułu</p>
+ </div>
+ <button type="button">Kliknij mnie</button>
+<div id="div3" style="display: none; background: greenyellow">
+    text text text text text<p>Klikniecia:<span id="licznik"></span> </p>
 
+</div>
 
-<div class="square"></div>
+<!--<div class="square"></div>-->
 </body>
 </html>
