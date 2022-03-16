@@ -2022,98 +2022,185 @@ function alertOnPageAfter10sek(extratext){
 // setTimeout(()=>{
 //     clearInterval(interval)
 // }, 10000)
+//
+//
+// //209 i 210
+// function timer(){
+//     let i=1
+//     setInterval(()=>{
+//      console.log(`Jestes tu już ${i} sek`)
+//          i++
+//  }, 1000)
+// }
+// // const timer1 = timer()
+// // timer1()
+//
+// //211 i 212
+//
+// function countHello(n){
+//     let i =1
+//
+//     const interv = setInterval(()=>{
+//         console.log("Hello", i)
+//         i++
+//           if(i === n+1){
+//         clearInterval(interv)
+//     }
+//     }, 1000)
+//
+// }
+// countHello(8)
+// //213 i 214
+//
+// const div1 = document.querySelector("#div1")
+// const div2 = document.querySelector("#div2")
+// div1.style.background="green"
+// div2.style.background="red"
+//
+//
+// function clickCounter(){
+//     let i = 0;
+//     div1.addEventListener("click", ()=>{
+//     i ++
+//         console.log(`zielony obszar został kliknięty  ${i} razy`)
+// })
+// }
+// clickCounter()
+//
+//
+//
+// //215 i 216
+// function alertMouseover(){
+//     div2.addEventListener("mouseover", ()=>{
+//     alert("Jesteś nad czerwonym obszarem!")
+// })
+// }
+// alertMouseover()
+//
+// //217 i 218
+// function addTextToParagraph(text){
+//     let n = 0
+//     const setTime = setInterval(()=>{
+//     div2.children[n].innerHTML=`<b>${text}</b>`
+//         n++
+//         console.log(` n wynosi ${n}`)
+//         if(n > div2.children.length){
+//             console.log("Jestem z srodka ifa")
+//             clearTimeout(setTime)
+//         }
+// }, 5000)
+// }
+//
+// addTextToParagraph("To jest nowiuteńki text")
+// //219
+//
+// const div3 = document.querySelector("#div3")
+// const button =document.querySelector("button")
+//
+// button.addEventListener("click", ()=>{
+//     div3.style.display = "block"
+//
+// })
+// //220
+// const counter = document.querySelector("#licznik")
+//
+// function getCountClicksButton(){
+//     let num = 1
+//     button.addEventListener("click", ()=>{
+//     counter.innerText = num
+//         num++
+// })
+// }
+// getCountClicksButton()
+//
+//
+// // 221 i 222
+//
+// const div4 = document.querySelector("#div4")
+//
+// function getRandomColorDiv4(){
+//     div4.addEventListener("click", ()=>{
+//         const randomColor = "#" + Math.floor(Math.random()*16777215).toString(16);
+//         div4.style.background = randomColor;
+//     })
+// }
+// getRandomColorDiv4()
+// // 223 i 224
+//
+// function addParagraphTodiv1(){
+//     div1.addEventListener("mouseover", ()=>{
+//         const newP = document.createElement("p")
+//         newP.innerText = "Pojaiwma sie po najechaniu na zielony div"
+//         div1.appendChild(newP)
+//     })
+// }
+// // addParagraphTodiv1()
+// // 225
+//
+// const h1 = document.querySelector("h1")
+//
+// function setRandomColorAfter3sek(){
+//     setInterval(()=>{
+//         const randomColor = "#" + Math.floor(Math.random()*16777215).toString(16);
+//
+//         h1.style.color = randomColor;
+//     }, 3000)
+// }
+// setRandomColorAfter3sek()
+//226
 
+// const myFetch = fetch('http://api.nbp.pl/api/exchangerates/rates/c/usd/today/')
+// myFetch.then((res)=> res.json())
+//         .then((data)=>{
+//     console.dir(data.rates[0].ask)
+// })
+//
 
-//209 i 210
-function timer(){
-    let i=1
-    setInterval(()=>{
-     console.log(`Jestes tu już ${i} sek`)
-         i++
- }, 1000)
-}
-// const timer1 = timer()
-// timer1()
+// 227 i 228
 
-//211 i 212
+// const myFetch2 = fetch("https://www.googleapis.com/books/v1/volumes?q=isbn:0747532699")
+// myFetch2
+//     .then((resp)=> resp.json()
+// )
+//     .then((data)=>console.log(data))
+// 229 i 230
 
-function countHello(n){
-    let i =1
+// const ul = document.querySelector("#ul")
+// fetch("https://pokeapi.co/api/v2/pokemon").then(resp=>resp.json()).then(data=>{
+//     console.log(data.results)
+//     for(let pokemon of data.results){
+//         const li = document.createElement("li")
+//         li.innerText = pokemon.name
+//         ul.appendChild(li)
+//     }
+// }).catch(err=>console.log(err))
 
-    const interv = setInterval(()=>{
-        console.log("Hello", i)
-        i++
-          if(i === n+1){
-        clearInterval(interv)
+// 231 i 232
+
+function getSumOfParametersDivideByNum(num){
+    function inner(...params){
+        return params.reduce((acc, cu)=> acc+cu)/num
     }
-    }, 1000)
-
+    return inner
 }
-countHello(8)
-//213 i 214
+const closureInner = getSumOfParametersDivideByNum(3)
+console.log(closureInner(1,2,3,4,5,5,6,7,0))
 
-const div1 = document.querySelector("#div1")
-const div2 = document.querySelector("#div2")
-div1.style.background="green"
-div2.style.background="red"
-
-
-function clickCounter(){
-    let i = 0;
-    div1.addEventListener("click", ()=>{
-    i ++
-        console.log(`zielony obszar został kliknięty  ${i} razy`)
-})
-}
-clickCounter()
+// 233 i 234
 
 
 
-//215 i 216
-function alertMouseover(){
-    div2.addEventListener("mouseover", ()=>{
-    alert("Jesteś nad czerwonym obszarem!")
-})
-}
-alertMouseover()
-
-//217 i 218
-function addTextToParagraph(text){
-    let n = 0
-    const setTime = setInterval(()=>{
-    div2.children[n].innerHTML=`<b>${text}</b>`
-        n++
-        console.log(` n wynosi ${n}`)
-        if(n > div2.children.length){
-            console.log("Jestem z srodka ifa")
-            clearTimeout(setTime)
-        }
-}, 5000)
-}
-
-addTextToParagraph("To jest nowiuteńki text")
-//219
-
-const div3 = document.querySelector("#div3")
-const button =document.querySelector("button")
-
-button.addEventListener("click", ()=>{
-    div3.style.display = "block"
-
-})
-//220
-const counter = document.querySelector("#licznik")
-
-function getCountClicksButton(){
-    let num = 1
-    button.addEventListener("click", ()=>{
-    counter.innerText = num
-        num++
-})
-}
-getCountClicksButton()
-
-
-
-
+// 235 i 236
+// 237 i 238
+// 239 i 240
+// 241 i 242
+// 243 i 244
+// 245 i 246
+// 247 i 248
+// 249 i 250
+// 251 i 252
+// 253 i 254
+// 255 i 256
+// 257 i 258
+// 259 i 260
 
