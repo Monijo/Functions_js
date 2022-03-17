@@ -2186,15 +2186,84 @@ function getSumOfParametersDivideByNum(num){
 const closureInner = getSumOfParametersDivideByNum(3)
 console.log(closureInner(1,2,3,4,5,5,6,7,0))
 
-// 233 i 234
 
 
+// 233 i 234 i 235 i 236
 
-// 235 i 236
+function MultiplyNumByNumAndRandomNum(num){
+    function inner(num2){
+        return (num*num2* (Math.floor(Math.random()*101)))
+    }
+    return inner
+}
+const multplyBy12 = MultiplyNumByNumAndRandomNum(12)
+console.log(multplyBy12(6))
+console.log(multplyBy12(6))
+console.log(multplyBy12(6))
+console.log(multplyBy12(6))
+
 // 237 i 238
+
+function cache3param(fn){
+    const c = {};
+    function inner(a, b, c){
+        if(c[`${a}${b}${c}`] === undefined){
+            c[`${a}${b}${c}`] = fn(a, b, c)
+        }
+        return c[`${a}${b}${c}`]
+        }
+    return inner
+}
+
 // 239 i 240
+const items = [
+    { name: 'Bike', amount: 90, price: 500},
+    { name: 'PlaneToy', amount: 40, price: 100},
+    { name: 'Lamp', amount: 40, price: 40},
+    { name: 'Book', amount: 20, price: 30},
+    { name: 'Tv', amount: 10, price: 1000},
+    { name: 'toyFigure', amount: 30, price: 12},
+]
+
+const filterItemsUnder100 = items.filter((item)=> item.price < 100)
+
+function getCheapItemAndDiscount (fn){
+    function inner(discount){
+        return fn.map((item)=>{ return `Cena przedmiotu ${item.name} po rabacie ${discount} wynosi ${(item.price - (discount*item.price))}`})
+    }
+    return inner
+}
+const getDiscountOnCheapItems = getCheapItemAndDiscount(filterItemsUnder100)
+console.dir(getDiscountOnCheapItems(0.2))
+
 // 241 i 242
-// 243 i 244
+
+function getNameStartsWithLetter(letter, items){
+    function inner1(){
+        return items.reduce((acc, ce)=>ce.name.startsWith(letter)? [...acc, ce]: acc, [])
+    }
+    return inner1
+}
+
+const getNameStartsWithLetterArr = getNameStartsWithLetter("B", items)
+console.log(getNameStartsWithLetterArr())
+
+
+// 243 i 244 IIFE w consoli
+
+    (()=>{
+        const name = "Adam"
+        console.log("Hello "+ name)
+    })()
+
+    (function(){
+            const name = "Kasia"
+            console.log("hello " + name)
+        }()
+    )
+
+
+
 // 245 i 246
 // 247 i 248
 // 249 i 250
