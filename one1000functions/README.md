@@ -19,3 +19,24 @@
 3. Generators and Coroutines - obsluga
 4. Async/await - syntatic sugar-nowa nazwa dla funkcjonalnosci ktora juz jest(Promise i )
 
+
+```javascript
+
+function callback(element=1, i=0, array=[1,2,3]){
+    return 'New value'
+}
+
+
+const newArray = [1,2,3].map(callback)
+//['New value', 'New value', 'New value']
+
+
+const initialValue = 0;
+
+const callback_=(accumulator=array[0], cuurentElement=array[1], id=0, array=[1,2,3])=>{
+    const newAccumulator = acumulator+currentElement
+    return newAccumulator
+}
+const newAggregationValue = [1,2,3].reduce(callback_, initialValue)
+
+```
