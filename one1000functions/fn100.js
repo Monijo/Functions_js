@@ -2265,32 +2265,513 @@
 //
 //
 // // 245
+//
+// function createPhoneNumber(numbers){
+//     numbers.unshift("(")
+//     numbers.splice(4, 0 , ") ")
+//     numbers.splice(8, 0, "-")
+//     return numbers.join("").toString()
+//
+//   }
+// createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0])
+//
+//
+// // 246
+//
+// function squareDigits(num){
+//     return parseInt(num.toString().split("").map((element)=> Math.pow(parseInt(element),2)).join(""))
+//   }
+//
+// // // 247
+//
+// function sumTwoSmallestNumbers(numbers) {
+//     return numbers.sort((a,b)=>a-b).filter((num, index,arr)=>index < 2).reduce((acc, cu)=>acc+cu, 0)
+//   }
+//
+// //248 i  249 i 250 i  251 i 252
+//
+// const data5 = [
+// 	{
+// 		"brand": "bmw",
+// 		"country": "germany",
+// 		"year": 1993,
+// 		"colorway": ["black", "red", "grey"]
+// 	},
+// 	{
+// 		"brand": "ford",
+// 		"country": "america",
+// 		"year": 2015,
+// 		"colorway": ["blue", "black", "carbon"]
+// 	},
+// 	{
+// 		"brand": "honda",
+// 		"country": "japan",
+// 		"year": 1994,
+// 		"colorway": ["blue", "gold", "black"]
+// 	},
+// 	{
+// 		"brand": "porsche",
+// 		"country": "germany",
+// 		"year": 2018,
+// 		"colorway": ["black", "carbon", "white", "orange"]
+// 	},
+// 	{
+// 		"brand": "toyota",
+// 		"country": "japan",
+// 		"year": 1999,
+// 		"colorway": ["yellow", "carbon", "black"]
+// 	},
+// 	{
+// 		"brand": "skoda",
+// 		"country": "czech_republic",
+// 		"year": 2010,
+// 		"colorway": ["grey", "blue", "black"]
+// 	},
+// 	{
+// 		"brand": "peugeot",
+// 		"country": "france",
+// 		"year": 2000,
+// 		"colorway": ["green", "red", "yellow"]
+// 	},
+// 	{
+// 		"brand": "ferrari",
+// 		"country": "italia",
+// 		"year": 2006,
+// 		"colorway": ["red", "black", "carbon"]
+// 	},
+// 	{
+// 		"brand": "chevrolet",
+// 		"country": "america",
+// 		"year": 2003,
+// 		"colorway": ["white", "yellow", "black"]
+// 	},
+// 	{
+// 		"brand": "audi",
+// 		"country": "germany",
+// 		"year": 1999,
+// 		"colorway": ["red", "red", "black"]
+// 	}
+// ]
+//
+// const result11 = data5.filter((car)=> car.country === "japan").map((car)=>`Car ${car.brand} from Japan, year:  ${car.year}`)
+//
+// const result12 = data5.filter((car)=> car.colorway.includes("red")).map((car)=> car.brand).join(", ")
+//
+// const result13 = data5.filter((car)=> car.year > 2001 && car.colorway.includes("carbon")).map((car)=> `${car.brand}-${car.country}`)
+// const result14 = data5.reduce((acc, cu)=>acc+cu.year, 0)/data5.length
+// const result15 = data5.reduce((acc, cu)=> acc.length < cu.colorway.length ? cu.colorway : acc, [] )
+// console.log(result15)
+//
+//
+//
+//
+// // // 253 i 254
+// const countryStartsWithG = data5.filter((car)=>car.country.startsWith("g")).length
+// const uniqueCountryStartsWithG = new Set(data5.filter((car)=>car.country.startsWith("g")).map((car)=>car.country))
+// console.log(uniqueCountryStartsWithG)
+//
+//
+//  // 255
+//
+// function mostPopularCountryFromData(data){
+//     const countryList = data.map((car)=>car.country).sort()
+//     console.log(countryList)
+//
+//    let occurrencesOfWord = {};
+//
+//   for (let country of countryList) {
+//     if (occurrencesOfWord[country]) {
+//       occurrencesOfWord[country]++;
+//     } else {
+//       occurrencesOfWord[country] = 1;
+//     }
+//   }
+//   console.log(occurrencesOfWord)
+//
+//   let max = 0;
+//   let mostRepeatedWord = '';
+//
+//   for (let country of countryList) {
+//     if (occurrencesOfWord[country] > max) {
+//       max = occurrencesOfWord[country];
+//       mostRepeatedWord = country;
+//     }
+//   }
+//
+//   return `Most repeated word is: ${mostRepeatedWord}`;
+//
+//
+// }
+// console.log(mostPopularCountryFromData(data5))
+//
+//
+// // 256 i 257
+// const url = "https://reqres.in/api/users/"
+//
+// function getUsernr(number){
+//     fetch(url + number)
+//     .then((resp)=> resp.json())
+//     .then(data=> console.log(data.data))
+//
+// }
+// getUsernr(3)
+//
+//
+//
+// //258 i 259 i 260
+//
+// function getUsersNames() {
+//     fetch(url)
+//         .then((resp) => resp.json())
+//         .then(data => {
+//            data.data.forEach((person)=>console.log((`${person.first_name} ${person.last_name}`)))
+//
+//
+// })
+//         .catch((err)=>console.log(err))
+// }
+// getUsersNames()
+//
+// //260 i 261
+//
+// function createNewUserApi(dataJson){
+//       fetch(url, {
+//           method: 'POST',
+//           headers: {
+//               'Content-Type': 'application/json'
+//           },
+//           body: JSON.stringify(dataJson)
+//       })
+//         .then((resp) => resp.json())
+//             .then((data)=> console.log(data))
+//
+//         .catch((err)=>console.log(err))
+// }
+//
+// const dataJSON ={
+//     name: 'User 1'
+// }
+//
+// createNewUserApi(dataJSON)
+//
+// //262 i 263
+// function promiseConditionpassByFnc(condition){
+//      let p = new Promise((resolve, reject)=>{
+//      let a = 1+ 1
+//      if( condition){
+//          resolve( "Success! from Promise")
+//      }else{
+//          reject('failed from Promise')
+//      }
+//  })
+//     p.then((resp)=>console.log(resp))
+//     p.catch((err)=>console.log(err))
+//
+// }
+// promiseConditionpassByFnc(true)
+// promiseConditionpassByFnc(1<0)
+//
+//
+// //264 i 265
+// const ulList = document.querySelector("#personList")
+// console.log("to jest moje ul", ulList)
+// function listPersonFromFetch(url){
+// 	fetch(url).then((resp)=>resp.json())
+// 		.then((data)=>{
+// 			console.log(data.data)
+// 			for(let person of data.data){
+// 				const li = document.createElement("li")
+// 				li.innerText = person.first_name + " " + person.last_name
+// 				ulList.appendChild(li)
+// 			}
+//
+//
+// 		})
+// 		.catch(err=>console.log(err))
+// }
+// listPersonFromFetch(url)
+//266 i 267
 
-function createPhoneNumber(numbers){
-    numbers.unshift("(")
-    numbers.splice(4, 0 , ") ")
-    numbers.splice(8, 0, "-")
-    return numbers.join("").toString()
-    
+function getParentesisForNuberIfItIsNegative(number){
+	function inner(){
+		if (number == null) return
+		if (number < 0 )return `(${Math.abs(number)})`
+		return number.toString()
+	}
+	return inner
+		}
+
+
+
+const outerFnc1 = getParentesisForNuberIfItIsNegative(5)
+const outerFnc2 = getParentesisForNuberIfItIsNegative(-5)
+console.log(outerFnc1())
+console.log(outerFnc2())
+//268 i 269 i 270 i 271 i 272 i 273
+
+const artists = [
+  {
+    artist: "Michał Anioł",
+    country: "Włochy",
+    type: ["rzeźba", "malarstwo", "fresk"],
+    genre: ["autoportret", "akt", "sceny religijne"],
+    period: ["Renesans", "Barok"],
+  },
+  {
+    artist: "Piotr Michałowski",
+    country: "Polska",
+    type: ["malarstwo", "rysunek"],
+    genre: ["portret", "autoportret", "animalistyka", "batalistyka"],
+    period: "Romantyzm",
+  },
+  {
+    artist: "Emil Nolde",
+    country: "Niemcy",
+    type: ["grafika", "malarstwo", "akwarela"],
+    genre: ["portret", "autoportret", "pejzaż", "martwa natura"],
+    period: "Ekspresjonizm",
+  },
+  {
+    artist: "Aleksander Gierymski",
+    country: "Polska",
+    type: ["malarstwo", "rysunek"],
+    genre: ["portret", "sceny rodzajowe", "pejzaż", "nokturn"],
+    period: "Realizm",
+  },
+  {
+    artist: "Albrecht Durer",
+    country: "Niemcy",
+    type: ["grafika", "malarstwo", "akwarela", "rysunek"],
+    genre: ["portret", "autoportret", "pejzaż"],
+    period: "Renesans",
+  },
+  {
+    artist: "Caravaggio",
+    country: "Włochy",
+    type: ["malarstwo", "rysunek"],
+    genre: ["portret", "sceny religijne", "martwa natura", "sceny rodzajowe"],
+    period: ["Manieryzm"],
+  },
+  {
+    artist: "Giovanni Lorenzo Bernini",
+    country: "Włochy",
+    type: ["architektura", "rzeźba", "malarstwo"],
+    genre: ["portret", "autoportret", "sceny religijne", "sceny mitologiczne"],
+    period: "Barok",
+  },
+  {
+    artist: "Józef Chełmoński",
+    country: "Polska",
+    type: ["ilustracja", "rysunek", "malarstwo"],
+    genre: ["portret", "animalistyka", "pejzaż", "sceny rodzajowe"],
+    period: "Realizm",
+  },
+  {
+    artist: "Vincent van Gogh",
+    country: "Holandia",
+    type: ["malarstwo", "rysunek", "akwarela"],
+    genre: ["autoportret", "pejzaż", "martwa natura"],
+    period: ["Postimpresjonizm", "Ekspresjonizm"],
+  },
+  {
+    artist: "Paul Gauguin",
+    country: "Francja",
+    type: ["malarstwo", "ceramika", "rzeźba"],
+    genre: ["portret", "pejzaż", "sceny rodzajowe", "autoportret"],
+    period: "Ekspresjonizm",
+  },
+];
+
+const result1 = artists.filter((artist)=> artist.type.includes("akwarela") && artist.genre.includes("pejzaż")).map((artist)=>artist.artist.split(" ")[0])
+console.log(result1)
+
+const result2 = new Set(artists.filter((artist)=>artist.country === "Polska").flatMap((artist)=> artist.type))
+console.log(result2)
+
+const result3 = new Set(artists.filter((artist)=>!artist.genre.includes("autoportret")).flatMap((artist)=>artist.period))
+console.log(result3)
+
+
+//274 i 275 i 276 i 277 i 278 i 279
+
+const quarterfinalists = [
+    {
+        name: "Chelsea",
+        country: "England",
+        city: "London",
+        titles: 6,
+        coach: [
+            {
+                name: "Thomas Tuchel",
+                nationality: "Germany",
+                age: 48
+            }
+        ]
+    },
+    {
+        name: "Manchester City",
+        country: "England",
+        city: "Manchester",
+        titles: 7,
+        coach: [
+            {
+                name: "Pep Guardiola",
+                nationality: "Spain",
+                age: 51
+            }
+        ]
+    },
+    {
+        name: "Liverpool",
+        country: "England",
+        city: "Liverpool",
+        titles: 19,
+        coach: [
+            {
+                name: "Jurgen Klopp",
+                nationality: "Germany",
+                age: 54
+            }
+        ]
+    },
+    {
+        name: "Real Madrid",
+        country: "Spain",
+        city: "Madrid",
+        titles: 34,
+        coach: [
+            {
+                name: "Carlo Ancelotti",
+                nationality: "Italy",
+                age: 62
+            }
+        ]
+    },
+    {
+        name: "Villarreal",
+        country: "Spain",
+        city: "Vila-real",
+        titles: 0,
+        coach: [
+            {
+                name: "Unai Emery",
+                nationality: "Spain",
+                age: 50
+            }
+        ]
+    },
+    {
+        name: "Atletico Madrid",
+        country: "Spain",
+        city: "Madrid",
+        titles: 11,
+        coach: [
+            {
+                name: "Diego Simeone",
+                nationality: "Argentina",
+                age: 51
+            }
+        ]
+    },
+    {
+        name: "Bayern",
+        country: "Germany",
+        city: "Munich",
+        titles: 31,
+        coach: [
+            {
+                name: "Julian Nagelsmann",
+                nationality: "Germany",
+                age: 34
+            }
+        ]
+    },
+    {
+        name: "Benfica",
+        country: "Portugal",
+        city: "Lisbon",
+        titles: 37,
+        coach: [
+            {
+                name: "Jorge Jesus",
+                nationality: "Portugal",
+                age: 67
+            }
+        ]
+    }
+]
+const result15 = quarterfinalists.reduce((acc, cu)=>acc+cu.coach[0].age, 0)/quarterfinalists.length
+console.log(result15)
+const result16 = quarterfinalists.filter((club)=>club.country === "England").sort((a,b)=>b.titles -a.titles)[0]
+console.log(result16)
+
+const result17 = new Set(quarterfinalists.map((club)=>club.coach[0].nationality))
+console.log(result17)
+
+function getCoachnames(data){
+  function inner(){
+    return data.flatMap((club)=>club.coach[0].name)
   }
-createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0])
+  return inner
+}
+const getCoachNamesOuter = getCoachnames(quarterfinalists)
+console.log(getCoachNamesOuter())
 
 
-// 246
 
-function squareDigits(num){
-    return parseInt(num.toString().split("").map((element)=> Math.pow(parseInt(element),2)).join(""))
+//280 i 281 i 282 i 283
+
+
+function getClubsWithMoreThanNumberTitles(num){
+  function inner(data){
+      return data.filter((club)=>club.titles > num).map((club)=>club.name)
   }
+  return inner
+}
 
-// // 247 
+const getClubsWithMoreThan10Titles = getClubsWithMoreThanNumberTitles(10)
+console.log(getClubsWithMoreThan10Titles(quarterfinalists))
 
-function sumTwoSmallestNumbers(numbers) {  
-    return numbers.sort((a,b)=>a-b).filter((num, index,arr)=>index < 2).reduce((acc, cu)=>acc+cu, 0)
+
+//284 i 285 i 286 i 287
+
+function getClubsFromCountry(country_name){
+  function inner(data){
+    return data.filter((club)=>club.country === country_name).map((club)=>club.name)
   }
+  return inner
+}
 
-//248 i  249 i 250 i  251 i 252
+const getClubsFromGermany = getClubsFromCountry("Germany")
+console.log(getClubsFromGermany(quarterfinalists))
 
-const data5 = [
+
+//288 i 289 i 290 i 291
+function getClubsWithCoachOlderThan(age){
+  function inner(data){
+    return data.filter((club)=>club.coach[0].age >= 60).map((club)=>club.name)
+  }
+  return inner
+}
+
+const getClubsWithCoachOlderThan60 = getClubsWithCoachOlderThan(60)
+console.log(getClubsWithCoachOlderThan60(quarterfinalists))
+
+//292 i 293 i 294 i 295
+
+function getClubStartsWitchLetter(letter){
+  function inner(data){
+    return data.filter((club)=> club.name.startsWith(letter)).map((club)=>club.name)
+  }
+  return inner
+}
+const getClubStartsWitchB = getClubStartsWitchLetter("B")
+console.log(getClubStartsWitchB(quarterfinalists))
+
+
+//296 i 297
+
+const cars = [
 	{
 		"brand": "bmw",
 		"country": "germany",
@@ -2313,7 +2794,7 @@ const data5 = [
 		"brand": "porsche",
 		"country": "germany",
 		"year": 2018,
-		"colorway": ["black", "carbon", "white", "orange"]
+		"colorway": ["black", "carbon", "white"]
 	},
 	{
 		"brand": "toyota",
@@ -2353,80 +2834,232 @@ const data5 = [
 	}
 ]
 
-const result11 = data5.filter((car)=> car.country === "japan").map((car)=>`Car ${car.brand} from Japan, year:  ${car.year}`)
-
-const result12 = data5.filter((car)=> car.colorway.includes("red")).map((car)=> car.brand).join(", ")
-
-const result13 = data5.filter((car)=> car.year > 2001 && car.colorway.includes("carbon")).map((car)=> `${car.brand}-${car.country}`)
-const result14 = data5.reduce((acc, cu)=>acc+cu.year, 0)/data5.length
-const result15 = data5.reduce((acc, cu)=> acc.length < cu.colorway.length ? cu.colorway : acc, [] )
-console.log(result15)
+//298 i 299 i 300
 
 
+const result18 = cars.filter((car)=> car.country === "japan").map((car)=>`Car ${car.brand} from Japan, year:  ${car.year}`)
 
+const result19 = cars.filter((car)=> car.colorway.includes("red")).map((car)=> car.brand).join(", ")
 
-// // 253 i 254
-const countryStartsWithG = data5.filter((car)=>car.country.startsWith("g")).length
-const uniqueCountryStartsWithG = new Set(data5.filter((car)=>car.country.startsWith("g")).map((car)=>car.country))
-console.log(uniqueCountryStartsWithG)
+const result20 = cars.filter((car)=> car.year > 2001 && car.colorway.includes("carbon")).map((car)=> `${car.brand}-${car.country}`)
 
+// 301 i 302 i 303 i 304
 
- // 255
-
-function mostPopularCountryFromData(data){
-    const countryList = data.map((car)=>car.country).sort()
-    console.log(countryList)
-
-   let occurrencesOfWord = {};
-
-  for (let country of countryList) {
-    if (occurrencesOfWord[country]) {
-      occurrencesOfWord[country]++;
-    } else {
-      occurrencesOfWord[country] = 1;
-    }
+function getAllBrandFromYear(year){
+  function inner(data){
+    return data.filter((data)=>data.year >year).map((car)=>car.brand)
   }
-  console.log(occurrencesOfWord)
+  return inner
+}
+const carsAfter1999 = getAllBrandFromYear(1999)
+console.log(carsAfter1999(cars))
 
-  let max = 0;
-  let mostRepeatedWord = '';
 
-  for (let country of countryList) {
-    if (occurrencesOfWord[country] > max) {
-      max = occurrencesOfWord[country];
-      mostRepeatedWord = country;
-    }
+
+//305 i 306 i 307 i 308
+
+function getAllCarsFromCountry(country){
+  function inner(data){
+      return data.filter((car)=>car.country.toLowerCase() === country.toLowerCase()).map((car)=> car.brand)
   }
+  return inner
+}
 
-  return `Most repeated word is: ${mostRepeatedWord}`;
+const getCarsFromGermany = getAllCarsFromCountry("germany")
+console.log(getCarsFromGermany(cars))
 
+//309 i 310 i 311 i 312
+
+function getAllCarsWitchColor(color){
+  function inner(data){
+    return data.filter((car)=>car.colorway.includes(color)).map((car)=>car.brand)
+  }
+  return inner
+}
+
+const yellowCars = getAllCarsWitchColor("yellow")
+console.log(yellowCars(cars))
+
+// 313 i 314 i 315 i 316
+
+const drivers = [
+    {
+        name: "Max Verstappen",
+        country: "Netherlands",
+        wins: 20,
+        teams: ['Toro Rosso', 'Red Bull']
+    },
+    {
+        name: "Lewis Hamilton",
+        country: "United Kingdom",
+        wins: 103,
+        teams: ['Mclaren', 'Mercedes']
+    },
+    {
+        name: "Valtteri Bottas",
+        country: "Finland",
+        wins: 10,
+        teams: ['Williams', 'Mercedes', 'Alfa Romeo']
+    },
+    {
+        name: "Sergio Perez",
+        country: "Mexico",
+        wins: 2,
+        teams: ['Sauber', 'Mclaren', 'Force India', 'Racing Point', 'Red Bull']
+    },
+    {
+        name: "Carlos Sainz",
+        country: "Spain",
+        wins: 0,
+        teams: ['Toro Rosso', 'Renault', 'Mclaren', 'Ferrari']
+    },
+    {
+        name: "Lando Norris",
+        country: "United Kingdom",
+        wins: 0,
+        teams: ['Mclaren']
+    },
+    {
+        name: "Charles Leclerc",
+        country: "Monaco",
+        wins: 2,
+        teams: ['Sauber', 'Ferrari']
+    },
+    {
+        name: "Daniel Ricciardo",
+        country: "Australia",
+        wins: 8,
+        teams: ['HRT', 'Toro Rosso', 'Red Bull', 'Renault', 'Mclaren']
+    },
+    {
+        name: "Pierre Gasly",
+        country: "France",
+        wins: 1,
+        teams: ['Toro Rosso', 'Red Bull', 'Alpha Tauri']
+    },
+    {
+        name: "Fernando Alonso",
+        country: "Spain",
+        wins: 32,
+        teams: ['Minardi', 'Renault', 'Mclaren', 'Ferrari', 'Alpine']
+    },
+    {
+        name: "Esteban Ocon",
+        country: "France",
+        wins: 1,
+        teams: ['Manor', 'Force India', 'Renault', 'Alpine']
+    },
+    {
+        name: "Sebastian Vettel",
+        country: "Germany",
+        wins: 53,
+        teams: ['BMW Sauber', 'Toro Rosso', 'Red Bull', 'Ferrari', 'Aston Martin']
+    },
+    {
+        name: "Lance Stroll",
+        country: "Canada",
+        wins: 0,
+        teams: ['Williams', 'Racing Point', 'Aston Martin']
+    },
+    {
+        name: "Yuki Tsunoda",
+        country: "Japan",
+        wins: 0,
+        teams: ['Aplha Tauri']
+    },
+    {
+        name: "George Russell",
+        country: "United Kingdom",
+        wins: 0,
+        teams: ['Williams', 'Mercedes']
+    },
+    {
+        name: "Guanyu Zhou",
+        country: "China",
+        wins: 0,
+        teams: ['Alfa Romeo']
+    },
+    {
+        name: "Nicholas Latifi",
+        country: "Canada",
+        wins: 0,
+        teams: ['Williams']
+    },
+    {
+        name: "Alexander Albon",
+        country: "Thailand",
+        wins: 0,
+        teams: ['Toro Rosso', 'Red Bull', 'Williams']
+    },
+    {
+        name: "Mick Schumacher",
+        country: "Germany",
+        wins: 0,
+        teams: ['Haas']
+    },
+    {
+        name: "Kevin Magnussen",
+        country: "Denmark",
+        wins: 0,
+        teams: ['Mclaren','Renault', 'Haas']
+    },
+]
+
+function getAllDriverFromCountry(country){
+  function inner(data){
+    return data.filter((driver)=>driver.country === country).map((driver)=>driver.name)
+  }
+  return inner
 
 }
-console.log(mostPopularCountryFromData(data5))
+
+const driversFromFrance = getAllDriverFromCountry("France")
+console.log(driversFromFrance(drivers))
 
 
-// 256 i 257
-const url = "https://reqres.in/api/users/"
+// 317 i 318 i 319
 
-function getUsernr(number){
-    fetch(url + number)
-    .then((resp)=> resp.json())
-    .then(data=> console.log(data.data))
-
+function getAllDriversWinsMoreThenNumber(num){
+  function inner(data){
+    return data.filter((driver)=>driver.wins > num).map((driver)=>driver.name)
+  }
+  return inner
 }
-getUsernr(3)
 
+const driversWinsMoreThen20 = getAllDriversWinsMoreThenNumber(20)
+console.log(driversWinsMoreThen20(drivers))
 
+//320 i 321
+//322 i 323
 
-//258 i 259 i 260
-
-function getUsersNames() {
-    fetch(url)
-        .then((resp) => resp.json())
-        .then(data => {
-           data.data.forEach((person)=>console.log((`${person.first_name} ${person.last_name}`)))
-
-})
+function getAllDriversWitchDriveInTeam(team){
+  function inner(data){
+    return data.filter((driver)=>driver.teams.includes(team)).map((driver)=>driver.name)
+  }
+  return inner
 }
-getUsersNames()
+
+const driverFromRedBull = getAllDriversWitchDriveInTeam("Red Bull")
+console.log(driverFromRedBull(drivers))
+
+//324 i 325
+//326 i 327
+//328 i 329
+//330 i 331
+//332 i 333
+//334 i 335
+//336 i 337
+//338 i 339
+//340 i 341
+//342 i 343
+//344 i 345
+//346 i 347
+//348 i 349
+//350 i 351
+//352 i 353
+//354 i 355
+//356 i 357
+//358 i 359
+//360
+
 
