@@ -3450,24 +3450,66 @@ console.log(costOfLatteInFornir(coffeeShop))
 //372
 //373
 //374
+
+
+function getNumberIncreasedByNum(num){
+    function inner(arr){
+        return arr.map((element)=>element + num)
+    }
+    return inner
+}
+
+const getNumbersIncreasedBy20 = getNumberIncreasedByNum(20)
+console.log(getNumbersIncreasedBy20([1,2,3,4,5,6,7,8]))
 //375
-
-
-
-
-
 //376
 //377
+
+function getNumbersDecreaseByNum(num){
+    function inner(arr){
+        return arr.map((el)=> el-num)
+    }
+    return inner
+}
+const getNumbersDecreaseBy70 = getNumbersDecreaseByNum(70)
+console.log(getNumbersDecreaseBy70([1,2,3,4,5,6,7]))
+
 //378
 //379
 //380
+
+function multiplyEvenNumByFirstNumAndOddNumberBySecondNum(fNum, sNum){
+    function inner(data){
+        return data.map((element)=> element%2? element*sNum: element*fNum)
+    }
+    return inner
+}
+const multiplyEvenNumBy7OddNumBy4 = multiplyEvenNumByFirstNumAndOddNumberBySecondNum(7, 4)
+console.log(multiplyEvenNumBy7OddNumBy4([1,2,3,4,5,6,7,87]))
+
 //381
 //382
 //383
+
+function sumEveryPositiveElementInColection(col){
+    return col.filter((el)=>el>0).reduce((acc, cu)=> acc+ cu, 0)
+}
+console.log(sumEveryPositiveElementInColection([1,2,3,4,5,6,6,7]))
+
+
 //384
 //385
+
+function sumLargestAndSmallestNumberFromCollection(col){
+    const sortedCol =  col.sort((a, b)=>a-b)
+    return (sortedCol[0] + sortedCol[col.length-1])
+}
+
+console.log(sumLargestAndSmallestNumberFromCollection([1,33,77,4,22,0,-1,201]))
+
 //386
 //387
+
 //388
 //389
 //390
