@@ -3509,10 +3509,51 @@ console.log(sumLargestAndSmallestNumberFromCollection([1,33,77,4,22,0,-1,201]))
 
 //386
 //387
-
 //388
+function findMedianaAndAverageFromArr(arr){
+    const sortedArray = arr.sort((a,b)=>a - b)
+    const mediana = sortedArray.length%2? sortedArray[(sortedArray.length-1)/2] : sortedArray[sortedArray.length/2]
+    const average = arr.reduce((acc, cu)=>acc+cu)/arr.length
+    return  `Mediana wynosi ${mediana} a średnia wynosi ${average}.`
+
+
+}
+
+console.log(findMedianaAndAverageFromArr([1,2,3,4,5]))
+console.log(findMedianaAndAverageFromArr([1,2,3,4,5, 6]))
+
+
+  const family = [
+    {
+      name: 'John',
+      age: 33
+    },
+    {
+      name: 'Ann',
+      age: 16,
+    },
+    {
+      name: 'Kely',
+      age: 5,
+    },
+    {
+      name: 'Nate',
+      age: 27,
+    },
+    {
+      name: 'Brook',
+      age: 85,
+    }
+  ];
+
 //389
 //390
+
+function getDifferenceBetweenOldestAndYoungestPerson(data){
+    const sortedData = data.sort((a,b)=> a.age - b.age);
+    return (sortedData[data.length-1].age-sortedData[0].age)
+}
+console.log(getDifferenceBetweenOldestAndYoungestPerson(family))
 //391
 //392
 //393
@@ -3523,5 +3564,6 @@ console.log(sumLargestAndSmallestNumberFromCollection([1,33,77,4,22,0,-1,201]))
 //398
 //399
 //400
+
 
 
