@@ -3556,8 +3556,16 @@ function getDifferenceBetweenOldestAndYoungestPerson(data){
 console.log(getDifferenceBetweenOldestAndYoungestPerson(family))
 //391
 //392
+function getAverageAgeFromFamily(data){
+    return data.reduce((acc, cu)=> acc+ cu.age,0)/data.length
+}
+
+console.log(getAverageAgeFromFamily(family))
 //393
 //394
+
+
+
 //395
 //396
 //397
