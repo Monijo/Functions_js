@@ -3439,12 +3439,23 @@ console.log(coffeeShopsWithLongerMenuThan5(coffeeShop))
 //370
 //371
 
-
-
+function checkPriceCoffeeInCoffeeShop(coffee, cafe){
+    function inner(data){
+        return data.filter((cs)=>cs.name === cafe).map((cs)=> cs.coffeePrice[0].latte)
+    }
+    return inner
+}
+const costOfLatteInFornir = checkPriceCoffeeInCoffeeShop("latte", "Fornir")
+console.log(costOfLatteInFornir(coffeeShop))
 //372
 //373
 //374
 //375
+
+
+
+
+
 //376
 //377
 //378
