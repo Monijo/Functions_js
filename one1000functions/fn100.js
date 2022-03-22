@@ -3392,18 +3392,55 @@ const coffeeShop = [
 
 //356 i 357
 //358 i 359
+
+
+
+function getNamesOfAllCoffeeShopFromCity(city){
+    function inner(data){
+        return data.filter((coffeeShop)=>coffeeShop.city === city).map((coffeeShop)=>coffeeShop.name)
+    }
+    return inner
+}
+
+const coffeeShopsFromCracow = getNamesOfAllCoffeeShopFromCity("Kraków")
+console.log(coffeeShopsFromCracow(coffeeShop))
+
 //360
 //361
 //362
 //363
+
+function getNamesOfCoffeeShopsWithTypeOfCoffee(type){
+    function inner(data){
+        return data.filter((coffeeShop)=> coffeeShop.coffee.includes(type)).map((cs)=>cs.name)
+    }
+    return inner
+}
+
+const coffeeShopsWithLatte = getNamesOfCoffeeShopsWithTypeOfCoffee("latte")
+console.log(coffeeShopsWithLatte(coffeeShop))
 //364
 //365
 //366
 //367
+
+function getNamesOfCoffeeShopsWithMenuLongerThan(num){
+    function inner(data){
+        return data.filter((cs)=> cs.coffee.length > num).map((cs)=>cs.name)
+    }
+    return inner
+}
+
+const coffeeShopsWithLongerMenuThan5 = getNamesOfCoffeeShopsWithMenuLongerThan(5)
+console.log(coffeeShopsWithLongerMenuThan5(coffeeShop))
+
 //368
 //369
 //370
 //371
+
+
+
 //372
 //373
 //374
@@ -3430,8 +3467,8 @@ const coffeeShop = [
 //395
 //396
 //397
-//390
-//390
-//390
+//398
+//399
+//400
 
 
