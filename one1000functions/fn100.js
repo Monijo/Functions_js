@@ -3855,7 +3855,7 @@ console.log(getDistributorOfDjango(directors))
 //429
 //430
 //431
-
+//432
 function getYearOfFilmProduction(movie){
     function inner(data){
         return data.flatMap((dir)=>dir.movies).filter((film)=> film.title === movie).map((film)=>film.year)
@@ -3864,25 +3864,67 @@ function getYearOfFilmProduction(movie){
 }
 const getYearOfDjango = getYearOfFilmProduction("Django")
 console.log(getYearOfDjango(directors))
-//432
+
 //433
 //434
 //435
 //436
 //437
+
+function getGenreOfFilmProduction(movie){
+    function inner(data){
+        return data.flatMap((dir)=>dir.movies).filter((film)=> film.title === movie).map((film)=>film.genre)
+    }
+    return inner
+}
+const getGenreOfDjango = getGenreOfFilmProduction("Django")
+console.log(getGenreOfDjango(directors))
+
+
 //438
 //439
 //440
 //441
 //442
+
+function getFilmsAfterYear(year){
+    function inner(data){
+        return data.flatMap((dir)=>dir.movies).filter((film)=> film.year > year).map((film)=>film.title)
+    }
+    return inner
+}
+const filmsAfter2001 = getFilmsAfterYear(2002)
+console.log(filmsAfter2001(directors))
+
 //443
 //444
 //445
 //446
 //447
+
+function getFilmsOfTheGenre(genre){
+    function inner(data){
+        return data.flatMap((dir)=>dir.movies).filter((film)=> film.genre === genre).map((film)=>film.title)
+    }
+    return inner
+}
+const westernFilms = getFilmsOfTheGenre("Western")
+console.log(westernFilms(directors))
+
+
 //448
 //449
 //450
+//451
+//452
+//453
+//454
+//455
+//456
+//457
+//458
+//459
+//460
 
 
 
