@@ -3563,15 +3563,117 @@ function getAverageAgeFromFamily(data){
 console.log(getAverageAgeFromFamily(family))
 //393
 //394
+function alphabetPosition(text) {
+  return (text
+    .toUpperCase()
+    .match(/[A-Z]/gm) || [])
+    .map(e => e.charCodeAt() - 64)
+    .join(' ');
+}
+console.log(alphabetPosition("To jest toxt z ! do zaszyfrowania w liczby"))
 
 
+//395 i 396
 
-//395
-//396
+function findNextSquare(sq) {
+  const result = Math.sqrt(sq)
+
+  return result%1? -1: Math.pow(result+1, 2)
+}
+console.log(144)
+console.log(142)
+
+function minMax(arr){
+  return [Math.min(...arr), Math.max(...arr)]
+}
+
+console.log(minMax([1,2,3,4,5,6,6,7,8,89]))
+
+
 //397
 //398
+function Numeronyms(sentence){
+    return  sentence.split(" ").map((word)=> word.length> 3?(word[0] + (word.length-2) + word[word.length-1]): word).join(" ")
+
+}
+
+console.log(Numeronyms("To jest zdanie w ktorym niektore wyrazy zostana zmienione"))
+
 //399
 //400
+
+function factorialOfNumber(number){
+    const newArray = [];
+    for(let i =1; i<number+1; i++){
+        newArray.push(i)
+    }
+    return newArray.reduce((acc, cu)=>acc*cu, 1)
+
+}
+
+console.log(factorialOfNumber(6))
+//401
+//402 :)
+//403
+
+function factorialOfNumber2(num){
+    const newArr = new Array(num).fill(null);
+    return newArr.map((curVal, index)=> index+1).reduce((acc, cu)=>acc*cu)
+}
+
+console.log(factorialOfNumber2(6))
+
+
+//404
+//405
+//406
+
+
+
+//407
+//408
+//409
+//410
+//411
+//412
+//413
+//414
+//415
+//416
+//417
+//418
+//419
+//420
+//421
+//422
+//423
+//424
+//425
+//426
+//427
+//428
+//429
+//430
+//431
+//432
+//433
+//434
+//435
+//436
+//437
+//438
+//439
+//440
+//441
+//442
+//443
+//444
+//445
+//446
+//447
+//448
+//449
+//450
 
 
 
