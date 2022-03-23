@@ -3917,11 +3917,36 @@ console.log(westernFilms(directors))
 //450
 //451
 //452
+
+
+function getFilmsFromDistributor(distributor){
+    function inner(data){
+        return data.flatMap((dir)=>dir.movies).filter((film)=> film.distributor === distributor).map((film)=>film.title)
+    }
+    return inner
+}
+const filmsFromMiramax = getFilmsFromDistributor("Miramax")
+console.log(filmsFromMiramax(directors))
+
+
 //453
 //454
 //455
 //456
 //457
+
+function getInfoAboutFilm(movie){
+    function inner(data){
+        return (data.flatMap((dir)=>dir.movies).filter((film)=> film.title === movie)
+            .map((film)=>`Tytuł : ${film.title}, year: ${film.year}, genre: ${film.genre}, distributor: ${film.distributor}`))
+    }
+    return inner
+}
+const infoAboutDjango = getInfoAboutFilm("Django")
+console.log(infoAboutDjango(directors))
+
+
+
 //458
 //459
 //460
