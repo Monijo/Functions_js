@@ -3625,18 +3625,69 @@ console.log(factorialOfNumber2(6))
 
 
 //404
+
+
+function countElementInArrays(arr){
+    const obj = {
+
+    }
+    for(let el of arr.flat()){
+        if(!obj[el]){
+            obj[el]=1
+        }else{
+            obj[el]++
+        }
+    }
+    return obj
+}
+console.log(countElementInArrays([['a', 'b', 'c', 'd'], ['b', 'b', 'c'],['d', 's']]))
+
 //405
 //406
 
-
+function getNameInitials(names){
+    return names.split(" ").map((name)=>name[0]).join("")
+}
+console.log(getNameInitials(" Anna Helena Klara"))
 
 //407
+
+
+function exclainWord(word){
+    return `${word}!`
+}
+console.log(exclainWord("Kasia"))
+
+
 //408
 //409
+
+function doubleLetter(word){
+    return word.split("").map((letter)=> `${letter}${letter}`).join("")
+}
+console.log(doubleLetter("hgdgdfc"))
+
 //410
 //411
 //412
 //413
+function atLeastTwo(arr, callback){
+    return (arr.filter((num)=> callback(num)).length > 1? true: false)
+}
+
+function isOdd(el){
+    return el%2
+}
+
+function isBiggerThan3(num){
+    return num > 3
+}
+
+console.log(atLeastTwo([1,2,3,4,5,6,7], isOdd))
+console.log(atLeastTwo([6,2,8,4,8,6,7], isOdd))
+console.log(atLeastTwo([6,2,8,4,8,6,7], isBiggerThan3))
+console.log(atLeastTwo([6,2,0, 1,2,2,2], isBiggerThan3))
+
 //414
 //415
 //416
