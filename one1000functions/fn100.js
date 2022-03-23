@@ -3689,18 +3689,161 @@ console.log(atLeastTwo([6,2,8,4,8,6,7], isBiggerThan3))
 console.log(atLeastTwo([6,2,0, 1,2,2,2], isBiggerThan3))
 
 //414
+
+
+function repeatFunction(text, numOfRepeat, cb){
+    for(let i = 0; i< numOfRepeat; i++){
+        text = cb(text)
+    }
+    return text
+
+}
+console.log(repeatFunction("power", 3, exclainWord))
+console.log(repeatFunction("power", 2, doubleLetter))
+
+const directors = [
+  {
+    name: "Christopher",
+    surname: "Nolan",
+    birth: 1970,
+    children: ["Flora Nolan", "Oliver Nolan", "Rory Nolan", "Magnus Nolan"],
+    movies: [
+      {
+        title: "Memento",
+        year: 2000,
+        genre: "Thriller",
+        distributor: "Newmarket Films",
+      },
+      {
+        title: "Inception",
+        year: 2010,
+        genre: "Thriller",
+        distributor: "Warner Bros.",
+      },
+      {
+        title: "Dunkirk",
+        year: 2017,
+        genre: "War",
+        distributor: "Warner Bros.",
+      },
+      {
+        title: "Tenet",
+        year: 2020,
+        genre: "Thriller",
+        distributor: "Warner Bros.",
+      },
+    ],
+  },
+  {
+    name: "Quentin",
+    surname: "Tarantino",
+    birth: 1963,
+    children: ["Leo Tarantino"],
+    movies: [
+      {
+        title: "Pulp Fiction",
+        year: 1994,
+        genre: "Crime",
+        distributor: "Miramax",
+      },
+      {
+        title: "Kill Bill",
+        year: 2003,
+        genre: "Action",
+        distributor: "Miramax",
+      },
+      {
+        title: "Django",
+        year: 2012,
+        genre: "Western",
+        distributor: "Columbia Pictures",
+      },
+      {
+        title: "The Hateful Eight",
+        year: 2015,
+        genre: "Western",
+        distributor: "The Weinstein Company",
+      },
+    ],
+  },
+  {
+    name: "Martin",
+    surname: "Scorsese",
+    birth: 1942,
+    children: [
+      "Francesca Scorsese",
+      "Domenica Cameron-Scorsese",
+      "Cathy Scorsese",
+    ],
+    movies: [
+      {
+        title: "After Hours",
+        year: 1985,
+        genre: "Black comedy",
+        distributor: "Warner Bros.",
+      },
+      {
+        title: "Casino",
+        year: 1995,
+        genre: "Crime",
+        distributor: "Universal Pictures",
+      },
+      {
+        title: "The Departed",
+        year: 2006,
+        genre: "Crime",
+        distributor: "Warner Bros.",
+      },
+      {
+        title: "The Irishman",
+        year: 2019,
+        genre: "Crime",
+        distributor: "Netflix",
+      },
+    ],
+  },
+];
+
 //415
 //416
 //417
 //418
+
+
+
+function getDirectorsBirthAfterYear(year){
+    function inner(data){
+        return data.filter((director)=>director.birth > year).map((director)=> `${director.name} ${director.surname}`)
+    }
+    return inner
+}
+
+const directorsBornAfter1965 = getDirectorsBirthAfterYear(1965)
+console.log(directorsBornAfter1965(directors))
+
 //419
 //420
 //421
 //422
+
+function getDirectorsWithMoreThanChildren(num){
+    function inner(data){
+        return data.filter((director)=>director.children.length > num).map((dir)=> `${dir.name} ${dir.surname}`)
+    }
+    return inner
+}
+
+const directorsWithMoreThan4Kids = getDirectorsWithMoreThanChildren(3)
+console.log(directorsWithMoreThan4Kids(directors))
+
 //423
 //424
 //425
 //426
+
+
+
+
 //427
 //428
 //429
