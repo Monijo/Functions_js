@@ -3809,46 +3809,61 @@ const directors = [
 //417
 //418
 
-
-
-function getDirectorsBirthAfterYear(year){
-    function inner(data){
-        return data.filter((director)=>director.birth > year).map((director)=> `${director.name} ${director.surname}`)
-    }
-    return inner
-}
-
-const directorsBornAfter1965 = getDirectorsBirthAfterYear(1965)
-console.log(directorsBornAfter1965(directors))
-
-//419
-//420
-//421
-//422
-
-function getDirectorsWithMoreThanChildren(num){
-    function inner(data){
-        return data.filter((director)=>director.children.length > num).map((dir)=> `${dir.name} ${dir.surname}`)
-    }
-    return inner
-}
-
-const directorsWithMoreThan4Kids = getDirectorsWithMoreThanChildren(3)
-console.log(directorsWithMoreThan4Kids(directors))
+//
+//
+// function getDirectorsBirthAfterYear(year){
+//     function inner(data){
+//         return data.filter((director)=>director.birth > year).map((director)=> `${director.name} ${director.surname}`)
+//     }
+//     return inner
+// }
+//
+// const directorsBornAfter1965 = getDirectorsBirthAfterYear(1965)
+// console.log(directorsBornAfter1965(directors))
+//
+// //419
+// //420
+// //421
+// //422
+//
+// function getDirectorsWithMoreThanChildren(num){
+//     function inner(data){
+//         return data.filter((director)=>director.children.length > num).map((dir)=> `${dir.name} ${dir.surname}`)
+//     }
+//     return inner
+// }
+//
+// const directorsWithMoreThan4Kids = getDirectorsWithMoreThanChildren(3)
+// console.log(directorsWithMoreThan4Kids(directors))
 
 //423
 //424
 //425
 //426
-
-
-
-
 //427
+
+function getDistributorOfFilm(movieEx){
+    function inner(data){
+        return data.flatMap(dir=>dir.movies).filter((film)=> film.title === movieEx).map((film)=>film.distributor)
+    }
+    return inner
+}
+const getDistributorOfDjango = getDistributorOfFilm("Django")
+console.log(getDistributorOfDjango(directors))
+
 //428
 //429
 //430
 //431
+
+function getYearOfFilmProduction(movie){
+    function inner(data){
+        return data.flatMap((dir)=>dir.movies).filter((film)=> film.title === movie).map((film)=>film.year)
+    }
+    return inner
+}
+const getYearOfDjango = getYearOfFilmProduction("Django")
+console.log(getYearOfDjango(directors))
 //432
 //433
 //434
