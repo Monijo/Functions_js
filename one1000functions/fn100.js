@@ -3950,6 +3950,27 @@ console.log(infoAboutDjango(directors))
 //458
 //459
 //460
+//461
+//462
+
+function getInfoAboutDirector(directorSurname){
+    function inner(data){
+        return (data.filter((dir)=> dir.surname === directorSurname)
+            .map((dir)=>`Imię : ${dir.name}, Nazwisko: ${dir.surname}, Urodzony: ${dir.birth}, liczba dzieci: ${dir.children.length}`))
+    }
+    return inner
+}
+const infoAboutNolan = getInfoAboutDirector("Nolan")
+console.log(infoAboutNolan(directors))
+
+//463
+//464
+//465
+//466
+//467
+//468
+//469
+//470
 
 
 
