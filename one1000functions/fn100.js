@@ -4535,20 +4535,52 @@ const weatherData = [
 //563
 //564
 
-function getInfoAboutWindSpeedAtStation(station){
-    function inner(data){
-        return data.filter((st)=>st.stacja === station).map((st)=>`Na stacji ${st.stacja} prędkość wiatru wyniosła: ${st.predkosc_wiatru || "Brak pomiaru"}`)
-    }
-    return inner
-}
-const getInfoAboutWindSpeedAtStationOpole= getInfoAboutWindSpeedAtStation("Opole")
-console.log(getInfoAboutWindSpeedAtStationOpole(weatherData))
+// function getInfoAboutWindSpeedAtStation(station){
+//     function inner(data){
+//         return data.filter((st)=>st.stacja === station).map((st)=>`Na stacji ${st.stacja} prędkość wiatru wyniosła: ${st.predkosc_wiatru || "Brak pomiaru"}`)
+//     }
+//     return inner
+// }
+// const getInfoAboutWindSpeedAtStationOpole= getInfoAboutWindSpeedAtStation("Opole")
+// console.log(getInfoAboutWindSpeedAtStationOpole(weatherData))
 
 //565
 //566
 //567
 //568
+
+// function getInfoAboutWindDirectionAtStation(station){
+//     function inner(data){
+//         return data.filter((st)=>st.stacja === station).map((st)=>`Na stacji ${st.stacja} zanotowano kierunek wiatru : ${st.kierunek_wiatru || "Brak pomiaru"}`)
+//     }
+//     return inner
+// }
+// const getInfoAboutWindDirectionAtStationOpole= getInfoAboutWindDirectionAtStation("Opole")
+// console.log(getInfoAboutWindDirectionAtStationOpole(weatherData))
+
+
 //569
+//570
+//571
+//572
+
+function getInfoAboutRelativeHumidityAtStation(station){
+    function inner(data){
+        return data.filter((st)=>st.stacja === station).map((st)=>`Na stacji ${st.stacja} zanotowano wilgotność względną : ${st.wilgotnosc_wzgledna || "Brak pomiaru"}`)
+    }
+    return inner
+}
+const getInfoAboutRelativeHumidityAtStationOpole= getInfoAboutRelativeHumidityAtStation("Opole")
+console.log(getInfoAboutRelativeHumidityAtStationOpole(weatherData))
+
+//573
+//574
+//575
+//576
+//577
+//578
+//579
+//580
 
 
 // const myFavoritePromise = new Promise((resolve, reject)=>{
