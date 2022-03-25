@@ -4634,16 +4634,58 @@ console.log(InfoAboutStationOpole(weatherData))
 //590
 //591
 //592
+
+function getNameStationById(id){
+    function inner(data){
+        return data.filter((st)=>parseInt(st.id_stacji) === id).map((st)=>st.stacja)
+    }
+    return inner
+}
+const getStationById12530 = getNameStationById(12530)
+console.log(getStationById12530(weatherData))
 //593
 //594
 //595
 //596
+
+function getTimeMeasermentAtStation(station){
+    function inner(data){
+        return data.filter((st)=>st.stacja === station).map((st)=> st.godzina_pomiaru)
+    }
+    return inner
+}
+
+const getTimeMeasermentFormStationOpole = getTimeMeasermentAtStation("Opole")
+console.log(getTimeMeasermentFormStationOpole(weatherData))
+
+
+
+
 //597
 //598
 //599
 //600
+function getDataMeasermentAtStation(station){
+    function inner(data){
+        return data.filter((st)=>st.stacja === station).map((st)=> st.data_pomiaru)
+    }
+    return inner
+}
+
+const getDataMeasermentFormStationOpole = getDataMeasermentAtStation("Opole")
+console.log(getDataMeasermentFormStationOpole(weatherData))
+//601
 
 
+function getNumberOfStationWithRecordedMeasurements(data){
+    return data.length
+}
+console.log(getNumberOfStationWithRecordedMeasurements(weatherData))
+
+
+
+//602
+//603
 // const myFavoritePromise = new Promise((resolve, reject)=>{
 //     setTimeout(()=>{
 //         alert('Mineło 10 sek')
@@ -4666,3 +4708,10 @@ console.log(InfoAboutStationOpole(weatherData))
 //         console.log("wkoncu!")
 //     })
 
+//604
+//605
+//606
+//607
+//608
+//609
+//610
