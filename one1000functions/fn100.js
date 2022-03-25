@@ -4459,22 +4459,56 @@ const weatherData = [
 //539
 //540
 //541
+//
+// function minRecordedRelativeHumidityAtTime(timeStr){
+//     function inner(data){
+//         return data.filter((st)=>st.godzina_pomiaru === timeStr).map((st)=>parseFloat(st.wilgotnosc_wzgledna)).reduce((acc, cu)=> cu<acc?cu:acc)
+//     }
+//     return inner
+// }
+// const minRecordedRelativeHumidityAt19= minRecordedRelativeHumidityAtTime("19")
+// console.log(minRecordedRelativeHumidityAt19(weatherData))
 
-function minRecordedRelativeHumidityAtTime(timeStr){
-    function inner(data){
-        return data.filter((st)=>st.godzina_pomiaru === timeStr).map((st)=>parseFloat(st.wilgotnosc_wzgledna)).reduce((acc, cu)=> cu<acc?cu:acc)
-    }
-    return inner
-}
-const minRecordedRelativeHumidityAt19= minRecordedRelativeHumidityAtTime("19")
-console.log(minRecordedRelativeHumidityAt19(weatherData))
+//542
+//543
+//544
+//545
+//546
 
-//541
-//541
-//541
-//541
-//541
-//541
+
+// function minRecordedWindSpeedAtTime(timeStr){
+//     function inner(data){
+//         return data.filter((st)=>st.godzina_pomiaru === timeStr).map((st)=>parseFloat(st.predkosc_wiatru)).reduce((acc, cu)=> cu<acc?cu:acc)
+//     }
+//     return inner
+// }
+// const minRecordedWindSpeedAt19= minRecordedWindSpeedAtTime("19")
+// console.log(minRecordedWindSpeedAt19(weatherData))
+
+//547
+//548
+//549
+//550
+//551
+
+// function maxRecordedWindSpeedAtTime(timeStr){
+//     function inner(data){
+//         return data.filter((st)=>st.godzina_pomiaru === timeStr).map((st)=>parseFloat(st.predkosc_wiatru)).reduce((acc, cu)=> cu>acc?cu:acc)
+//     }
+//     return inner
+// }
+// const maxRecordedWindSpeedAt19= maxRecordedWindSpeedAtTime("19")
+// console.log(maxRecordedWindSpeedAt19(weatherData))
+
+//552
+//553
+//554
+//555
+//556
+//557
+//558
+//559
+//560
 
 
 // const myFavoritePromise = new Promise((resolve, reject)=>{
