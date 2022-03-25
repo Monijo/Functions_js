@@ -4519,21 +4519,31 @@ const weatherData = [
 //558
 //559
 //560
+
+
+
+// function getTempAtStation(station){
+//     function inner(data){
+//         return data.filter((st)=>st.stacja === station).map((st)=>`Na stacji ${st.stacja} temperatura wyniosła: ${st.temperatura || "Brak pomiaru"}`)
+//     }
+//     return inner
+// }
+// const getTempatStationOpole= getTempAtStation("Opole")
+// console.log(getTempatStationOpole(weatherData))
 //561
-
-
-function minRecordedTempAtTime(timeStr){
-    function inner(data){
-        return data.filter((st)=>st.godzina_pomiaru === timeStr).map((st)=>parseFloat(st.temperatura)).reduce((acc, cu)=> cu<acc?cu:acc)
-    }
-    return inner
-}
-const minRecordedTempAt19= minRecordedTempAtTime("19")
-console.log(minRecordedTempAt19(weatherData))
-
 //562
 //563
 //564
+
+function getInfoAboutWindSpeedAtStation(station){
+    function inner(data){
+        return data.filter((st)=>st.stacja === station).map((st)=>`Na stacji ${st.stacja} prędkość wiatru wyniosła: ${st.predkosc_wiatru || "Brak pomiaru"}`)
+    }
+    return inner
+}
+const getInfoAboutWindSpeedAtStationOpole= getInfoAboutWindSpeedAtStation("Opole")
+console.log(getInfoAboutWindSpeedAtStationOpole(weatherData))
+
 //565
 //566
 //567
