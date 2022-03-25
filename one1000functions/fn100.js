@@ -4338,14 +4338,14 @@ const weatherData = [
 //500
 //501
 
-function getAverageRainFallAtTime(timeStr){
-    function inner(data){
-        return data.filter((st)=>st.godzina_pomiaru===timeStr).map((st)=>parseFloat(st.suma_opadu) || 0).reduce((acc, cu)=>acc+cu)/data.length
-    }
-    return inner
-}
-const measurementsFrom19rainFall= getAverageRainFallAtTime("19")
-console.log(measurementsFrom19rainFall(weatherData))
+// function getAverageRainFallAtTime(timeStr){
+//     function inner(data){
+//         return data.filter((st)=>st.godzina_pomiaru===timeStr).map((st)=>parseFloat(st.suma_opadu) || 0).reduce((acc, cu)=>acc+cu)/data.length
+//     }
+//     return inner
+// }
+// const measurementsFrom19rainFall= getAverageRainFallAtTime("19")
+// console.log(measurementsFrom19rainFall(weatherData))
 
 
 //502
@@ -4353,16 +4353,47 @@ console.log(measurementsFrom19rainFall(weatherData))
 //504
 //505
 //506
+
+// function getAverageRelativeHumidityAtTime(timeStr){
+//     function inner(data){
+//         return data.filter((st)=>st.godzina_pomiaru===timeStr).map((st)=>parseFloat(st.wilgotnosc_wzgledna) || 0).reduce((acc, cu)=>acc+cu)/data.length
+//     }
+//     return inner
+// }
+// const measurementsFrom19RelativeHumidity= getAverageRelativeHumidityAtTime("19")
+// console.log(measurementsFrom19RelativeHumidity(weatherData))
+
 //507
 //508
 //509
 //510
 //511
+
+// function getAverageWindSpreedAtTime(timeStr){
+//     function inner(data){
+//         return data.filter((st)=>st.godzina_pomiaru===timeStr).map((st)=>parseFloat(st.predkosc_wiatru) || 0).reduce((acc, cu)=>acc+cu)/data.length
+//     }
+//     return inner
+// }
+// const measurementsFrom19WindSpeed= getAverageWindSpreedAtTime("19")
+// console.log(measurementsFrom19WindSpeed(weatherData))
+
+
 //512
 //513
 //514
 //515
 //516
+
+function getMaxPressureAtTime(timeStr){
+    function inner(data){
+        return data.filter((st)=>st.godzina_pomiaru === timeStr).map((st)=>parseFloat(st.cisnienie)).reduce((acc, cu)=> cu>acc?cu:acc)
+    }
+    return inner
+}
+const maxPressureAtTime19= getMaxPressureAtTime("19")
+console.log(maxPressureAtTime19(weatherData))
+
 //517
 //518
 //519
