@@ -4564,14 +4564,14 @@ const weatherData = [
 //571
 //572
 
-function getInfoAboutRelativeHumidityAtStation(station){
-    function inner(data){
-        return data.filter((st)=>st.stacja === station).map((st)=>`Na stacji ${st.stacja} zanotowano wilgotność względną : ${st.wilgotnosc_wzgledna || "Brak pomiaru"}`)
-    }
-    return inner
-}
-const getInfoAboutRelativeHumidityAtStationOpole= getInfoAboutRelativeHumidityAtStation("Opole")
-console.log(getInfoAboutRelativeHumidityAtStationOpole(weatherData))
+// function getInfoAboutRelativeHumidityAtStation(station){
+//     function inner(data){
+//         return data.filter((st)=>st.stacja === station).map((st)=>`Na stacji ${st.stacja} zanotowano wilgotność względną : ${st.wilgotnosc_wzgledna || "Brak pomiaru"}`)
+//     }
+//     return inner
+// }
+// const getInfoAboutRelativeHumidityAtStationOpole= getInfoAboutRelativeHumidityAtStation("Opole")
+// console.log(getInfoAboutRelativeHumidityAtStationOpole(weatherData))
 
 //573
 //574
@@ -4593,25 +4593,55 @@ console.log(getInfoAboutRelativeHumidityAtStationOpole(weatherData))
 //579
 //580
 
-function getInfoAboutPressureAtStation(station){
-    function inner(data){
-        return data.filter((st)=>st.stacja === station).map((st)=>`Na stacji ${st.stacja} zanotowano ciśnienie : ${st.cisnienie || "Brak pomiaru"}`)
-    }
-    return inner
-}
-const getInfoAboutPressureAtStationOpole= getInfoAboutPressureAtStation("Opole")
-console.log(getInfoAboutPressureAtStationOpole(weatherData))
+// function getInfoAboutPressureAtStation(station){
+//     function inner(data){
+//         return data.filter((st)=>st.stacja === station).map((st)=>`Na stacji ${st.stacja} zanotowano ciśnienie : ${st.cisnienie || "Brak pomiaru"}`)
+//     }
+//     return inner
+// }
+// const getInfoAboutPressureAtStationOpole= getInfoAboutPressureAtStation("Opole")
+// console.log(getInfoAboutPressureAtStationOpole(weatherData))
 
 //581
 //582
 //583
 //584
+
+function getAllStationNameWhereNotRegisterParameterAtTime(timeStr){
+    function inner(data){
+        return data.filter((st)=>Object.values(st).includes(null)).map((st)=>st.stacja)
+    }
+    return inner
+}
+const stationWithNoRegisterParmeterAt19 = getAllStationNameWhereNotRegisterParameterAtTime("19")
+console.log(stationWithNoRegisterParmeterAt19(weatherData))
+
 //585
 //586
 //587
 //588
+
+function getTechInfoAboutStation(station){
+    function inner(data){
+        return data.filter((st)=>st.stacja === station).map((st)=>`Stacja: ${st.stacja}, id: ${st.id_stacji}, data: ${st.data_pomiaru}, godz: ${st.godzina_pomiaru}`)
+    }
+    return inner
+}
+
+const InfoAboutStationOpole = getTechInfoAboutStation("Opole")
+console.log(InfoAboutStationOpole(weatherData))
 //589
 //590
+//591
+//592
+//593
+//594
+//595
+//596
+//597
+//598
+//599
+//600
 
 
 // const myFavoritePromise = new Promise((resolve, reject)=>{
