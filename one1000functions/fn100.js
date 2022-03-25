@@ -4385,19 +4385,69 @@ const weatherData = [
 //515
 //516
 
-function getMaxPressureAtTime(timeStr){
-    function inner(data){
-        return data.filter((st)=>st.godzina_pomiaru === timeStr).map((st)=>parseFloat(st.cisnienie)).reduce((acc, cu)=> cu>acc?cu:acc)
-    }
-    return inner
-}
-const maxPressureAtTime19= getMaxPressureAtTime("19")
-console.log(maxPressureAtTime19(weatherData))
+// function getMaxPressureAtTime(timeStr){
+//     function inner(data){
+//         return data.filter((st)=>st.godzina_pomiaru === timeStr).map((st)=>parseFloat(st.cisnienie)).reduce((acc, cu)=> cu>acc?cu:acc)
+//     }
+//     return inner
+// }
+// const maxPressureAtTime19= getMaxPressureAtTime("19")
+// console.log(maxPressureAtTime19(weatherData))
 
 //517
 //518
 //519
 //520
+//521
+
+// function getMinPressureAtTime(timeStr){
+//     function inner(data){
+//         return data.filter((st)=>st.godzina_pomiaru === timeStr).map((st)=>parseFloat(st.cisnienie)).reduce((acc, cu)=> cu<acc?cu:acc)
+//     }
+//     return inner
+// }
+// const minPressureAtTime19= getMinPressureAtTime("19")
+// console.log(minPressureAtTime19(weatherData))
+
+//522
+//523
+//524
+//525
+//526
+
+// function getMinRainFallAtStationAtTime(timeStr){
+//     function inner(data){
+//         return data.filter((st)=>st.godzina_pomiaru === timeStr).map((st)=>parseFloat(st.suma_opadu)).reduce((acc, cu)=> cu<acc?cu:acc)
+//     }
+//     return inner
+// }
+// const minRainFallAtStationAt19= getMinRainFallAtStationAtTime("19")
+// console.log(minRainFallAtStationAt19(weatherData))
+
+//527
+//528
+//529
+//530
+//531
+
+function getMaxRainFallAtStationAtTime(timeStr){
+    function inner(data){
+        return data.filter((st)=>st.godzina_pomiaru === timeStr).map((st)=>parseFloat(st.suma_opadu)).reduce((acc, cu)=> cu>acc?cu:acc)
+    }
+    return inner
+}
+const maxRainFallAtStationAt19= getMaxRainFallAtStationAtTime("19")
+console.log(maxRainFallAtStationAt19(weatherData))
+
+//532
+//533
+//534
+//535
+//536
+//537
+//538
+//539
+//540
 
 
 // const myFavoritePromise = new Promise((resolve, reject)=>{
