@@ -4607,80 +4607,80 @@ const weatherData = [
 //583
 //584
 
-function getAllStationNameWhereNotRegisterParameterAtTime(timeStr){
-    function inner(data){
-        return data.filter((st)=>Object.values(st).includes(null)).map((st)=>st.stacja)
-    }
-    return inner
-}
-const stationWithNoRegisterParmeterAt19 = getAllStationNameWhereNotRegisterParameterAtTime("19")
-console.log(stationWithNoRegisterParmeterAt19(weatherData))
-
-//585
-//586
-//587
-//588
-
-function getTechInfoAboutStation(station){
-    function inner(data){
-        return data.filter((st)=>st.stacja === station).map((st)=>`Stacja: ${st.stacja}, id: ${st.id_stacji}, data: ${st.data_pomiaru}, godz: ${st.godzina_pomiaru}`)
-    }
-    return inner
-}
-
-const InfoAboutStationOpole = getTechInfoAboutStation("Opole")
-console.log(InfoAboutStationOpole(weatherData))
-//589
-//590
-//591
-//592
-
-function getNameStationById(id){
-    function inner(data){
-        return data.filter((st)=>parseInt(st.id_stacji) === id).map((st)=>st.stacja)
-    }
-    return inner
-}
-const getStationById12530 = getNameStationById(12530)
-console.log(getStationById12530(weatherData))
-//593
-//594
-//595
-//596
-
-function getTimeMeasermentAtStation(station){
-    function inner(data){
-        return data.filter((st)=>st.stacja === station).map((st)=> st.godzina_pomiaru)
-    }
-    return inner
-}
-
-const getTimeMeasermentFormStationOpole = getTimeMeasermentAtStation("Opole")
-console.log(getTimeMeasermentFormStationOpole(weatherData))
-
-
-
-
-//597
-//598
-//599
-//600
-function getDataMeasermentAtStation(station){
-    function inner(data){
-        return data.filter((st)=>st.stacja === station).map((st)=> st.data_pomiaru)
-    }
-    return inner
-}
-
-const getDataMeasermentFormStationOpole = getDataMeasermentAtStation("Opole")
-console.log(getDataMeasermentFormStationOpole(weatherData))
-//601
-
-
-function getNumberOfStationWithRecordedMeasurements(data){
-    return data.length
-}
-console.log(getNumberOfStationWithRecordedMeasurements(weatherData))
+// function getAllStationNameWhereNotRegisterParameterAtTime(timeStr){
+//     function inner(data){
+//         return data.filter((st)=>Object.values(st).includes(null)).map((st)=>st.stacja)
+//     }
+//     return inner
+// }
+// const stationWithNoRegisterParmeterAt19 = getAllStationNameWhereNotRegisterParameterAtTime("19")
+// console.log(stationWithNoRegisterParmeterAt19(weatherData))
+//
+// //585
+// //586
+// //587
+// //588
+//
+// function getTechInfoAboutStation(station){
+//     function inner(data){
+//         return data.filter((st)=>st.stacja === station).map((st)=>`Stacja: ${st.stacja}, id: ${st.id_stacji}, data: ${st.data_pomiaru}, godz: ${st.godzina_pomiaru}`)
+//     }
+//     return inner
+// }
+//
+// const InfoAboutStationOpole = getTechInfoAboutStation("Opole")
+// console.log(InfoAboutStationOpole(weatherData))
+// //589
+// //590
+// //591
+// //592
+//
+// function getNameStationById(id){
+//     function inner(data){
+//         return data.filter((st)=>parseInt(st.id_stacji) === id).map((st)=>st.stacja)
+//     }
+//     return inner
+// }
+// const getStationById12530 = getNameStationById(12530)
+// console.log(getStationById12530(weatherData))
+// //593
+// //594
+// //595
+// //596
+//
+// function getTimeMeasermentAtStation(station){
+//     function inner(data){
+//         return data.filter((st)=>st.stacja === station).map((st)=> st.godzina_pomiaru)
+//     }
+//     return inner
+// }
+//
+// const getTimeMeasermentFormStationOpole = getTimeMeasermentAtStation("Opole")
+// console.log(getTimeMeasermentFormStationOpole(weatherData))
+//
+//
+//
+//
+// //597
+// //598
+// //599
+// //600
+// function getDataMeasermentAtStation(station){
+//     function inner(data){
+//         return data.filter((st)=>st.stacja === station).map((st)=> st.data_pomiaru)
+//     }
+//     return inner
+// }
+//
+// const getDataMeasermentFormStationOpole = getDataMeasermentAtStation("Opole")
+// console.log(getDataMeasermentFormStationOpole(weatherData))
+// //601
+//
+//
+// function getNumberOfStationWithRecordedMeasurements(data){
+//     return data.length
+// }
+// console.log(getNumberOfStationWithRecordedMeasurements(weatherData))
 
 
 
@@ -4709,6 +4709,313 @@ console.log(getNumberOfStationWithRecordedMeasurements(weatherData))
 //     })
 
 //604
+
+// const url = "https://api.le-systeme-solaire.net/rest/bodies/"
+//
+// fetch(url).then(resp => resp.json()).then(data => {
+//     const newArr = []
+//     const moonArr = [];
+//     for (let el of data.bodies) {
+//         if (el.isPlanet === true) {
+//             newArr.push(el)
+//             if (el.englishName === "Neptune") {
+//                 el.moons.forEach(el => moonArr.push(`"${el.moon}"`))
+//             }
+//
+//         }
+//     }
+//     console.log(moonArr.join(", "))
+//     console.log(newArr)
+// })
+
+solar_system = [
+    {
+        alternativeName: "",
+        aphelion: 69816900,
+        argPeriapsis: 29.022,
+        aroundPlanet: null,
+        avgTemp: 440,
+        axialTilt: 0.0352,
+        bodyType: "Planet",
+        density: 5.4291,
+        dimension: "",
+        discoveredBy: "",
+        discoveryDate: "",
+        eccentricity: 0.2056,
+        englishName: "Mercury",
+        equaRadius: 2440.53,
+        escape: 4250,
+        flattening: 0,
+        gravity: 3.7,
+        id: "mercure",
+        inclination: 7,
+        isPlanet: true,
+        longAscNode: 48.378,
+        mainAnomaly: 174.796,
+        mass: {massValue: 3.30114, massExponent: 23},
+        meanRadius: 2439.4,
+        moons: null,
+        name: "Mercure",
+        perihelion: 46001200,
+        polarRadius: 2439.7,
+        semimajorAxis: 57909050,
+        sideralOrbit: 87.969,
+        sideralRotation: 1407.6,
+    },
+    {
+        alternativeName: "",
+        aphelion: 108939000,
+        argPeriapsis: 54.78,
+        aroundPlanet: null,
+        avgTemp: 737,
+        axialTilt: 177.36,
+        bodyType: "Planet",
+        density: 5.243,
+        dimension: "",
+        discoveredBy: "",
+        discoveryDate: "",
+        eccentricity: 0.0067,
+        englishName: "Venus",
+        equaRadius: 6051.8,
+        escape: 10360,
+        flattening: 0,
+        gravity: 8.87,
+        id: "venus",
+        inclination: 3.39,
+        isPlanet: true,
+        longAscNode: 76.785,
+        mainAnomaly: 50.115,
+        mass: {massValue: 4.86747, massExponent: 24},
+        meanRadius: 6051.8,
+        moons: null,
+        name: "Vénus",
+        perihelion: 107477000,
+        polarRadius: 6051.8,
+        semimajorAxis: 108208475,
+        sideralOrbit: 224.701,
+        sideralRotation: -5832.5,
+    },
+    {
+        alternativeName: "",
+        aphelion: 152100000,
+        argPeriapsis: 85.901,
+        aroundPlanet: null,
+        avgTemp: 288,
+        axialTilt: 23.4393,
+        bodyType: "Planet",
+        density: 5.5136,
+        dimension: "",
+        discoveredBy: "",
+        discoveryDate: "",
+        eccentricity: 0.0167,
+        englishName: "Earth",
+        equaRadius: 6378.1366,
+        escape: 11190,
+        flattening: 0.00335,
+        gravity: 9.8,
+        id: "terre",
+        inclination: 0,
+        isPlanet: true,
+        longAscNode: 18.272,
+        mainAnomaly: 358.617,
+        mass: {massValue: 5.97237, massExponent: 24},
+        meanRadius: 6371.0084,
+        moons: [{moon: 'La Lune'}],
+        name: "La Terre",
+        perihelion: 147095000,
+        polarRadius: 6356.8,
+        semimajorAxis: 149598023,
+        sideralOrbit: 365.256,
+        sideralRotation: 23.9345,
+    },
+    {
+        alternativeName: "",
+        aphelion: 249200000,
+        argPeriapsis: 286.231,
+        aroundPlanet: null,
+        avgTemp: 210,
+        axialTilt: 25.19,
+        bodyType: "Planet",
+        density: 3.9341,
+        dimension: "",
+        discoveredBy: "",
+        discoveryDate: "",
+        eccentricity: 0.0935,
+        englishName: "Mars",
+        equaRadius: 3396.19,
+        escape: 5030,
+        flattening: 0.00589,
+        gravity: 3.71,
+        id: "mars",
+        inclination: 1.85,
+        isPlanet: true,
+        longAscNode: 49.667,
+        mainAnomaly: 19.412,
+        mass: {massValue: 6.41712, massExponent: 23},
+        meanRadius: 3389.5,
+        moons: [{moon: 'Phobos'}, {moon: 'Deïmos'}],
+        name: "Mars",
+        perihelion: 206700000,
+        polarRadius: 3376.2,
+        semimajorAxis: 227939200,
+        sideralOrbit: 686.98,
+        sideralRotation: 24.6229
+    },
+
+    {
+        alternativeName: "",
+        aphelion: 816620000,
+        argPeriapsis: 273.442,
+        aroundPlanet: null,
+        avgTemp: 165,
+        axialTilt: 3.12,
+        bodyType: "Planet",
+        density: 1.3262,
+        dimension: "",
+        discoveredBy: "",
+        discoveryDate: "",
+        eccentricity: 0.0489,
+        englishName: "Jupiter",
+        equaRadius: 71492,
+        escape: 60200,
+        flattening: 0.06487,
+        gravity: 24.79,
+        id: "jupiter",
+        inclination: 1.304,
+        isPlanet: true,
+        longAscNode: 100.398,
+        mainAnomaly: 20.02,
+        mass: {massValue: 1.89819, massExponent: 27},
+        meanRadius: 69911,
+        moons: ["Io", "Europe", "Ganymède", "Callisto", "Amalthée", "Himalia", "Élara", "Pasiphaé", "Sinopé", "Lysithéa",
+            "Carmé", "Ananké", "Léda", "Thébé", "Adrastée", "Métis", "Callirrhoé", "Thémisto", "Mégaclité", "Taygété", "Chaldéné",
+            "Harpalyké", "Kalyké", "Iocasté", "Erinomé", "Isonoé", "Praxidyké", "Autonoé", "Thyoné", "Hermippé", "Aitné",
+            "Eurydomé", "Euanthé", "Euporie", "Orthosie", "Spondé", "Calé", "Pasithée", "Hégémone", "Mnémé", "Aoedé",
+            "Thelxinoé", "Arché", "Callichore", "Hélicé", "Carpo", "Eukéladé", "Cyllène", "Coré", "Hersé", "S/2003 J 2",
+            "Euphémé", "S/2003 J 4", "Eiréné", "S/2003 J 9", "S/2003 J 10", "S/2003 J 12", "Philophrosyne", "S/2003 J 16",
+            "S/2003 J 18", "S/2003 J 19", "S/2003 J 23", "Dia", "S/2010 J 1", "S/2010 J 2", "S/2011 J 1", "S/2011 J 2", "S/2017 J 1",
+            "S/2016 J 1", "Valétudo", "S/2017 J 2", "S/2017 J 3", "Pandia", "S/2017 J 5", "S/2017 J 6", "S/2017 J 7", "S/2017 J 8",
+            "S/2017 J 9", "Ersa", "S/2003 J 24"],
+        name: "Jupiter",
+        perihelion: 740379835,
+        polarRadius: 66854,
+        semimajorAxis: 778340821,
+        sideralOrbit: 4332.589,
+        sideralRotation: 9.925
+    },
+    {
+        alternativeName: "",
+        aphelion: 1503509229,
+        argPeriapsis: 336.178,
+        aroundPlanet: null,
+        avgTemp: 134,
+        axialTilt: 26.73,
+        bodyType: "Planet",
+        density: 0.6871,
+        dimension: "",
+        discoveredBy: "",
+        discoveryDate: "",
+        eccentricity: 0.0565,
+        englishName: "Saturn",
+        equaRadius: 60268,
+        escape: 36090,
+        flattening: 0.09796,
+        gravity: 10.44,
+        id: "saturne",
+        inclination: 2.485,
+        isPlanet: true,
+        longAscNode: 113.759,
+        mainAnomaly: 317.02,
+        mass: {massValue: 5.68336, massExponent: 26},
+        meanRadius: 58232,
+        moons: ["Mimas", "Encelade", "Téthys", "Dioné", "Rhéa", "Titan", "Hypérion", "Japet", "Phœbé", "Janus", "Epiméthée",
+            "Hélène", "Télesto", "Calypso", "Atlas", "Prométhée", "Pandore", "Pan", "Ymir", "Paaliaq", "Tarvos", "Ijiraq",
+            "Suttungr", "Kiviuq", "Mundilfari", "Albiorix", "Skathi", "Erriapo", "Siarnaq", "Thrymr", "Narvi", "Méthone",
+            "Pallène", "Pollux", "Daphnis", "Aegir", "Bebhionn", "Bergelmir", "Bestla", "Farbauti", "Fenrir", "Fornjot",
+            "Hati", "Hyrrokkin", "Kari", "Loge", "Skoll", "Surtur", "Anthé", "Jarnsaxa", "Greip", "Tarqeq", "Égéon",
+            "S/2004 S 7", "S/2004 S 12", "S/2004 S 13", "S/2004 S 17", "S/2006 S 1", "S/2006 S 3", "S/2007 S 2", "S/2007 S 3",
+            "S/2009 S 1", "S/2004 S 22", "S/2004 S 21", "S/2004 S 20", "S/2004 S 23", "S/2004 S 24", "S/2004 S 25",
+            "S/2004 S 26", "S/2004 S 27", "S/2004 S 28", "S/2004 S 29", "S/2004 S 30", "S/2004 S 31", "S/2004 S 32",
+            "S/2004 S 33", "S/2004 S 34", "S/2004 S 35", "S/2004 S 36", "S/2004 S 37", "S/2004 S 38", "S/2004 S 39"],
+        name: "Saturne",
+        perihelion: 1349823615,
+        polarRadius: 54364,
+        semimajorAxis: 1426666422,
+        sideralOrbit: 10759.22,
+        sideralRotation: 10.656,
+    },
+    {
+        alternativeName: "",
+        aphelion: 3006318143,
+        argPeriapsis: 98.862,
+        aroundPlanet: null,
+        avgTemp: 76,
+        axialTilt: 97.77,
+        bodyType: "Planet",
+        density: 1.27,
+        dimension: "",
+        discoveredBy: "William Herschel",
+        discoveryDate: "13/03/1781",
+        eccentricity: 0.0457,
+        englishName: "Uranus",
+        equaRadius: 25559,
+        escape: 21380,
+        flattening: 0.02293,
+        gravity: 8.87,
+        id: "uranus",
+        inclination: 0.772,
+        isPlanet: true,
+        longAscNode: 73.967,
+        mainAnomaly: 142.2386,
+        mass: {massValue: 8.68127, massExponent: 25},
+        meanRadius: 25362,
+        moons: ["Ariel", "Umbriel", "Titania", "Obéron", "Miranda", "Cordélia", "Ophélie", "Bianca", "Cressida", "Desdémone",
+            "Juliette", "Portia", "Rosalinde", "Belinda", "Puck", "Caliban", "Sycorax", "Prospero", "Setebos", "Stephano",
+            "Trinculo", "Francisco", "Margaret", "Ferdinand", "Perdita", "Mab", "Cupid"],
+        name: "Uranus",
+        perihelion: 2734998229,
+        polarRadius: 24973,
+        semimajorAxis: 2870658186,
+        sideralOrbit: 30685.4,
+        sideralRotation: -17.24
+    },
+    {
+        alternativeName: "",
+        aphelion: 4537039826,
+        argPeriapsis: 256.932,
+        aroundPlanet: null,
+        avgTemp: 55,
+        axialTilt: 28.3,
+        bodyType: "Planet",
+        density: 1.638,
+        dimension: "",
+        discoveredBy: "Urbain Le Verrier, John Couch Adams, Johann Galle",
+        discoveryDate: "23/09/1846",
+        eccentricity: 0.0113,
+        englishName: "Neptune",
+        equaRadius: 24764,
+        escape: 23560,
+        flattening: 0.01708,
+        gravity: 11.15,
+        id: "neptune",
+        inclination: 1.769,
+        isPlanet: true,
+        longAscNode: 131.823,
+        mainAnomaly: 256.228,
+        mass: {massValue: 1.02413, massExponent: 26},
+        meanRadius: 24622,
+        moons: ["Triton", "Néreïde", "Naïade", "Thalassa", "Despina", "Galatée", "Larissa", "Protée", "Halimède", "Psamathée",
+            "Sao", "Laomédie", "Néso", "Hippocampe"],
+        name: "Neptune",
+        perihelion: 4459753056,
+        polarRadius: 24341,
+        semimajorAxis: 4498396441,
+        sideralOrbit: 60189,
+        sideralRotation: 16.11
+    }
+
+]
+
 //605
 //606
 //607
