@@ -3842,135 +3842,552 @@ const directors = [
 //426
 //427
 
-function getDistributorOfFilm(movieEx){
-    function inner(data){
-        return data.flatMap(dir=>dir.movies).filter((film)=> film.title === movieEx).map((film)=>film.distributor)
-    }
-    return inner
-}
-const getDistributorOfDjango = getDistributorOfFilm("Django")
-console.log(getDistributorOfDjango(directors))
+// function getDistributorOfFilm(movieEx){
+//     function inner(data){
+//         return data.flatMap(dir=>dir.movies).filter((film)=> film.title === movieEx).map((film)=>film.distributor)
+//     }
+//     return inner
+// }
+// const getDistributorOfDjango = getDistributorOfFilm("Django")
+// console.log(getDistributorOfDjango(directors))
+//
+// //428
+// //429
+// //430
+// //431
+// //432
+// function getYearOfFilmProduction(movie){
+//     function inner(data){
+//         return data.flatMap((dir)=>dir.movies).filter((film)=> film.title === movie).map((film)=>film.year)
+//     }
+//     return inner
+// }
+// const getYearOfDjango = getYearOfFilmProduction("Django")
+// console.log(getYearOfDjango(directors))
+//
+// //433
+// //434
+// //435
+// //436
+// //437
+//
+// function getGenreOfFilmProduction(movie){
+//     function inner(data){
+//         return data.flatMap((dir)=>dir.movies).filter((film)=> film.title === movie).map((film)=>film.genre)
+//     }
+//     return inner
+// }
+// const getGenreOfDjango = getGenreOfFilmProduction("Django")
+// console.log(getGenreOfDjango(directors))
+//
+//
+// //438
+// //439
+// //440
+// //441
+// //442
+//
+// function getFilmsAfterYear(year){
+//     function inner(data){
+//         return data.flatMap((dir)=>dir.movies).filter((film)=> film.year > year).map((film)=>film.title)
+//     }
+//     return inner
+// }
+// const filmsAfter2001 = getFilmsAfterYear(2002)
+// console.log(filmsAfter2001(directors))
+//
+// //443
+// //444
+// //445
+// //446
+// //447
+//
+// function getFilmsOfTheGenre(genre){
+//     function inner(data){
+//         return data.flatMap((dir)=>dir.movies).filter((film)=> film.genre === genre).map((film)=>film.title)
+//     }
+//     return inner
+// }
+// const westernFilms = getFilmsOfTheGenre("Western")
+// console.log(westernFilms(directors))
+//
+//
+// //448
+// //449
+// //450
+// //451
+// //452
+//
+//
+// function getFilmsFromDistributor(distributor){
+//     function inner(data){
+//         return data.flatMap((dir)=>dir.movies).filter((film)=> film.distributor === distributor).map((film)=>film.title)
+//     }
+//     return inner
+// }
+// const filmsFromMiramax = getFilmsFromDistributor("Miramax")
+// console.log(filmsFromMiramax(directors))
+//
+//
+// //453
+// //454
+// //455
+// //456
+// //457
+//
+// function getInfoAboutFilm(movie){
+//     function inner(data){
+//         return (data.flatMap((dir)=>dir.movies).filter((film)=> film.title === movie)
+//             .map((film)=>`Tytuł : ${film.title}, year: ${film.year}, genre: ${film.genre}, distributor: ${film.distributor}`))
+//     }
+//     return inner
+// }
+// const infoAboutDjango = getInfoAboutFilm("Django")
+// console.log(infoAboutDjango(directors))
+//
+//
+//
+// //458
+// //459
+// //460
+// //461
+// //462
+//
+// function getInfoAboutDirector(directorSurname){
+//     function inner(data){
+//         return (data.filter((dir)=> dir.surname === directorSurname)
+//             .map((dir)=>`Imię : ${dir.name}, Nazwisko: ${dir.surname}, Urodzony: ${dir.birth}, liczba dzieci: ${dir.children.length}`))
+//     }
+//     return inner
+// }
+// const infoAboutNolan = getInfoAboutDirector("Nolan")
+// console.log(infoAboutNolan(directors))
 
-//428
-//429
-//430
-//431
-//432
-function getYearOfFilmProduction(movie){
-    function inner(data){
-        return data.flatMap((dir)=>dir.movies).filter((film)=> film.title === movie).map((film)=>film.year)
-    }
-    return inner
-}
-const getYearOfDjango = getYearOfFilmProduction("Django")
-console.log(getYearOfDjango(directors))
 
-//433
-//434
-//435
-//436
-//437
+const weatherData = [
 
-function getGenreOfFilmProduction(movie){
-    function inner(data){
-        return data.flatMap((dir)=>dir.movies).filter((film)=> film.title === movie).map((film)=>film.genre)
-    }
-    return inner
-}
-const getGenreOfDjango = getGenreOfFilmProduction("Django")
-console.log(getGenreOfDjango(directors))
+  {
+    id_stacji: "12235",
+    stacja: "Chojnice",
+    data_pomiaru: "2022-03-11",
+    godzina_pomiaru: "19",
+    temperatura: "-0.4",
+    predkosc_wiatru: "3",
+    kierunek_wiatru: "150",
+    wilgotnosc_wzgledna: "42.7",
+    suma_opadu: "0",
+    cisnienie: "1034.4",
+  },
 
+  {
+    id_stacji: "12135",
+    stacja: "Hel",
+    data_pomiaru: "2022-03-11",
+    godzina_pomiaru: "19",
+    temperatura: "1.2",
+    predkosc_wiatru: "3",
+    kierunek_wiatru: "190",
+    wilgotnosc_wzgledna: "55.8",
+    suma_opadu: "0",
+    cisnienie: "1034.3",
+  },
+  {
+    id_stacji: "12500",
+    stacja: "Jelenia G\u00f3ra",
+    data_pomiaru: "2022-03-11",
+    godzina_pomiaru: "19",
+    temperatura: "-0.2",
+    predkosc_wiatru: "6",
+    kierunek_wiatru: "80",
+    wilgotnosc_wzgledna: "38.8",
+    suma_opadu: "0",
+    cisnienie: "1030.6",
+  },
+  {
+    id_stacji: "12435",
+    stacja: "Kalisz",
+    data_pomiaru: "2022-03-11",
+    godzina_pomiaru: "19",
+    temperatura: "-0.1",
+    predkosc_wiatru: "3",
+    kierunek_wiatru: "90",
+    wilgotnosc_wzgledna: "45.6",
+    suma_opadu: "0",
+    cisnienie: "1034",
+  },
+  {
+    id_stacji: "12650",
+    stacja: "Kasprowy Wierch",
+    data_pomiaru: "2022-03-11",
+    godzina_pomiaru: "19",
+    temperatura: "-9.7",
+    predkosc_wiatru: "3",
+    kierunek_wiatru: "70",
+    wilgotnosc_wzgledna: "12.8",
+    suma_opadu: "0.4",
+    cisnienie: null,
+  },
 
-//438
-//439
-//440
-//441
-//442
-
-function getFilmsAfterYear(year){
-    function inner(data){
-        return data.flatMap((dir)=>dir.movies).filter((film)=> film.year > year).map((film)=>film.title)
-    }
-    return inner
-}
-const filmsAfter2001 = getFilmsAfterYear(2002)
-console.log(filmsAfter2001(directors))
-
-//443
-//444
-//445
-//446
-//447
-
-function getFilmsOfTheGenre(genre){
-    function inner(data){
-        return data.flatMap((dir)=>dir.movies).filter((film)=> film.genre === genre).map((film)=>film.title)
-    }
-    return inner
-}
-const westernFilms = getFilmsOfTheGenre("Western")
-console.log(westernFilms(directors))
-
-
-//448
-//449
-//450
-//451
-//452
-
-
-function getFilmsFromDistributor(distributor){
-    function inner(data){
-        return data.flatMap((dir)=>dir.movies).filter((film)=> film.distributor === distributor).map((film)=>film.title)
-    }
-    return inner
-}
-const filmsFromMiramax = getFilmsFromDistributor("Miramax")
-console.log(filmsFromMiramax(directors))
-
-
-//453
-//454
-//455
-//456
-//457
-
-function getInfoAboutFilm(movie){
-    function inner(data){
-        return (data.flatMap((dir)=>dir.movies).filter((film)=> film.title === movie)
-            .map((film)=>`Tytuł : ${film.title}, year: ${film.year}, genre: ${film.genre}, distributor: ${film.distributor}`))
-    }
-    return inner
-}
-const infoAboutDjango = getInfoAboutFilm("Django")
-console.log(infoAboutDjango(directors))
+  {
+    id_stacji: "12105",
+    stacja: "Koszalin",
+    data_pomiaru: "2022-03-11",
+    godzina_pomiaru: "19",
+    temperatura: "2.3",
+    predkosc_wiatru: "4",
+    kierunek_wiatru: "140",
+    wilgotnosc_wzgledna: "31.8",
+    suma_opadu: "0",
+    cisnienie: "1032.5",
+  },
+  {
+    id_stacji: "12488",
+    stacja: "Kozienice",
+    data_pomiaru: "2022-03-11",
+    godzina_pomiaru: "19",
+    temperatura: "-4.9",
+    predkosc_wiatru: "0",
+    kierunek_wiatru: "0",
+    wilgotnosc_wzgledna: "64.7",
+    suma_opadu: "0",
+    cisnienie: "1036.2",
+  },
 
 
-
-//458
-//459
-//460
-//461
-//462
-
-function getInfoAboutDirector(directorSurname){
-    function inner(data){
-        return (data.filter((dir)=> dir.surname === directorSurname)
-            .map((dir)=>`Imię : ${dir.name}, Nazwisko: ${dir.surname}, Urodzony: ${dir.birth}, liczba dzieci: ${dir.children.length}`))
-    }
-    return inner
-}
-const infoAboutNolan = getInfoAboutDirector("Nolan")
-console.log(infoAboutNolan(directors))
+  {
+    id_stacji: "12465",
+    stacja: "Łódź",
+    data_pomiaru: "2022-03-11",
+    godzina_pomiaru: "19",
+    temperatura: "-1",
+    predkosc_wiatru: "3",
+    kierunek_wiatru: "100",
+    wilgotnosc_wzgledna: "36.7",
+    suma_opadu: "0",
+    cisnienie: "1035.1",
+  },
+  {
+    id_stacji: "12280",
+    stacja: "Mikołajki",
+    data_pomiaru: "2022-03-11",
+    godzina_pomiaru: "19",
+    temperatura: "-2.9",
+    predkosc_wiatru: "2",
+    kierunek_wiatru: "190",
+    wilgotnosc_wzgledna: "57.9",
+    suma_opadu: "0",
+    cisnienie: "1035.9",
+  },
+  {
+    id_stacji: "12270",
+    stacja: "Mława",
+    data_pomiaru: "2022-03-11",
+    godzina_pomiaru: "19",
+    temperatura: "-1.6",
+    predkosc_wiatru: "2",
+    kierunek_wiatru: "90",
+    wilgotnosc_wzgledna: "46.6",
+    suma_opadu: "0",
+    cisnienie: "1035.8",
+  },
+  {
+    id_stacji: "12660",
+    stacja: "Nowy Sącz",
+    data_pomiaru: "2022-03-11",
+    godzina_pomiaru: "19",
+    temperatura: "-3",
+    predkosc_wiatru: "1",
+    kierunek_wiatru: "150",
+    wilgotnosc_wzgledna: "57.9",
+    suma_opadu: "0",
+    cisnienie: "1035.9",
+  },
+  {
+    id_stacji: "12272",
+    stacja: "Olsztyn",
+    data_pomiaru: "2022-03-11",
+    godzina_pomiaru: "19",
+    temperatura: "-3.2",
+    predkosc_wiatru: "0",
+    kierunek_wiatru: "0",
+    wilgotnosc_wzgledna: "47.7",
+    suma_opadu: "0",
+    cisnienie: "1035.7",
+  },
+  {
+    id_stacji: "12530",
+    stacja: "Opole",
+    data_pomiaru: "2022-03-11",
+    godzina_pomiaru: "19",
+    temperatura: "-1.1",
+    predkosc_wiatru: "3",
+    kierunek_wiatru: "90",
+    wilgotnosc_wzgledna: "36.7",
+    suma_opadu: "0",
+    cisnienie: "1033.8",
+  },
+  {
+    id_stacji: "12285",
+    stacja: "Ostrowka",
+    data_pomiaru: "2022-03-11",
+    godzina_pomiaru: "19",
+    temperatura: "-4",
+    predkosc_wiatru: "0",
+    kierunek_wiatru: "0",
+    wilgotnosc_wzgledna: "54.5",
+    suma_opadu: "0",
+    cisnienie: "1036.2",
+  },
+  {
+    id_stacji: "12230",
+    stacja: "Piła",
+    data_pomiaru: "2022-03-11",
+    godzina_pomiaru: "19",
+    temperatura: "0.9",
+    predkosc_wiatru: "3",
+    kierunek_wiatru: "110",
+    wilgotnosc_wzgledna: "36.7",
+    suma_opadu: "0.01",
+    cisnienie: "1033.4",
+  },
+  {
+    id_stacji: "12001",
+    stacja: "Platforma",
+    data_pomiaru: "2022-03-11",
+    godzina_pomiaru: "19",
+    temperatura: "3.4",
+    predkosc_wiatru: "9",
+    kierunek_wiatru: "170",
+    wilgotnosc_wzgledna: null,
+    suma_opadu: "0",
+    cisnienie: "1033.5",
+  },
+  {
+    id_stacji: "12360",
+    stacja: "Płock",
+    data_pomiaru: "2022-03-11",
+    godzina_pomiaru: "19",
+    temperatura: "-2.1",
+    predkosc_wiatru: "1",
+    kierunek_wiatru: "100",
+    wilgotnosc_wzgledna: "61.9",
+    suma_opadu: "0",
+    cisnienie: "1035.3",
+  },
+  {
+    id_stacji: "12330",
+    stacja: "Poznań",
+    data_pomiaru: "2022-03-11",
+    godzina_pomiaru: "19",
+    temperatura: "1.4",
+    predkosc_wiatru: "5",
+    kierunek_wiatru: "110",
+    wilgotnosc_wzgledna: "33.7",
+    suma_opadu: "0",
+    cisnienie: "1033",
+  },
+  {
+    id_stacji: "12695",
+    stacja: "Przemyśl",
+    data_pomiaru: "2022-03-11",
+    godzina_pomiaru: "19",
+    temperatura: "-2.1",
+    predkosc_wiatru: "3",
+    kierunek_wiatru: "40",
+    wilgotnosc_wzgledna: "42.5",
+    suma_opadu: "0",
+    cisnienie: "1035.6",
+  },
+  {
+    id_stacji: "12540",
+    stacja: "Raciborz",
+    data_pomiaru: "2022-03-11",
+    godzina_pomiaru: "19",
+    temperatura: "-0.1",
+    predkosc_wiatru: "3",
+    kierunek_wiatru: "90",
+    wilgotnosc_wzgledna: "33.8",
+    suma_opadu: "0",
+    cisnienie: "1033.4",
+  },
+];
 
 //463
 //464
 //465
 //466
-//467
-//468
-//469
-//470
+
+// function getAllStationsWithPressureGraterThan(pressure){
+//     function inner(data){
+//         return data.filter((el)=> parseFloat(el.cisnienie) > pressure).map((station)=>station.stacja)
+//     }
+//     return inner
+// }
+//
+// const presserGreaterThan1033 = getAllStationsWithPressureGraterThan(1033);
+// console.log(presserGreaterThan1033(weatherData))
+//
+// //467
+// //468
+// //469
+// //470
+//
+// function getAllStationWithRainfallMoreThan(rainfall){
+//     function inner(data){
+//         return data.filter((el)=>parseFloat(el.suma_opadu) > rainfall).map((el)=>el.stacja)
+//     }
+//     return inner
+// }
+//
+// const rainfallMoreThan0 = getAllStationWithRainfallMoreThan(0)
+// console.log(rainfallMoreThan0(weatherData))
+// //471
+// //472
+// //473
+// //474
+//
+//
+// function getAllStationWitchRelativeHumidityMoreThan(relativeHumidity){
+//     function inner(data){
+//         return data.filter((st)=>parseFloat(st.wilgotnosc_wzgledna) > relativeHumidity).map((st)=>st.stacja)
+//     }
+//     return inner
+// }
+//
+// const stationWitchRelativeHumidityMoreThan40 = getAllStationWitchRelativeHumidityMoreThan(40)
+// console.log(stationWitchRelativeHumidityMoreThan40(weatherData))
+
+//475
+//476
+//477
+//478
+
+// function getAllStationWithWindDirection(windDirection){
+//     function inner(data){
+//         return data.filter((st)=> st.kierunek_wiatru === windDirection).map((st)=>st.stacja)
+//     }
+//     return inner
+// }
+// const stationsWithWindDirection90 = getAllStationWithWindDirection("90")
+// console.log(stationsWithWindDirection90(weatherData))
+//
+// //479
+// //480
+// //481
+// //482
+//
+// function getAllStationsWithWindSpeedMoreThan(windSpeed){
+//     function inner(data){
+//         return data.filter((st)=>parseInt(st.predkosc_wiatru) >windSpeed).map((st)=>st.stacja)
+//     }
+//     return inner
+// }
+// const stationsWithWindSpeedMoreThan2 = getAllStationsWithWindSpeedMoreThan(2)
+// console.log(stationsWithWindSpeedMoreThan2(weatherData))
+// //483
+// //484
+// //485
+// //486
+//
+// function getAllStationsWithTemperatureMoreThan(temp){
+//     function inner(data){
+//         return data.filter((st)=>parseFloat(st.temperatura) >temp).map((st)=>st.stacja)
+//     }
+//     return inner
+// }
+// const stationsWithTempMoreThan0 = getAllStationsWithTemperatureMoreThan(0)
+// console.log(stationsWithTempMoreThan0(weatherData))
 
 
+//487
+//488
+//489
+//490
+//491
+
+// function getAverageTemperatureAtTime(timeStr){
+//     function inner(data){
+//         return data.filter((st)=>st.godzina_pomiaru===timeStr).map((st)=>parseFloat(st.temperatura)).reduce((acc, cu)=>acc+cu)/data.length
+//     }
+//     return inner
+// }
+// const measurementsFrom19= getAverageTemperatureAtTime("19")
+// console.log(measurementsFrom19(weatherData))
+
+
+//492
+//493
+//494
+//495
+//496
+
+// function getAveragePressureAtTime(timeStr){
+//     function inner(data){
+//         return data.filter((st)=>st.godzina_pomiaru===timeStr).map((st)=>parseFloat(st.cisnienie) || 0).reduce((acc, cu)=>acc+cu)/data.length
+//     }
+//     return inner
+// }
+// const measurementsFrom19pressure= getAveragePressureAtTime("19")
+// console.log(measurementsFrom19pressure(weatherData))
+
+
+
+//497
+//498
+//498
+//500
+//501
+
+function getAverageRainFallAtTime(timeStr){
+    function inner(data){
+        return data.filter((st)=>st.godzina_pomiaru===timeStr).map((st)=>parseFloat(st.suma_opadu) || 0).reduce((acc, cu)=>acc+cu)/data.length
+    }
+    return inner
+}
+const measurementsFrom19rainFall= getAverageRainFallAtTime("19")
+console.log(measurementsFrom19rainFall(weatherData))
+
+
+//502
+//503
+//504
+//505
+//506
+//507
+//508
+//509
+//510
+//511
+//512
+//513
+//514
+//515
+//516
+//517
+//518
+//519
+//520
+
+
+// const myFavoritePromise = new Promise((resolve, reject)=>{
+//     setTimeout(()=>{
+//         alert('Mineło 10 sek')
+//         resolve("Promis sie udał!")
+//     }, 10000)
+//
+//         setTimeout(()=>{
+//         alert('Mineło 10 sek')
+//         reject("Promis sie nie udał!")
+//     }, 10000)
+// })
+//
+// myFavoritePromise.then((resp)=>{
+//     console.log(resp)
+// })
+//     .catch((err)=>{
+//         console.log(err)
+//     })
+//     .finally(()=>{
+//         console.log("wkoncu!")
+//     })
 
