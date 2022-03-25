@@ -4577,10 +4577,41 @@ console.log(getInfoAboutRelativeHumidityAtStationOpole(weatherData))
 //574
 //575
 //576
+
+// function getInfoAboutRainfallAtStation(station){
+//     function inner(data){
+//         return data.filter((st)=>st.stacja === station).map((st)=>`Na stacji ${st.stacja} zanotowano sumę opadów : ${st.suma_opadu || "Brak pomiaru"}`)
+//     }
+//     return inner
+// }
+// const getInfoAboutRainfallAtStationOpole= getInfoAboutRainfallAtStation("Opole")
+// console.log(getInfoAboutRainfallAtStationOpole(weatherData))
+
+
 //577
 //578
 //579
 //580
+
+function getInfoAboutPressureAtStation(station){
+    function inner(data){
+        return data.filter((st)=>st.stacja === station).map((st)=>`Na stacji ${st.stacja} zanotowano ciśnienie : ${st.cisnienie || "Brak pomiaru"}`)
+    }
+    return inner
+}
+const getInfoAboutPressureAtStationOpole= getInfoAboutPressureAtStation("Opole")
+console.log(getInfoAboutPressureAtStationOpole(weatherData))
+
+//581
+//582
+//583
+//584
+//585
+//586
+//587
+//588
+//589
+//590
 
 
 // const myFavoritePromise = new Promise((resolve, reject)=>{
