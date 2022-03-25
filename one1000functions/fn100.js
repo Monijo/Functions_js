@@ -4430,24 +4430,51 @@ const weatherData = [
 //530
 //531
 
-function getMaxRainFallAtStationAtTime(timeStr){
-    function inner(data){
-        return data.filter((st)=>st.godzina_pomiaru === timeStr).map((st)=>parseFloat(st.suma_opadu)).reduce((acc, cu)=> cu>acc?cu:acc)
-    }
-    return inner
-}
-const maxRainFallAtStationAt19= getMaxRainFallAtStationAtTime("19")
-console.log(maxRainFallAtStationAt19(weatherData))
+// function getMaxRainFallAtStationAtTime(timeStr){
+//     function inner(data){
+//         return data.filter((st)=>st.godzina_pomiaru === timeStr).map((st)=>parseFloat(st.suma_opadu)).reduce((acc, cu)=> cu>acc?cu:acc)
+//     }
+//     return inner
+// }
+// const maxRainFallAtStationAt19= getMaxRainFallAtStationAtTime("19")
+// console.log(maxRainFallAtStationAt19(weatherData))
 
 //532
 //533
 //534
 //535
 //536
+
+// function maxRecordedRelativeHumidityAtTime(timeStr){
+//     function inner(data){
+//         return data.filter((st)=>st.godzina_pomiaru === timeStr).map((st)=>parseFloat(st.wilgotnosc_wzgledna)).reduce((acc, cu)=> cu>acc?cu:acc)
+//     }
+//     return inner
+// }
+// const maxRecordedRelativeHumidityAt19= maxRecordedRelativeHumidityAtTime("19")
+// console.log(maxRecordedRelativeHumidityAt19(weatherData))
+
 //537
 //538
 //539
 //540
+//541
+
+function minRecordedRelativeHumidityAtTime(timeStr){
+    function inner(data){
+        return data.filter((st)=>st.godzina_pomiaru === timeStr).map((st)=>parseFloat(st.wilgotnosc_wzgledna)).reduce((acc, cu)=> cu<acc?cu:acc)
+    }
+    return inner
+}
+const minRecordedRelativeHumidityAt19= minRecordedRelativeHumidityAtTime("19")
+console.log(minRecordedRelativeHumidityAt19(weatherData))
+
+//541
+//541
+//541
+//541
+//541
+//541
 
 
 // const myFavoritePromise = new Promise((resolve, reject)=>{
