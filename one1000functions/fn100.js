@@ -4505,10 +4505,40 @@ const weatherData = [
 //554
 //555
 //556
+
+// function maxRecordedTempAtTime(timeStr){
+//     function inner(data){
+//         return data.filter((st)=>st.godzina_pomiaru === timeStr).map((st)=>parseFloat(st.temperatura)).reduce((acc, cu)=> cu>acc?cu:acc)
+//     }
+//     return inner
+// }
+// const maxRecordedTempAt19= maxRecordedTempAtTime("19")
+// console.log(maxRecordedTempAt19(weatherData))
+
 //557
 //558
 //559
 //560
+//561
+
+
+function minRecordedTempAtTime(timeStr){
+    function inner(data){
+        return data.filter((st)=>st.godzina_pomiaru === timeStr).map((st)=>parseFloat(st.temperatura)).reduce((acc, cu)=> cu<acc?cu:acc)
+    }
+    return inner
+}
+const minRecordedTempAt19= minRecordedTempAtTime("19")
+console.log(minRecordedTempAt19(weatherData))
+
+//562
+//563
+//564
+//565
+//566
+//567
+//568
+//569
 
 
 // const myFavoritePromise = new Promise((resolve, reject)=>{
