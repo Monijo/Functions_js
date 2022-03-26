@@ -5063,3 +5063,83 @@ console.log(planetsWithMoonsMoreThanOne(solar_system))
 //618
 //619
 //620
+
+
+
+function getDifferenceAphelionAndPerihelion(planeta){
+    return (planeta.aphelion - planeta.perihelion)
+}
+
+function getPlnaetNameWithBiggestDifferenceAphelionAndPerihelion(data){
+    return data.map((pl)=> [pl.englishName, getDifferenceAphelionAndPerihelion(pl)]).sort((a,b)=> b[1] - a[1])[0]
+}
+console.log(getPlnaetNameWithBiggestDifferenceAphelionAndPerihelion(solar_system))
+
+
+
+
+//621
+//622
+//623
+//624
+//625
+//626
+
+function getNamesPlanetsWithDensityGreaterThan(planetName){
+    function inner(data){
+        const planetDensity = data.filter((pl)=>pl.englishName === planetName).map((pl)=>pl.density)
+        return data.filter((pl)=>pl.density > planetDensity).map((pl)=>pl.englishName)
+    }
+    return inner
+}
+
+const planetsWithDensityGreaterThanUranus = getNamesPlanetsWithDensityGreaterThan("Uranus")
+console.log(planetsWithDensityGreaterThanUranus(solar_system))
+
+//627
+//628
+//629
+//630
+//631
+//632
+
+
+function getNamesPlanetsWithInclinationGreaterThan(planetName){
+    function inner(data){
+        const planetInclination = data.filter((pl)=>pl.englishName === planetName).map((pl)=>pl.inclination)
+        return data.filter((pl)=>pl.inclination > planetInclination).map((pl)=>pl.englishName)
+    }
+    return inner
+}
+
+const planetsWithInclinationGreaterThanMars = getNamesPlanetsWithInclinationGreaterThan("Mars")
+console.log(planetsWithInclinationGreaterThanMars(solar_system))
+
+//633
+//634
+//635
+//636
+//637
+//638
+//639
+//640
+//641
+//642
+//643
+//644
+//645
+//646
+//647
+//648
+//649
+//650
+//651
+//652
+//653
+//654
+//655
+//656
+//657
+//658
+//659
+//660
