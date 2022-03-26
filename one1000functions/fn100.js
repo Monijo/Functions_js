@@ -5168,12 +5168,30 @@ console.log(getInfoAboutNeptune(solar_system))
 //649
 //650
 //651
+
+function getAverageTempPlanets(data){
+    return data.map((pl)=>pl.avgTemp).reduce((acc, cur)=> acc+cur)/data.length
+}
+console.log(getAverageTempPlanets(solar_system))
 //652
 //653
 //654
+
+function getAveragDensityOfPlanets(data){
+    return data.map((pl)=>pl.density).reduce((acc, cur)=> acc+cur)/data.length
+}
+console.log(getAveragDensityOfPlanets(solar_system))
+
 //655
 //656
 //657
+
+function getAverageNumOfMoonsPlanets(data){
+    return data.map((pl)=>pl.moons? pl.moons.length: 0).reduce((acc, cur)=> acc+cur)/data.length
+}
+console.log(getAverageNumOfMoonsPlanets(solar_system))
+
+
 //658
 //659
 //660
