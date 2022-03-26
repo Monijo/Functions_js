@@ -4728,7 +4728,7 @@ const weatherData = [
 //     console.log(newArr)
 // })
 
-solar_system = [
+const solar_system = [
     {
         alternativeName: "",
         aphelion: 69816900,
@@ -5020,5 +5020,46 @@ solar_system = [
 //606
 //607
 //608
+
+function getPlanetsWithAvreageTemperatureInKGraterThan(tempInKelvins){
+    function inner(data){
+        return data.filter((planet)=>planet.avgTemp > tempInKelvins).map((planet)=>planet.englishName)
+    }
+    return inner
+}
+const getNamePlanetsWithTemperaturGreaterThan100K = getPlanetsWithAvreageTemperatureInKGraterThan(100)
+console.log(getNamePlanetsWithTemperaturGreaterThan100K(solar_system))
+
 //609
 //610
+//611
+//612
+
+
+function getPlanetsAvreageTemperatureInCelcius(planetName){
+    function inner(data){
+        return data.filter((planet)=>planet.englishName === planetName).map((planet)=>planet.avgTemp- 273.15)
+    }
+    return inner
+}
+const getAvreageTempInCelciusFromEarth = getPlanetsAvreageTemperatureInCelcius("Earth")
+console.log(getAvreageTempInCelciusFromEarth(solar_system))
+
+//613
+//614
+//615
+//616
+
+function getPlanetWithMoreMoonsThenNumber(number){
+    function inner(data){
+        return data.filter((planet)=>planet.moons? planet.moons.length > number : 0).map((planet)=>planet.englishName)
+    }
+    return inner
+}
+
+const planetsWithMoonsMoreThanOne = getPlanetWithMoreMoonsThenNumber(1);
+console.log(planetsWithMoonsMoreThanOne(solar_system))
+//617
+//618
+//619
+//620
