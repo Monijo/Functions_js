@@ -5121,16 +5121,50 @@ console.log(planetsWithInclinationGreaterThanMars(solar_system))
 //636
 //637
 //638
+
+function getNamesPlanetsWithGravityGreaterThan(planetName){
+    function inner(data){
+        const planetGravity = data.filter((pl)=>pl.englishName === planetName).map((pl)=>pl.gravity)
+        return data.filter((pl)=>pl.gravity > planetGravity).map((pl)=>pl.englishName)
+    }
+    return inner
+}
+
+const planetsWithGravityGreaterThanEarth = getNamesPlanetsWithGravityGreaterThan("Earth")
+console.log(planetsWithGravityGreaterThanEarth(solar_system))
+
+
 //639
 //640
 //641
 //642
 //643
 //644
+
+function getPlanetWithSideralRotationBiggerThan(planetName){
+    function inner(data){
+        const planetSideralRotation = data.filter((pl)=>pl.englishName === planetName).map((pl)=>pl.sideralRotation)
+        return data.filter((pl)=>pl.sideralRotation > planetSideralRotation).map((pl)=>pl.englishName)
+    }
+    return inner
+}
+
+const planetsWithSideralRotationBiggerThanEarth = getPlanetWithSideralRotationBiggerThan("Earth")
+console.log(planetsWithSideralRotationBiggerThanEarth(solar_system))
 //645
 //646
 //647
 //648
+
+function getInfoAboutDiscovery(planet){
+    function inner(data){
+        return data.filter((pl)=> pl.englishName === planet).map((pl)=>pl.discoveredBy? `Planet ${pl.englishName} discoverd by: ${pl.discoveredBy} in ${pl.discoveryDate}`: "No info")
+    }
+    return inner
+}
+
+const getInfoAboutNeptune =  getInfoAboutDiscovery("Neptune")
+console.log(getInfoAboutNeptune(solar_system))
 //649
 //650
 //651
