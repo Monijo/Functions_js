@@ -5590,12 +5590,43 @@ console.log(firstBrewedBefore2012(beers))
 //732
 //733
 //734
+
+function getBeersWithWordInTagLine(word){
+    function inner(data){
+        return data.filter((beer)=> beer.tagline.split(" ").includes(word)).map((b)=>b.name)
+    }
+    return inner
+}
+
+const beersWihBitterInTagLine = getBeersWithWordInTagLine("Bitter")
+console.log(beersWihBitterInTagLine(beers))
+
+
 //735
 //736
 //737
+
+
+function getAAverageABVParameter(data){
+    return data.reduce((acc, cu)=>acc + cu.abv, 0)/data.length
+}
+console.log(getAAverageABVParameter(beers))
+//737
 //738
+function getAAverageEBCParameter(data){
+    return data.reduce((acc, cu)=>acc + cu.ebc, 0)/data.length
+}
+console.log(getAAverageEBCParameter(beers))
+
+
 //739
 //740
+
+function getAAverageIBUParameter(data){
+    return data.reduce((acc, cu)=>acc + cu.ibu, 0)/data.length
+}
+console.log(getAAverageIBUParameter(beers))
+
 //741
 //742
 //743
