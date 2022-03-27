@@ -5020,178 +5020,264 @@ const solar_system = [
 //606
 //607
 //608
+//
+// function getPlanetsWithAvreageTemperatureInKGraterThan(tempInKelvins){
+//     function inner(data){
+//         return data.filter((planet)=>planet.avgTemp > tempInKelvins).map((planet)=>planet.englishName)
+//     }
+//     return inner
+// }
+// const getNamePlanetsWithTemperaturGreaterThan100K = getPlanetsWithAvreageTemperatureInKGraterThan(100)
+// console.log(getNamePlanetsWithTemperaturGreaterThan100K(solar_system))
+//
+// //609
+// //610
+// //611
+// //612
+//
+//
+// function getPlanetsAvreageTemperatureInCelcius(planetName){
+//     function inner(data){
+//         return data.filter((planet)=>planet.englishName === planetName).map((planet)=>planet.avgTemp- 273.15)
+//     }
+//     return inner
+// }
+// const getAvreageTempInCelciusFromEarth = getPlanetsAvreageTemperatureInCelcius("Earth")
+// console.log(getAvreageTempInCelciusFromEarth(solar_system))
+//
+// //613
+// //614
+// //615
+// //616
+//
+// function getPlanetWithMoreMoonsThenNumber(number){
+//     function inner(data){
+//         return data.filter((planet)=>planet.moons? planet.moons.length > number : 0).map((planet)=>planet.englishName)
+//     }
+//     return inner
+// }
+//
+// const planetsWithMoonsMoreThanOne = getPlanetWithMoreMoonsThenNumber(1);
+// console.log(planetsWithMoonsMoreThanOne(solar_system))
+// //617
+// //618
+// //619
+// //620
+//
+//
+//
+// function getDifferenceAphelionAndPerihelion(planeta){
+//     return (planeta.aphelion - planeta.perihelion)
+// }
+//
+// function getPlnaetNameWithBiggestDifferenceAphelionAndPerihelion(data){
+//     return data.map((pl)=> [pl.englishName, getDifferenceAphelionAndPerihelion(pl)]).sort((a,b)=> b[1] - a[1])[0]
+// }
+// console.log(getPlnaetNameWithBiggestDifferenceAphelionAndPerihelion(solar_system))
+//
+//
+//
+//
+// //621
+// //622
+// //623
+// //624
+// //625
+// //626
+//
+// function getNamesPlanetsWithDensityGreaterThan(planetName){
+//     function inner(data){
+//         const planetDensity = data.filter((pl)=>pl.englishName === planetName).map((pl)=>pl.density)
+//         return data.filter((pl)=>pl.density > planetDensity).map((pl)=>pl.englishName)
+//     }
+//     return inner
+// }
+//
+// const planetsWithDensityGreaterThanUranus = getNamesPlanetsWithDensityGreaterThan("Uranus")
+// console.log(planetsWithDensityGreaterThanUranus(solar_system))
+//
+// //627
+// //628
+// //629
+// //630
+// //631
+// //632
+//
+//
+// function getNamesPlanetsWithInclinationGreaterThan(planetName){
+//     function inner(data){
+//         const planetInclination = data.filter((pl)=>pl.englishName === planetName).map((pl)=>pl.inclination)
+//         return data.filter((pl)=>pl.inclination > planetInclination).map((pl)=>pl.englishName)
+//     }
+//     return inner
+// }
+//
+// const planetsWithInclinationGreaterThanMars = getNamesPlanetsWithInclinationGreaterThan("Mars")
+// console.log(planetsWithInclinationGreaterThanMars(solar_system))
+//
+// //633
+// //634
+// //635
+// //636
+// //637
+// //638
+//
+// function getNamesPlanetsWithGravityGreaterThan(planetName){
+//     function inner(data){
+//         const planetGravity = data.filter((pl)=>pl.englishName === planetName).map((pl)=>pl.gravity)
+//         return data.filter((pl)=>pl.gravity > planetGravity).map((pl)=>pl.englishName)
+//     }
+//     return inner
+// }
+//
+// const planetsWithGravityGreaterThanEarth = getNamesPlanetsWithGravityGreaterThan("Earth")
+// console.log(planetsWithGravityGreaterThanEarth(solar_system))
+//
+//
+// //639
+// //640
+// //641
+// //642
+// //643
+// //644
+//
+// function getPlanetWithSideralRotationBiggerThan(planetName){
+//     function inner(data){
+//         const planetSideralRotation = data.filter((pl)=>pl.englishName === planetName).map((pl)=>pl.sideralRotation)
+//         return data.filter((pl)=>pl.sideralRotation > planetSideralRotation).map((pl)=>pl.englishName)
+//     }
+//     return inner
+// }
+//
+// const planetsWithSideralRotationBiggerThanEarth = getPlanetWithSideralRotationBiggerThan("Earth")
+// console.log(planetsWithSideralRotationBiggerThanEarth(solar_system))
+// //645
+// //646
+// //647
+// //648
+//
+// function getInfoAboutDiscovery(planet){
+//     function inner(data){
+//         return data.filter((pl)=> pl.englishName === planet).map((pl)=>pl.discoveredBy? `Planet ${pl.englishName} discoverd by: ${pl.discoveredBy} in ${pl.discoveryDate}`: "No info")
+//     }
+//     return inner
+// }
+//
+// const getInfoAboutNeptune =  getInfoAboutDiscovery("Neptune")
+// console.log(getInfoAboutNeptune(solar_system))
+// //649
+// //650
+// //651
+//
+// function getAverageTempPlanets(data){
+//     return data.map((pl)=>pl.avgTemp).reduce((acc, cur)=> acc+cur)/data.length
+// }
+// console.log(getAverageTempPlanets(solar_system))
+// //652
+// //653
+// //654
+//
+// function getAveragDensityOfPlanets(data){
+//     return data.map((pl)=>pl.density).reduce((acc, cur)=> acc+cur)/data.length
+// }
+// console.log(getAveragDensityOfPlanets(solar_system))
+//
+// //655
+// //656
+// //657
+//
+// function getAverageNumOfMoonsPlanets(data){
+//     return data.map((pl)=>pl.moons? pl.moons.length: 0).reduce((acc, cur)=> acc+cur)/data.length
+// }
+// console.log(getAverageNumOfMoonsPlanets(solar_system))
+//
+//
+// //658
+// //659
+// //660
+//
+// function getAverageGravityPlanets(data){
+//     return data.map((pl)=>pl.gravity).reduce((acc, cur)=> acc+cur)/data.length
+// }
+// console.log(getAverageGravityPlanets(solar_system))
 
-function getPlanetsWithAvreageTemperatureInKGraterThan(tempInKelvins){
-    function inner(data){
-        return data.filter((planet)=>planet.avgTemp > tempInKelvins).map((planet)=>planet.englishName)
-    }
-    return inner
+//661
+//662
+//663
+//664
+// function findPlanetOwnTheMoon(moonName){
+//     function inner(data){
+//         return data.filter((pl)=> pl.moons ? pl.moons.includes(moonName): 0).map((pl)=>pl.englishName)
+//     }
+//     return inner
+// }
+//
+// const planetOwnCallisto = findPlanetOwnTheMoon("Callisto")
+// console.log(planetOwnCallisto(solar_system))
+
+//665
+//666
+//667
+//668
+
+function getNamePlanetHighestAvgTemp(arr){
+    const highestAvgTemp =  arr.reduce((acc, cu)=> cu.avgTemp > acc? cu.avgTemp : acc, 0)
+    return arr.filter((pl)=>pl.avgTemp === highestAvgTemp).map((pl)=>pl.englishName)
 }
-const getNamePlanetsWithTemperaturGreaterThan100K = getPlanetsWithAvreageTemperatureInKGraterThan(100)
-console.log(getNamePlanetsWithTemperaturGreaterThan100K(solar_system))
-
-//609
-//610
-//611
-//612
+console.log(getNamePlanetHighestAvgTemp(solar_system))
 
 
-function getPlanetsAvreageTemperatureInCelcius(planetName){
-    function inner(data){
-        return data.filter((planet)=>planet.englishName === planetName).map((planet)=>planet.avgTemp- 273.15)
-    }
-    return inner
+//669
+//670
+//671
+//672
+
+function getNamePlanetLowestAvgTemp(arr){
+    const lowestAvgTemp =  arr.reduce((acc, cu)=> cu.avgTemp < acc? cu.avgTemp : acc, 1000)
+    return arr.filter((pl)=>pl.avgTemp === lowestAvgTemp).map((pl)=>pl.englishName)
 }
-const getAvreageTempInCelciusFromEarth = getPlanetsAvreageTemperatureInCelcius("Earth")
-console.log(getAvreageTempInCelciusFromEarth(solar_system))
+console.log(getNamePlanetLowestAvgTemp(solar_system))
 
-//613
-//614
-//615
-//616
 
-function getPlanetWithMoreMoonsThenNumber(number){
-    function inner(data){
-        return data.filter((planet)=>planet.moons? planet.moons.length > number : 0).map((planet)=>planet.englishName)
-    }
-    return inner
+
+//673
+//674
+//675
+//676
+
+function getNamePlanetLowestGravity(arr){
+    const lowestGravity =  arr.reduce((acc, cu)=> cu.gravity < acc? cu.gravity : acc, 1000)
+    return arr.filter((pl)=>pl.gravity === lowestGravity).map((pl)=>pl.englishName)
 }
+console.log(getNamePlanetLowestGravity(solar_system))
 
-const planetsWithMoonsMoreThanOne = getPlanetWithMoreMoonsThenNumber(1);
-console.log(planetsWithMoonsMoreThanOne(solar_system))
-//617
-//618
-//619
-//620
+//677
+//678
+//679
+//680
 
-
-
-function getDifferenceAphelionAndPerihelion(planeta){
-    return (planeta.aphelion - planeta.perihelion)
+function getNamePlanetHighestGravity(arr){
+    const highestGravity =  arr.reduce((acc, cu)=> cu.gravity > acc? cu.gravity : acc, 0)
+    return arr.filter((pl)=>pl.gravity === highestGravity).map((pl)=>pl.englishName)
 }
+console.log(getNamePlanetHighestGravity(solar_system))
 
-function getPlnaetNameWithBiggestDifferenceAphelionAndPerihelion(data){
-    return data.map((pl)=> [pl.englishName, getDifferenceAphelionAndPerihelion(pl)]).sort((a,b)=> b[1] - a[1])[0]
-}
-console.log(getPlnaetNameWithBiggestDifferenceAphelionAndPerihelion(solar_system))
-
-
-
-
-//621
-//622
-//623
-//624
-//625
-//626
-
-function getNamesPlanetsWithDensityGreaterThan(planetName){
-    function inner(data){
-        const planetDensity = data.filter((pl)=>pl.englishName === planetName).map((pl)=>pl.density)
-        return data.filter((pl)=>pl.density > planetDensity).map((pl)=>pl.englishName)
-    }
-    return inner
-}
-
-const planetsWithDensityGreaterThanUranus = getNamesPlanetsWithDensityGreaterThan("Uranus")
-console.log(planetsWithDensityGreaterThanUranus(solar_system))
-
-//627
-//628
-//629
-//630
-//631
-//632
-
-
-function getNamesPlanetsWithInclinationGreaterThan(planetName){
-    function inner(data){
-        const planetInclination = data.filter((pl)=>pl.englishName === planetName).map((pl)=>pl.inclination)
-        return data.filter((pl)=>pl.inclination > planetInclination).map((pl)=>pl.englishName)
-    }
-    return inner
-}
-
-const planetsWithInclinationGreaterThanMars = getNamesPlanetsWithInclinationGreaterThan("Mars")
-console.log(planetsWithInclinationGreaterThanMars(solar_system))
-
-//633
-//634
-//635
-//636
-//637
-//638
-
-function getNamesPlanetsWithGravityGreaterThan(planetName){
-    function inner(data){
-        const planetGravity = data.filter((pl)=>pl.englishName === planetName).map((pl)=>pl.gravity)
-        return data.filter((pl)=>pl.gravity > planetGravity).map((pl)=>pl.englishName)
-    }
-    return inner
-}
-
-const planetsWithGravityGreaterThanEarth = getNamesPlanetsWithGravityGreaterThan("Earth")
-console.log(planetsWithGravityGreaterThanEarth(solar_system))
-
-
-//639
-//640
-//641
-//642
-//643
-//644
-
-function getPlanetWithSideralRotationBiggerThan(planetName){
-    function inner(data){
-        const planetSideralRotation = data.filter((pl)=>pl.englishName === planetName).map((pl)=>pl.sideralRotation)
-        return data.filter((pl)=>pl.sideralRotation > planetSideralRotation).map((pl)=>pl.englishName)
-    }
-    return inner
-}
-
-const planetsWithSideralRotationBiggerThanEarth = getPlanetWithSideralRotationBiggerThan("Earth")
-console.log(planetsWithSideralRotationBiggerThanEarth(solar_system))
-//645
-//646
-//647
-//648
-
-function getInfoAboutDiscovery(planet){
-    function inner(data){
-        return data.filter((pl)=> pl.englishName === planet).map((pl)=>pl.discoveredBy? `Planet ${pl.englishName} discoverd by: ${pl.discoveredBy} in ${pl.discoveryDate}`: "No info")
-    }
-    return inner
-}
-
-const getInfoAboutNeptune =  getInfoAboutDiscovery("Neptune")
-console.log(getInfoAboutNeptune(solar_system))
-//649
-//650
-//651
-
-function getAverageTempPlanets(data){
-    return data.map((pl)=>pl.avgTemp).reduce((acc, cur)=> acc+cur)/data.length
-}
-console.log(getAverageTempPlanets(solar_system))
-//652
-//653
-//654
-
-function getAveragDensityOfPlanets(data){
-    return data.map((pl)=>pl.density).reduce((acc, cur)=> acc+cur)/data.length
-}
-console.log(getAveragDensityOfPlanets(solar_system))
-
-//655
-//656
-//657
-
-function getAverageNumOfMoonsPlanets(data){
-    return data.map((pl)=>pl.moons? pl.moons.length: 0).reduce((acc, cur)=> acc+cur)/data.length
-}
-console.log(getAverageNumOfMoonsPlanets(solar_system))
-
-
-//658
-//659
-//660
+//681
+//682
+//684
+//685
+//686
+//687
+//688
+//689
+//690
+//691
+//692
+//693
+//694
+//695
+//696
+//697
+//698
+//699
+//700
