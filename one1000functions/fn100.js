@@ -5633,7 +5633,80 @@ console.log(getAAverageIBUParameter(beers))
 //744
 //745
 //746
+function getBeersWithAlcoholByVolumeGreaterThanInBeer(beer){
+
+    function inner(data){
+        const beerToCompare =data.filter((b)=>b.name === beer).map((b)=>b.abv)
+        return data.filter((beer)=> beer.abv > beerToCompare).map((b)=>b.name)
+    }
+    return inner
+}
+
+const beersWithMoreAlcoholThanStorm = getBeersWithAlcoholByVolumeGreaterThanInBeer("Storm")
+console.log(beersWithMoreAlcoholThanStorm(beers))
+
 //747
 //748
 //749
 //750
+//751
+//752
+
+function getBeersDarkerThan(beer){
+
+    function inner(data){
+        const beerToCompare =data.filter((b)=>b.name === beer).map((b)=>b.ebc)
+        return data.filter((beer)=> beer.ebc > beerToCompare).map((b)=>b.name)
+    }
+    return inner
+}
+
+const beersDarkerThanStorm = getBeersDarkerThan("Storm")
+console.log(beersDarkerThanStorm(beers))
+
+//753
+//754
+//755
+//756
+//757
+//758
+
+function getBeersMoreBitterThanBeer(beer){
+
+    function inner(data){
+        const beerToCompare =data.filter((b)=>b.name === beer).map((b)=>b.ibu)
+        return data.filter((beer)=> beer.ibu > beerToCompare).map((b)=>b.name)
+    }
+    return inner
+}
+
+const beersMoreBitterThanAlphaDog = getBeersMoreBitterThanBeer("Alpha Dog")
+console.log(beersMoreBitterThanAlphaDog(beers))
+
+
+//759
+//760
+//761
+//762
+//763
+//764
+
+function getBeersBrewedBeforeBeer(beer){
+
+    function inner(data){
+        const beerToCompare =data.filter((b)=>b.name === beer).map((b)=>b.first_brewed.split("/")[1])
+        return data.filter((beer)=> beer.first_brewed.split("/")[1] > beerToCompare).map((b)=>b.name)
+    }
+    return inner
+}
+
+const beersBrewedBeforeAlphaDog = getBeersBrewedBeforeBeer("Alpha Dog")
+console.log(beersBrewedBeforeAlphaDog(beers))
+
+
+//765
+//766
+//767
+//768
+//769
+//770
