@@ -5359,7 +5359,7 @@ const beers = [
         attenuation_level: 75,
         boil_volume: {value: 25, unit: 'litres'},
         brewers_tips: "The earthy and floral aromas from the hops can be overpowering. Drop a little Cascade in at the end of the boil to lift the profile with a bit of citrus.",
-        contributed_by: "Sam Mason <samjbmason>",
+        contributed_by: "Sam Mason",
         description: "A light, crisp and bitter IPA brewed with English and American hops. A small batch brewed only once.",
         ebc: 20,
         first_brewed: "09/2007",
@@ -5379,7 +5379,7 @@ const beers = [
         attenuation_level: 80,
         boil_volume: {value: 25, unit: 'litres'},
         brewers_tips: "Play around with the fermentation temperature to get the best flavour profile from the individual yeasts.",
-        contributed_by: "Ali Skinner <AliSkinner>",
+        contributed_by: "Ali Skinner",
         description: "Our Unleash the Yeast series was an epic experiment into the differences in aroma and flavour provided by switching up your yeast. We brewed up a wort with a light caramel note and some toasty biscuit flavour, and hopped it with Amarillo and Centennial for a citrusy bitterness. Everything else is down to the yeast. Pilsner yeast ferments with no fruity esters or spicy phenols, although it can add a hint of butterscotch.",
         ebc: 30,
         first_brewed: "09/2013",
@@ -5399,7 +5399,7 @@ const beers = [
         attenuation_level: 72.8,
         boil_volume: {value: 25, unit: 'litres'},
         brewers_tips: "Crush the malt as close to brewing time as possible. The fresher the malt, the more intense caramel flavours will be released in the wort.",
-        contributed_by: "Sam Mason <samjbmason>",
+        contributed_by: "Sam Mason",
         description: "A fusion of caramel malt flavours and punchy New Zealand hops. A session beer you can get your teeth into.",
         ebc: 62,
         first_brewed: "02/2010",
@@ -5438,7 +5438,7 @@ const beers = [
         attenuation_level: 79,
         boil_volume: {value: 25, unit: 'litres'},
         brewers_tips: "Make sure you have plenty of room in the fermenter. Beers containing wheat can often foam aggressively during fermentation.",
-        contributed_by: "Sam Mason <samjbmason>",
+        contributed_by: "Sam Mason",
         description: "2008 Prototype beer, a 4.7% wheat ale with crushed juniper berries and citrus peel.",
         ebc: 8,
         first_brewed: "10/2008",
@@ -5457,7 +5457,7 @@ const beers = [
         attenuation_level: 100,
         boil_volume: {value: 25, unit: 'litres'},
         brewers_tips: "You'll have to get this one all the way down to -70°C. Taxidermy is not optional.",
-        contributed_by: "Sam Mason <samjbmason>",
+        contributed_by: "Sam Mason",
         description: "The End of History: The name derives from the famous work of philosopher Francis Fukuyama, this is to beer what democracy is to history. Complexity defined. Floral, grapefruit, caramel and cloves are intensified by boozy heat.",
         ebc: null,
         first_brewed: "06/2011",
@@ -5476,7 +5476,7 @@ const beers = [
         attenuation_level: 88.9,
         boil_volume: {value: 25, unit: 'litres'},
         brewers_tips: "Source some really good heather honey to get the right spicy esters in the beer.",
-        contributed_by: "Sam Mason <samjbmason>",
+        contributed_by: "Sam Mason",
         description: "Re-brewed as a spring seasonal, this beer – which appeared originally as an Equity Punk shareholder creation – retains its trademark spicy, fruity edge. A perfect blend of Belgian Saison and US IPA, crushed peppercorns and heather honey are also added to produce a genuinely unique beer.",
         ebc: 15,
         first_brewed: "05/2013",
@@ -5528,18 +5528,64 @@ console.log(darkBeer(beers))
 //716
 //717
 //718
+function getBeersWithIBUMoreThan(value){
+    function inner(data){
+        return data.filter((beer)=> beer.ibu > value).map((beer)=>beer.name)
+    }
+    return inner
+}
+
+const bitterBeer = getBeersWithIBUMoreThan(25);
+console.log(bitterBeer(beers))
+
+
 //719
 //720
 //721
 //722
+
+function getBeersWithPHLessThan(value){
+    function inner(data){
+        return data.filter((beer)=> beer.ph < value).map((beer)=>beer.name)
+    }
+    return inner
+}
+
+const phLessThan4point5 = getBeersWithPHLessThan(4.5);
+console.log(phLessThan4point5(beers))
+
+
+
 //723
 //724
 //725
 //726
+
+function getBeersContributedBy(company){
+    function inner(data){
+        return data.filter((beer)=> beer.contributed_by === company).map((beer)=>beer.name)
+    }
+    return inner
+}
+
+const contributedByAliSkinner = getBeersContributedBy("Ali Skinner");
+console.log(contributedByAliSkinner(beers))
+
 //727
 //728
 //729
 //730
+
+function getBeersFirstBrewedBeforYear(year){
+    function inner(data){
+        return data.filter((beer)=> parseInt(beer.first_brewed.split("/")[1]) <year).map((beer)=>beer.name)
+    }
+    return inner
+}
+
+const firstBrewedBefore2012 = getBeersFirstBrewedBeforYear(2010)
+console.log(firstBrewedBefore2012(beers))
+
 //731
 //732
 //733
