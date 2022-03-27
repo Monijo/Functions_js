@@ -5266,18 +5266,102 @@ console.log(getNamePlanetHighestGravity(solar_system))
 //682
 //684
 //685
+
+function getNamePlanetHighestDensity(arr){
+    const highestDensity =  arr.reduce((acc, cu)=> cu.density > acc? cu.density : acc, 0)
+    return arr.filter((pl)=>pl.density === highestDensity).map((pl)=>pl.englishName)
+}
+console.log(getNamePlanetHighestDensity(solar_system))
+
 //686
 //687
 //688
 //689
+
+function getNamePlanetLowestDensity(arr){
+    const lowestDensity =  arr.reduce((acc, cu)=> cu.density < acc? cu.density : acc, 10000)
+    return arr.filter((pl)=>pl.density === lowestDensity).map((pl)=>pl.englishName)
+}
+console.log(getNamePlanetLowestDensity(solar_system))
+
 //690
 //691
 //692
 //693
+
+function getAvgTempOnPlanet(planet){
+    function inner(data){
+        return data.filter((pl)=>pl.englishName===planet).map((pl)=>pl.avgTemp)
+    }
+    return inner
+}
+const getAverageTempOnPluton = getAvgTempOnPlanet("Jupiter")
+console.log(getAverageTempOnPluton(solar_system))
+
 //694
 //695
 //696
 //697
+function getDensityPlanet(planet){
+    function inner(data){
+        return data.filter((pl)=>pl.englishName===planet).map((pl)=>pl.density)
+    }
+    return inner
+}
+const densityOfJupiter = getDensityPlanet("Jupiter")
+console.log(densityOfJupiter(solar_system))
+
+
 //698
 //699
 //700
+//701
+//702
+//703
+//704
+//705
+//706
+//707
+//708
+//709
+//710
+//711
+//712
+//713
+//714
+//715
+//716
+//717
+//718
+//719
+//720
+//721
+//722
+//723
+//724
+//725
+//726
+//727
+//728
+//729
+//730
+//731
+//732
+//733
+//734
+//735
+//736
+//737
+//738
+//739
+//740
+//741
+//742
+//743
+//744
+//745
+//746
+//747
+//748
+//749
+//750
