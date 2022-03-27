@@ -5220,115 +5220,310 @@ const solar_system = [
 //667
 //668
 
-function getNamePlanetHighestAvgTemp(arr){
-    const highestAvgTemp =  arr.reduce((acc, cu)=> cu.avgTemp > acc? cu.avgTemp : acc, 0)
-    return arr.filter((pl)=>pl.avgTemp === highestAvgTemp).map((pl)=>pl.englishName)
-}
-console.log(getNamePlanetHighestAvgTemp(solar_system))
+// function getNamePlanetHighestAvgTemp(arr){
+//     const highestAvgTemp =  arr.reduce((acc, cu)=> cu.avgTemp > acc? cu.avgTemp : acc, 0)
+//     return arr.filter((pl)=>pl.avgTemp === highestAvgTemp).map((pl)=>pl.englishName)
+// }
+// console.log(getNamePlanetHighestAvgTemp(solar_system))
+//
+//
+// //669
+// //670
+// //671
+// //672
+//
+// function getNamePlanetLowestAvgTemp(arr){
+//     const lowestAvgTemp =  arr.reduce((acc, cu)=> cu.avgTemp < acc? cu.avgTemp : acc, 1000)
+//     return arr.filter((pl)=>pl.avgTemp === lowestAvgTemp).map((pl)=>pl.englishName)
+// }
+// console.log(getNamePlanetLowestAvgTemp(solar_system))
+//
+//
+//
+// //673
+// //674
+// //675
+// //676
+//
+// function getNamePlanetLowestGravity(arr){
+//     const lowestGravity =  arr.reduce((acc, cu)=> cu.gravity < acc? cu.gravity : acc, 1000)
+//     return arr.filter((pl)=>pl.gravity === lowestGravity).map((pl)=>pl.englishName)
+// }
+// console.log(getNamePlanetLowestGravity(solar_system))
+//
+// //677
+// //678
+// //679
+// //680
+//
+// function getNamePlanetHighestGravity(arr){
+//     const highestGravity =  arr.reduce((acc, cu)=> cu.gravity > acc? cu.gravity : acc, 0)
+//     return arr.filter((pl)=>pl.gravity === highestGravity).map((pl)=>pl.englishName)
+// }
+// console.log(getNamePlanetHighestGravity(solar_system))
+//
+// //681
+// //682
+// //684
+// //685
+//
+// function getNamePlanetHighestDensity(arr){
+//     const highestDensity =  arr.reduce((acc, cu)=> cu.density > acc? cu.density : acc, 0)
+//     return arr.filter((pl)=>pl.density === highestDensity).map((pl)=>pl.englishName)
+// }
+// console.log(getNamePlanetHighestDensity(solar_system))
+//
+// //686
+// //687
+// //688
+// //689
+//
+// function getNamePlanetLowestDensity(arr){
+//     const lowestDensity =  arr.reduce((acc, cu)=> cu.density < acc? cu.density : acc, 10000)
+//     return arr.filter((pl)=>pl.density === lowestDensity).map((pl)=>pl.englishName)
+// }
+// console.log(getNamePlanetLowestDensity(solar_system))
+//
+// //690
+// //691
+// //692
+// //693
+//
+// function getAvgTempOnPlanet(planet){
+//     function inner(data){
+//         return data.filter((pl)=>pl.englishName===planet).map((pl)=>pl.avgTemp)
+//     }
+//     return inner
+// }
+// const getAverageTempOnPluton = getAvgTempOnPlanet("Jupiter")
+// console.log(getAverageTempOnPluton(solar_system))
+//
+// //694
+// //695
+// //696
+// //697
+// function getDensityPlanet(planet){
+//     function inner(data){
+//         return data.filter((pl)=>pl.englishName===planet).map((pl)=>pl.density)
+//     }
+//     return inner
+// }
+// const densityOfJupiter = getDensityPlanet("Jupiter")
+// console.log(densityOfJupiter(solar_system))
+//
+//
+// //698
+// //699
+// //700
+// //701
+//
+// function getGravityPlanet(planet){
+//     function inner(data){
+//         return data.filter((pl)=>pl.englishName===planet).map((pl)=>pl.gravity)
+//     }
+//     return inner
+// }
+// const gravityOfJupiter = getGravityPlanet("Jupiter")
+// console.log(gravityOfJupiter(solar_system))
+//
+// //702
+// //703
+// //704
+// //705
+//
+// function getperihelionPlanet(planet){
+//     function inner(data){
+//         return data.filter((pl)=>pl.englishName===planet).map((pl)=>pl.perihelion)
+//     }
+//     return inner
+// }
+// const perihelionOfJupiter = getperihelionPlanet("Jupiter")
+// console.log(perihelionOfJupiter(solar_system))
 
-
-//669
-//670
-//671
-//672
-
-function getNamePlanetLowestAvgTemp(arr){
-    const lowestAvgTemp =  arr.reduce((acc, cu)=> cu.avgTemp < acc? cu.avgTemp : acc, 1000)
-    return arr.filter((pl)=>pl.avgTemp === lowestAvgTemp).map((pl)=>pl.englishName)
-}
-console.log(getNamePlanetLowestAvgTemp(solar_system))
-
-
-
-//673
-//674
-//675
-//676
-
-function getNamePlanetLowestGravity(arr){
-    const lowestGravity =  arr.reduce((acc, cu)=> cu.gravity < acc? cu.gravity : acc, 1000)
-    return arr.filter((pl)=>pl.gravity === lowestGravity).map((pl)=>pl.englishName)
-}
-console.log(getNamePlanetLowestGravity(solar_system))
-
-//677
-//678
-//679
-//680
-
-function getNamePlanetHighestGravity(arr){
-    const highestGravity =  arr.reduce((acc, cu)=> cu.gravity > acc? cu.gravity : acc, 0)
-    return arr.filter((pl)=>pl.gravity === highestGravity).map((pl)=>pl.englishName)
-}
-console.log(getNamePlanetHighestGravity(solar_system))
-
-//681
-//682
-//684
-//685
-
-function getNamePlanetHighestDensity(arr){
-    const highestDensity =  arr.reduce((acc, cu)=> cu.density > acc? cu.density : acc, 0)
-    return arr.filter((pl)=>pl.density === highestDensity).map((pl)=>pl.englishName)
-}
-console.log(getNamePlanetHighestDensity(solar_system))
-
-//686
-//687
-//688
-//689
-
-function getNamePlanetLowestDensity(arr){
-    const lowestDensity =  arr.reduce((acc, cu)=> cu.density < acc? cu.density : acc, 10000)
-    return arr.filter((pl)=>pl.density === lowestDensity).map((pl)=>pl.englishName)
-}
-console.log(getNamePlanetLowestDensity(solar_system))
-
-//690
-//691
-//692
-//693
-
-function getAvgTempOnPlanet(planet){
-    function inner(data){
-        return data.filter((pl)=>pl.englishName===planet).map((pl)=>pl.avgTemp)
-    }
-    return inner
-}
-const getAverageTempOnPluton = getAvgTempOnPlanet("Jupiter")
-console.log(getAverageTempOnPluton(solar_system))
-
-//694
-//695
-//696
-//697
-function getDensityPlanet(planet){
-    function inner(data){
-        return data.filter((pl)=>pl.englishName===planet).map((pl)=>pl.density)
-    }
-    return inner
-}
-const densityOfJupiter = getDensityPlanet("Jupiter")
-console.log(densityOfJupiter(solar_system))
-
-
-//698
-//699
-//700
-//701
-//702
-//703
-//704
-//705
 //706
+
+// fetch("https://api.punkapi.com/v2/beers").then((resp)=>resp.json())
+//     .then(data=> {
+//             const arr = [];
+//             for (let obj of data) {
+//                 arr.push(obj)
+//             }
+//             console.log(arr)
+//         }
+//     )
+
+
+const beers = [
+    {
+        abv: 4.5,
+        attenuation_level: 75,
+        boil_volume: {value: 25, unit: 'litres'},
+        brewers_tips: "The earthy and floral aromas from the hops can be overpowering. Drop a little Cascade in at the end of the boil to lift the profile with a bit of citrus.",
+        contributed_by: "Sam Mason <samjbmason>",
+        description: "A light, crisp and bitter IPA brewed with English and American hops. A small batch brewed only once.",
+        ebc: 20,
+        first_brewed: "09/2007",
+        food_pairing: (3) ['Spicy chicken tikka masala', 'Grilled chicken quesadilla', 'Caramel toffee cake'],
+        ibu: 60,
+        id: 1,
+        name: "Buzz",
+        ph: 4.4,
+        srm: 10,
+        tagline: "A Real Bitter Experience.",
+        target_fg: 1010,
+        target_og: 1044,
+        volume: {value: 20, unit: 'litres'}
+    },
+    {
+        abv: 6.3,
+        attenuation_level: 80,
+        boil_volume: {value: 25, unit: 'litres'},
+        brewers_tips: "Play around with the fermentation temperature to get the best flavour profile from the individual yeasts.",
+        contributed_by: "Ali Skinner <AliSkinner>",
+        description: "Our Unleash the Yeast series was an epic experiment into the differences in aroma and flavour provided by switching up your yeast. We brewed up a wort with a light caramel note and some toasty biscuit flavour, and hopped it with Amarillo and Centennial for a citrusy bitterness. Everything else is down to the yeast. Pilsner yeast ferments with no fruity esters or spicy phenols, although it can add a hint of butterscotch.",
+        ebc: 30,
+        first_brewed: "09/2013",
+        food_pairing: (3) ['Spicy crab cakes', 'Spicy cucumber and carrot Thai salad', 'Sweet filled dumplings'],
+        ibu: 55,
+        id: 4,
+        name: "Pilsen Lager",
+        ph: 4.4,
+        srm: 15,
+        tagline: "Unleash the Yeast Series.",
+        target_fg: 1012,
+        target_og: 1060,
+        volume: {value: 20, unit: 'litres'},
+
+    }, {
+        abv: 4.5,
+        attenuation_level: 72.8,
+        boil_volume: {value: 25, unit: 'litres'},
+        brewers_tips: "Crush the malt as close to brewing time as possible. The fresher the malt, the more intense caramel flavours will be released in the wort.",
+        contributed_by: "Sam Mason <samjbmason>",
+        description: "A fusion of caramel malt flavours and punchy New Zealand hops. A session beer you can get your teeth into.",
+        ebc: 62,
+        first_brewed: "02/2010",
+        food_pairing: (4) ['Pastrami', 'Swiss and horseradish sandwich', 'Sharp cheddar cheese and onion/ raisin chutney', 'Peanut brittle'],
+        ibu: 42,
+        id: 14,
+        name: "Alpha Dog",
+        ph: 4.4,
+        srm: 31,
+        tagline: "Existential Red Ale.",
+        target_fg: 1025,
+        target_og: 1046,
+        volume: {value: 20, unit: 'litres'},
+
+}, {
+        abv: 8,
+        attenuation_level: 86,
+        boil_volume: {value: 25, unit: 'litres'},
+        brewers_tips: "After primary fermentation is complete, rack off into a secondary fermeter and add the oak chips to replicate the authentic Islay barrel experience.",
+        contributed_by: "Sam Mason ",
+        description: "Dark and powerful Islay magic infuses this tropical sensation of an IPA. Using the original Punk IPA as a base, we boosted the ABV to 8% giving it some extra backbone to stand up to the peated smoke imported directly from Islay.",
+        ebc: 12,
+        first_brewed: "12/2007",
+        food_pairing: (3) ['Oysters', 'Hickory smoked ham', 'Rocky Road'],
+        ibu: 60,
+        id: 23,
+        name: "Storm",
+        ph: 4.4,
+        srm: 6,
+        tagline: "Islay Whisky Aged IPA.",
+        target_fg: 1010,
+        target_og: 1082,
+        volume: {value: 20, unit: 'litres'}
+    },{
+        abv: 4.7,
+        attenuation_level: 79,
+        boil_volume: {value: 25, unit: 'litres'},
+        brewers_tips: "Make sure you have plenty of room in the fermenter. Beers containing wheat can often foam aggressively during fermentation.",
+        contributed_by: "Sam Mason <samjbmason>",
+        description: "2008 Prototype beer, a 4.7% wheat ale with crushed juniper berries and citrus peel.",
+        ebc: 8,
+        first_brewed: "10/2008",
+        food_pairing: (3) ['Poached sole fillet with capers', 'Summer fruit salad', 'Banana split'],
+        ibu: 45,
+        id: 25,
+        name: "Bad Pixie",
+        ph: 4.4,
+        srm: 4,
+        tagline: "Spiced Wheat Beer.",
+        target_fg: 1010,
+        target_og: 1047,
+        volume: {value: 20, unit: 'litres'},
+    },{
+        abv: 55,
+        attenuation_level: 100,
+        boil_volume: {value: 25, unit: 'litres'},
+        brewers_tips: "You'll have to get this one all the way down to -70°C. Taxidermy is not optional.",
+        contributed_by: "Sam Mason <samjbmason>",
+        description: "The End of History: The name derives from the famous work of philosopher Francis Fukuyama, this is to beer what democracy is to history. Complexity defined. Floral, grapefruit, caramel and cloves are intensified by boozy heat.",
+        ebc: null,
+        first_brewed: "06/2011",
+        food_pairing: (3) ['Roasted wood pigeon with black pudding', 'Pan seared venison fillet with juniper sauce', 'Apricot coconut cake'],
+        ibu: null,
+        id: 24,
+        name: "The End Of History",
+        ph: 4.4,
+        srm: null,
+        tagline: "The World's Strongest Beer.",
+        target_fg: 1000,
+        target_og: 1112,
+        volume: {value: 20, unit: 'litres'},
+    },{
+        abv: 5.2,
+        attenuation_level: 88.9,
+        boil_volume: {value: 25, unit: 'litres'},
+        brewers_tips: "Source some really good heather honey to get the right spicy esters in the beer.",
+        contributed_by: "Sam Mason <samjbmason>",
+        description: "Re-brewed as a spring seasonal, this beer – which appeared originally as an Equity Punk shareholder creation – retains its trademark spicy, fruity edge. A perfect blend of Belgian Saison and US IPA, crushed peppercorns and heather honey are also added to produce a genuinely unique beer.",
+        ebc: 15,
+        first_brewed: "05/2013",
+        food_pairing: (3) ['Mussels with a garlic and herb sauce', 'Crab melt sandwich', 'Shortbread cookies'],
+        ibu: 38,
+        id: 6,
+        name: "Electric India",
+        ph: 4.4,
+        srm: 7.5,
+        tagline: "Vibrant Hoppy Saison.",
+        target_fg: 1005,
+        target_og: 1045,
+        volume: {value: 20, unit: 'litres'},
+    }
+]
+
+
 //707
 //708
 //709
 //710
+
+function getBeersWithABVMoreThan(value){
+    function inner(data){
+        return data.filter((beer)=> beer.abv > value).map((beer)=>beer.name)
+    }
+    return inner
+}
+
+const strongBeer = getBeersWithABVMoreThan(10);
+console.log(strongBeer(beers))
 //711
 //712
 //713
 //714
+
+function getBeersWithEBCMoreThan(value){
+    function inner(data){
+        return data.filter((beer)=> beer.ebc > value).map((beer)=>beer.name)
+    }
+    return inner
+}
+
+const darkBeer = getBeersWithEBCMoreThan(19);
+console.log(darkBeer(beers))
+
+
 //715
 //716
 //717
