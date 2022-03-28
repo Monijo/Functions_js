@@ -5363,7 +5363,7 @@ const beers = [
         description: "A light, crisp and bitter IPA brewed with English and American hops. A small batch brewed only once.",
         ebc: 20,
         first_brewed: "09/2007",
-        food_pairing: (3) ['Spicy chicken tikka masala', 'Grilled chicken quesadilla', 'Caramel toffee cake'],
+        food_pairing:['Spicy chicken tikka masala', 'Grilled chicken quesadilla', 'Caramel toffee cake'],
         ibu: 60,
         id: 1,
         name: "Buzz",
@@ -5383,7 +5383,7 @@ const beers = [
         description: "Our Unleash the Yeast series was an epic experiment into the differences in aroma and flavour provided by switching up your yeast. We brewed up a wort with a light caramel note and some toasty biscuit flavour, and hopped it with Amarillo and Centennial for a citrusy bitterness. Everything else is down to the yeast. Pilsner yeast ferments with no fruity esters or spicy phenols, although it can add a hint of butterscotch.",
         ebc: 30,
         first_brewed: "09/2013",
-        food_pairing: (3) ['Spicy crab cakes', 'Spicy cucumber and carrot Thai salad', 'Sweet filled dumplings'],
+        food_pairing:['Spicy crab cakes', 'Spicy cucumber and carrot Thai salad', 'Sweet filled dumplings'],
         ibu: 55,
         id: 4,
         name: "Pilsen Lager",
@@ -5403,7 +5403,7 @@ const beers = [
         description: "A fusion of caramel malt flavours and punchy New Zealand hops. A session beer you can get your teeth into.",
         ebc: 62,
         first_brewed: "02/2010",
-        food_pairing: (4) ['Pastrami', 'Swiss and horseradish sandwich', 'Sharp cheddar cheese and onion/ raisin chutney', 'Peanut brittle'],
+        food_pairing:['Pastrami', 'Swiss and horseradish sandwich', 'Sharp cheddar cheese and onion/ raisin chutney', 'Peanut brittle'],
         ibu: 42,
         id: 14,
         name: "Alpha Dog",
@@ -5423,7 +5423,7 @@ const beers = [
         description: "Dark and powerful Islay magic infuses this tropical sensation of an IPA. Using the original Punk IPA as a base, we boosted the ABV to 8% giving it some extra backbone to stand up to the peated smoke imported directly from Islay.",
         ebc: 12,
         first_brewed: "12/2007",
-        food_pairing: (3) ['Oysters', 'Hickory smoked ham', 'Rocky Road'],
+        food_pairing:['Oysters', 'Hickory smoked ham', 'Rocky Road'],
         ibu: 60,
         id: 23,
         name: "Storm",
@@ -5442,7 +5442,7 @@ const beers = [
         description: "2008 Prototype beer, a 4.7% wheat ale with crushed juniper berries and citrus peel.",
         ebc: 8,
         first_brewed: "10/2008",
-        food_pairing: (3) ['Poached sole fillet with capers', 'Summer fruit salad', 'Banana split'],
+        food_pairing:['Poached sole fillet with capers', 'Summer fruit salad', 'Banana split'],
         ibu: 45,
         id: 25,
         name: "Bad Pixie",
@@ -5461,7 +5461,7 @@ const beers = [
         description: "The End of History: The name derives from the famous work of philosopher Francis Fukuyama, this is to beer what democracy is to history. Complexity defined. Floral, grapefruit, caramel and cloves are intensified by boozy heat.",
         ebc: null,
         first_brewed: "06/2011",
-        food_pairing: (3) ['Roasted wood pigeon with black pudding', 'Pan seared venison fillet with juniper sauce', 'Apricot coconut cake'],
+        food_pairing:['Roasted wood pigeon with black pudding', 'Pan seared venison fillet with juniper sauce', 'Apricot coconut cake'],
         ibu: null,
         id: 24,
         name: "The End Of History",
@@ -5480,7 +5480,7 @@ const beers = [
         description: "Re-brewed as a spring seasonal, this beer – which appeared originally as an Equity Punk shareholder creation – retains its trademark spicy, fruity edge. A perfect blend of Belgian Saison and US IPA, crushed peppercorns and heather honey are also added to produce a genuinely unique beer.",
         ebc: 15,
         first_brewed: "05/2013",
-        food_pairing: (3) ['Mussels with a garlic and herb sauce', 'Crab melt sandwich', 'Shortbread cookies'],
+        food_pairing:['Mussels with a garlic and herb sauce', 'Crab melt sandwich', 'Shortbread cookies'],
         ibu: 38,
         id: 6,
         name: "Electric India",
@@ -5775,9 +5775,51 @@ console.log(findBeerWithLowestIBU(beers))
 //792
 //793
 //794
+
+function oldestBeer(data){
+    const oldestDate =  data.reduce((acc, cu)=>acc > parseInt(cu.first_brewed.split("/")[1])? parseInt(cu.first_brewed.split("/")[1]) :acc , 2022)
+    console.log(oldestDate)
+    const oldestMonth =  data.filter((b)=> parseInt(b.first_brewed.split("/")[1]) === oldestDate).reduce((acc, cu)=> acc > parseInt(cu.first_brewed.split("/")[0])? parseInt(cu.first_brewed.split("/")[0]): 12)
+    console.log(oldestMonth)
+     return data.filter((b)=>parseInt(b.first_brewed.split("/")[0]) ===oldestMonth &&  parseInt(b.first_brewed.split("/")[1]) === oldestDate).map(b=>b.name)
+}
+console.log(oldestBeer(beers))
+
+
 //795
 //796
 //797
 //798
+
+function getFoodPairingToBeer(beerName){
+    function inner(data){
+        return data.filter((beer)=> beer.name === beerName).map(b=>b.food_pairing).join(", ")
+    }
+    return inner
+}
+
+const foodPairingToElectricIndia = getFoodPairingToBeer("Electric India")
+console.log(foodPairingToElectricIndia(beers))
+
 //799
 //800
+//801
+//802
+
+function findBeerPairingToFood(foodName){
+    function inner(data){
+        return data.filter((b)=>b.food_pairing.includes(foodName)).map(b=>b.name)
+    }
+    return inner
+}
+const beerPairingToCrabMeltSandwitch = findBeerPairingToFood('Crab melt sandwich')
+console.log(beerPairingToCrabMeltSandwitch(beers))
+
+//803
+//804
+//805
+//806
+//807
+//808
+//809
+//810
