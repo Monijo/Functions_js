@@ -5494,219 +5494,290 @@ const beers = [
 ]
 
 
-//707
-//708
-//709
-//710
-
-function getBeersWithABVMoreThan(value){
-    function inner(data){
-        return data.filter((beer)=> beer.abv > value).map((beer)=>beer.name)
-    }
-    return inner
-}
-
-const strongBeer = getBeersWithABVMoreThan(10);
-console.log(strongBeer(beers))
-//711
-//712
-//713
-//714
-
-function getBeersWithEBCMoreThan(value){
-    function inner(data){
-        return data.filter((beer)=> beer.ebc > value).map((beer)=>beer.name)
-    }
-    return inner
-}
-
-const darkBeer = getBeersWithEBCMoreThan(19);
-console.log(darkBeer(beers))
-
-
-//715
-//716
-//717
-//718
-function getBeersWithIBUMoreThan(value){
-    function inner(data){
-        return data.filter((beer)=> beer.ibu > value).map((beer)=>beer.name)
-    }
-    return inner
-}
-
-const bitterBeer = getBeersWithIBUMoreThan(25);
-console.log(bitterBeer(beers))
-
-
-//719
-//720
-//721
-//722
-
-function getBeersWithPHLessThan(value){
-    function inner(data){
-        return data.filter((beer)=> beer.ph < value).map((beer)=>beer.name)
-    }
-    return inner
-}
-
-const phLessThan4point5 = getBeersWithPHLessThan(4.5);
-console.log(phLessThan4point5(beers))
-
-
-
-//723
-//724
-//725
-//726
-
-function getBeersContributedBy(company){
-    function inner(data){
-        return data.filter((beer)=> beer.contributed_by === company).map((beer)=>beer.name)
-    }
-    return inner
-}
-
-const contributedByAliSkinner = getBeersContributedBy("Ali Skinner");
-console.log(contributedByAliSkinner(beers))
-
-//727
-//728
-//729
-//730
-
-function getBeersFirstBrewedBeforYear(year){
-    function inner(data){
-        return data.filter((beer)=> parseInt(beer.first_brewed.split("/")[1]) <year).map((beer)=>beer.name)
-    }
-    return inner
-}
-
-const firstBrewedBefore2012 = getBeersFirstBrewedBeforYear(2010)
-console.log(firstBrewedBefore2012(beers))
-
-//731
-//732
-//733
-//734
-
-function getBeersWithWordInTagLine(word){
-    function inner(data){
-        return data.filter((beer)=> beer.tagline.split(" ").includes(word)).map((b)=>b.name)
-    }
-    return inner
-}
-
-const beersWihBitterInTagLine = getBeersWithWordInTagLine("Bitter")
-console.log(beersWihBitterInTagLine(beers))
-
-
-//735
-//736
-//737
-
-
-function getAAverageABVParameter(data){
-    return data.reduce((acc, cu)=>acc + cu.abv, 0)/data.length
-}
-console.log(getAAverageABVParameter(beers))
-//737
-//738
-function getAAverageEBCParameter(data){
-    return data.reduce((acc, cu)=>acc + cu.ebc, 0)/data.length
-}
-console.log(getAAverageEBCParameter(beers))
-
-
-//739
-//740
-
-function getAAverageIBUParameter(data){
-    return data.reduce((acc, cu)=>acc + cu.ibu, 0)/data.length
-}
-console.log(getAAverageIBUParameter(beers))
-
-//741
-//742
-//743
-//744
-//745
-//746
-function getBeersWithAlcoholByVolumeGreaterThanInBeer(beer){
-
-    function inner(data){
-        const beerToCompare =data.filter((b)=>b.name === beer).map((b)=>b.abv)
-        return data.filter((beer)=> beer.abv > beerToCompare).map((b)=>b.name)
-    }
-    return inner
-}
-
-const beersWithMoreAlcoholThanStorm = getBeersWithAlcoholByVolumeGreaterThanInBeer("Storm")
-console.log(beersWithMoreAlcoholThanStorm(beers))
-
-//747
-//748
-//749
-//750
-//751
-//752
-
-function getBeersDarkerThan(beer){
-
-    function inner(data){
-        const beerToCompare =data.filter((b)=>b.name === beer).map((b)=>b.ebc)
-        return data.filter((beer)=> beer.ebc > beerToCompare).map((b)=>b.name)
-    }
-    return inner
-}
-
-const beersDarkerThanStorm = getBeersDarkerThan("Storm")
-console.log(beersDarkerThanStorm(beers))
-
-//753
-//754
-//755
-//756
-//757
-//758
-
-function getBeersMoreBitterThanBeer(beer){
-
-    function inner(data){
-        const beerToCompare =data.filter((b)=>b.name === beer).map((b)=>b.ibu)
-        return data.filter((beer)=> beer.ibu > beerToCompare).map((b)=>b.name)
-    }
-    return inner
-}
-
-const beersMoreBitterThanAlphaDog = getBeersMoreBitterThanBeer("Alpha Dog")
-console.log(beersMoreBitterThanAlphaDog(beers))
-
-
-//759
-//760
-//761
-//762
-//763
-//764
-
-function getBeersBrewedBeforeBeer(beer){
-
-    function inner(data){
-        const beerToCompare =data.filter((b)=>b.name === beer).map((b)=>b.first_brewed.split("/")[1])
-        return data.filter((beer)=> beer.first_brewed.split("/")[1] > beerToCompare).map((b)=>b.name)
-    }
-    return inner
-}
-
-const beersBrewedBeforeAlphaDog = getBeersBrewedBeforeBeer("Alpha Dog")
-console.log(beersBrewedBeforeAlphaDog(beers))
+// //707
+// //708
+// //709
+// //710
+//
+// function getBeersWithABVMoreThan(value){
+//     function inner(data){
+//         return data.filter((beer)=> beer.abv > value).map((beer)=>beer.name)
+//     }
+//     return inner
+// }
+//
+// const strongBeer = getBeersWithABVMoreThan(10);
+// console.log(strongBeer(beers))
+// //711
+// //712
+// //713
+// //714
+//
+// function getBeersWithEBCMoreThan(value){
+//     function inner(data){
+//         return data.filter((beer)=> beer.ebc > value).map((beer)=>beer.name)
+//     }
+//     return inner
+// }
+//
+// const darkBeer = getBeersWithEBCMoreThan(19);
+// console.log(darkBeer(beers))
+//
+//
+// //715
+// //716
+// //717
+// //718
+// function getBeersWithIBUMoreThan(value){
+//     function inner(data){
+//         return data.filter((beer)=> beer.ibu > value).map((beer)=>beer.name)
+//     }
+//     return inner
+// }
+//
+// const bitterBeer = getBeersWithIBUMoreThan(25);
+// console.log(bitterBeer(beers))
+//
+//
+// //719
+// //720
+// //721
+// //722
+//
+// function getBeersWithPHLessThan(value){
+//     function inner(data){
+//         return data.filter((beer)=> beer.ph < value).map((beer)=>beer.name)
+//     }
+//     return inner
+// }
+//
+// const phLessThan4point5 = getBeersWithPHLessThan(4.5);
+// console.log(phLessThan4point5(beers))
+//
+//
+//
+// //723
+// //724
+// //725
+// //726
+//
+// function getBeersContributedBy(company){
+//     function inner(data){
+//         return data.filter((beer)=> beer.contributed_by === company).map((beer)=>beer.name)
+//     }
+//     return inner
+// }
+//
+// const contributedByAliSkinner = getBeersContributedBy("Ali Skinner");
+// console.log(contributedByAliSkinner(beers))
+//
+// //727
+// //728
+// //729
+// //730
+//
+// function getBeersFirstBrewedBeforYear(year){
+//     function inner(data){
+//         return data.filter((beer)=> parseInt(beer.first_brewed.split("/")[1]) <year).map((beer)=>beer.name)
+//     }
+//     return inner
+// }
+//
+// const firstBrewedBefore2012 = getBeersFirstBrewedBeforYear(2010)
+// console.log(firstBrewedBefore2012(beers))
+//
+// //731
+// //732
+// //733
+// //734
+//
+// function getBeersWithWordInTagLine(word){
+//     function inner(data){
+//         return data.filter((beer)=> beer.tagline.split(" ").includes(word)).map((b)=>b.name)
+//     }
+//     return inner
+// }
+//
+// const beersWihBitterInTagLine = getBeersWithWordInTagLine("Bitter")
+// console.log(beersWihBitterInTagLine(beers))
+//
+//
+// //735
+// //736
+// //737
+//
+//
+// function getAAverageABVParameter(data){
+//     return data.reduce((acc, cu)=>acc + cu.abv, 0)/data.length
+// }
+// console.log(getAAverageABVParameter(beers))
+// //737
+// //738
+// function getAAverageEBCParameter(data){
+//     return data.reduce((acc, cu)=>acc + cu.ebc, 0)/data.length
+// }
+// console.log(getAAverageEBCParameter(beers))
+//
+//
+// //739
+// //740
+//
+// function getAAverageIBUParameter(data){
+//     return data.reduce((acc, cu)=>acc + cu.ibu, 0)/data.length
+// }
+// console.log(getAAverageIBUParameter(beers))
+//
+// //741
+// //742
+// //743
+// //744
+// //745
+// //746
+// function getBeersWithAlcoholByVolumeGreaterThanInBeer(beer){
+//
+//     function inner(data){
+//         const beerToCompare =data.filter((b)=>b.name === beer).map((b)=>b.abv)
+//         return data.filter((beer)=> beer.abv > beerToCompare).map((b)=>b.name)
+//     }
+//     return inner
+// }
+//
+// const beersWithMoreAlcoholThanStorm = getBeersWithAlcoholByVolumeGreaterThanInBeer("Storm")
+// console.log(beersWithMoreAlcoholThanStorm(beers))
+//
+// //747
+// //748
+// //749
+// //750
+// //751
+// //752
+//
+// function getBeersDarkerThan(beer){
+//
+//     function inner(data){
+//         const beerToCompare =data.filter((b)=>b.name === beer).map((b)=>b.ebc)
+//         return data.filter((beer)=> beer.ebc > beerToCompare).map((b)=>b.name)
+//     }
+//     return inner
+// }
+//
+// const beersDarkerThanStorm = getBeersDarkerThan("Storm")
+// console.log(beersDarkerThanStorm(beers))
+//
+// //753
+// //754
+// //755
+// //756
+// //757
+// //758
+//
+// function getBeersMoreBitterThanBeer(beer){
+//
+//     function inner(data){
+//         const beerToCompare =data.filter((b)=>b.name === beer).map((b)=>b.ibu)
+//         return data.filter((beer)=> beer.ibu > beerToCompare).map((b)=>b.name)
+//     }
+//     return inner
+// }
+//
+// const beersMoreBitterThanAlphaDog = getBeersMoreBitterThanBeer("Alpha Dog")
+// console.log(beersMoreBitterThanAlphaDog(beers))
+//
+//
+// //759
+// //760
+// //761
+// //762
+// //763
+// //764
+//
+// function getBeersBrewedBeforeBeer(beer){
+//
+//     function inner(data){
+//         const beerToCompare =data.filter((b)=>b.name === beer).map((b)=>b.first_brewed.split("/")[1])
+//         return data.filter((beer)=> beer.first_brewed.split("/")[1] > beerToCompare).map((b)=>b.name)
+//     }
+//     return inner
+// }
+//
+// const beersBrewedBeforeAlphaDog = getBeersBrewedBeforeBeer("Alpha Dog")
+// console.log(beersBrewedBeforeAlphaDog(beers))
 
 
 //765
 //766
 //767
 //768
+function findBeerWithHighestABV(data){
+    const highestABV =  data.reduce((acc, cu)=>acc < cu.abv? cu.abv:acc , 0)
+    return data.filter((b)=> b.abv ===highestABV).map((b)=>b.name)
+}
+console.log(findBeerWithHighestABV(beers))
+
 //769
 //770
+//771
+//772
+
+function findBeerWithHighestEBC(data){
+    const highestEBC =  data.reduce((acc, cu)=>acc < cu.ebc? cu.ebc:acc , 0)
+    return data.filter((b)=> b.ebc ===highestEBC).map((b)=>b.name)
+}
+console.log(findBeerWithHighestEBC(beers))
+
+//773
+//774
+//775
+//776
+
+function findBeerWithHighestIBU(data){
+    const highestIBU =  data.reduce((acc, cu)=>acc < cu.ibu? cu.ibu:acc , 0)
+    return data.filter((b)=> b.ibu ===highestIBU).map((b)=>b.name)
+}
+console.log(findBeerWithHighestIBU(beers))
+
+//777
+//778
+//779
+//780
+
+function findBeerWithLowestABV(data){
+    const lowestABV =  data.reduce((acc, cu)=>acc > cu.abv? cu.abv:acc , 1000)
+    return data.filter((b)=> b.abv ===lowestABV).map((b)=>b.name)
+}
+console.log(findBeerWithLowestABV(beers))
+
+//781
+//782
+//783
+//784
+
+function findBeerWithLowestEBC(data){
+    const lowestEBC =  data.reduce((acc, cu)=>acc > cu.ebc? cu.ebc:acc , 1000)
+    return data.filter((b)=> b.ebc ===lowestEBC).map((b)=>b.name)
+}
+console.log(findBeerWithLowestEBC(beers))
+
+//785
+//786
+//787
+//788
+
+function findBeerWithLowestIBU(data){
+    const lowestIBU =  data.reduce((acc, cu)=>acc > cu.ibu? cu.ibu:acc , 1000)
+    return data.filter((b)=> b.ibu ===lowestIBU).map((b)=>b.name)
+}
+console.log(findBeerWithLowestIBU(beers))
+
+//789
+//790
+//791
+//792
+//793
+//794
+//795
+//796
+//797
+//798
+//799
+//800
