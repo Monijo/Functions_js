@@ -40,3 +40,18 @@ const callback_=(accumulator=array[0], cuurentElement=array[1], id=0, array=[1,2
 const newAggregationValue = [1,2,3].reduce(callback_, initialValue)
 
 ```
+
+
+## OOP object oriented programing
+
+1. Abstraction-ukrywanie złożonej logiki w latwo dostepnym , ktorych mozna reuzywac.
+2. Inheritance - kopiowanie puli metod rodzica
+3. Polymorphizm - metody o tej samej nazwie moze miec rozne implementacje??
+   1. Encapsulation- ograniczenia dostepu. 
+   a. Acces modifiers:
+   -private
+   - protected
+   - public
+   - read only
+### SOLID:
+   

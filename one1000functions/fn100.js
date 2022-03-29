@@ -5819,6 +5819,54 @@ console.log(beerPairingToCrabMeltSandwitch(beers))
 //804
 //805
 //806
+
+class Machine{
+    constructor(weight, height) {
+        this.weight = weight;
+        this.height = height;
+        this.isWorking = false;
+    }
+    turnOn(){
+        this.isWorking = true;
+        console.log("It is working")
+
+}
+    turnOff(){
+        this.isWorking = false;
+        console.log("It is not working")
+    }
+
+
+}
+
+class WashingMachine extends Machine{
+    constructor(weight, height, loadingWeight) {
+        super(weight, height);
+        this.loadingWeight = loadingWeight
+    }
+    programLaundry(){
+        if(this.isWorking === true){
+            console.log("Programuje pranie")
+        }else{
+            console.log("Najpierw włącz pralkę")
+        }
+    }
+    additionalRinse(){
+        if(this.isWorking === true){
+            console.log("Dodatkowe płukanie")
+        }else{
+            console.log("Najpierw włącz pralkę")
+        }
+    }
+}
+
+
+const washinMachine1 = new WashingMachine(400, 130, 8)
+washinMachine1.programLaundry()
+washinMachine1.turnOn()
+washinMachine1.programLaundry()
+washinMachine1.additionalRinse()
+washinMachine1.turnOff()
 //807
 //808
 //809
